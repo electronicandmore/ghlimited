@@ -1,0 +1,1024 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Televisions & Smart TVs - Electronic And More</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Additional page-specific styles */
+    .page-header {
+      background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1593784991095-a205069470b6?auto=format&fit=crop&q=80&w=1200');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      padding: 4rem 0;
+      text-align: center;
+    }
+    .page-header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    .page-header p {
+      max-width: 700px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+      opacity: 0.9;
+    }
+    .product-filters {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+    }
+    .filter-label {
+      font-weight: 500;
+      margin-right: 0.5rem;
+    }
+    .sort-by {
+      padding: 0.5rem;
+      border-radius: 0.25rem;
+      border: 1px solid var(--neutral-300);
+    }
+    .category-description {
+      margin-bottom: 2rem;
+      line-height: 1.7;
+    }
+    .spec-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+      margin-bottom: 2rem;
+    }
+    .spec-table th, .spec-table td {
+      padding: 0.75rem 1rem;
+      text-align: left;
+      border-bottom: 1px solid var(--neutral-200);
+    }
+    .spec-table th {
+      background-color: var(--neutral-100);
+      font-weight: 600;
+    }
+    .dark .spec-table th {
+      background-color: var(--neutral-700);
+    }
+    .dark .spec-table td, .dark .spec-table th {
+      border-color: var(--neutral-700);
+    }
+    .category-info {
+      background-color: white;
+      border-radius: 1rem;
+      padding: 2rem;
+      margin-top: 3rem;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    }
+    .dark .category-info {
+      background-color: var(--neutral-800);
+    }
+    .buying-guide h3 {
+      margin-bottom: 1rem;
+    }
+    .buying-guide-points {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+    .guide-point {
+      display: flex;
+      gap: 1rem;
+    }
+    .guide-point-icon {
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 50%;
+      background-color: rgba(13, 102, 49, 0.1);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .dark .guide-point-icon {
+      color: var(--secondary);
+    }
+    .guide-point-content h4 {
+      margin-bottom: 0.5rem;
+    }
+    .tv-specs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+    .tv-spec-item {
+      background-color: var(--neutral-50);
+      border-radius: 1rem;
+      padding: 1.5rem;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    }
+    .dark .tv-spec-item {
+      background-color: var(--neutral-700);
+    }
+    .tv-spec-item h4 {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+      color: var(--primary);
+    }
+    .dark .tv-spec-item h4 {
+      color: var(--secondary);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="header-inner">
+        <div class="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="7" width="20" height="15" rx="2" ry="2"></rect>
+            <polyline points="17 2 12 7 7 2"></polyline>
+          </svg>
+          <a href="index.html">Electronic And More</a>
+        </div>
+        
+        <nav class="nav-links">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#featured">Products</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+          </ul>
+        </nav>
+        
+        <div class="header-actions">
+          <button class="mobile-menu-btn" id="mobileMenuBtn">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+  
+  <div class="side-menu" id="sideMenu">
+    <div class="side-menu-header">
+      <h2>Menu</h2>
+      <button id="closeMenu">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+    <div class="side-menu-content">
+      <div class="side-menu-category">
+        <h3>Categories</h3>
+        <ul>
+          <li><a href="fridges.html">Fridges</a></li>
+          <li><a href="cookers.html">Cookers</a></li>
+          <li><a href="televisions.html">TVs</a></li>
+          <li><a href="air-conditioners.html">Air Conditioners</a></li>
+          <li><a href="washing-machines.html">Washing Machines</a></li>
+          <li><a href="cosmetics.html">Cosmetics</a></li>
+        </ul>
+      </div>
+      <div class="side-menu-category">
+        <h3>Account</h3>
+        <ul>
+          <li><a href="#">My Account</a></li>
+          <li><a href="#">Wishlist</a></li>
+          <li><a href="#">Orders</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="side-menu-footer">
+      <a href="tel:+233539566710" class="call-btn">Call Us</a>
+    </div>
+  </div>
+  <div class="menu-overlay" id="menuOverlay"></div>
+  
+  <main>
+    <section class="page-header">
+      <div class="container">
+        <h1>Televisions & Smart TVs</h1>
+        <p>Experience stunning visual entertainment with our range of smart TVs featuring the latest display technologies and connectivity options.</p>
+      </div>
+    </section>
+    
+    <section class="filter-bar">
+      <div class="container">
+        <form class="filter-form">
+          <div class="search-input">
+            <input type="text" id="searchInput" placeholder="Search televisions...">
+            <div class="search-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+            </div>
+          </div>
+          
+          <div class="filter-selects">
+            <div class="select-wrapper">
+              <select id="typeFilter">
+                <option value="all-types">All Types</option>
+                <option value="led">LED TV</option>
+                <option value="oled">OLED TV</option>
+                <option value="qled">QLED TV</option>
+                <option value="smart">Smart TV</option>
+                <option value="android">Android TV</option>
+              </select>
+            </div>
+            
+            <div class="select-wrapper">
+              <select id="brandFilter">
+                <option value="all-brands">All Brands</option>
+                <option value="Samsung">Samsung</option>
+                <option value="LG">LG</option>
+                <option value="TCL">TCL</option>
+                <option value="Sony">Sony</option>
+                <option value="Hisense">Hisense</option>
+              </select>
+            </div>
+            
+            <div class="select-wrapper">
+              <select id="priceFilter">
+                <option value="all-prices">All Prices</option>
+                <option value="low">Under $400</option>
+                <option value="medium">$400 - $800</option>
+                <option value="high">Above $800</option>
+              </select>
+            </div>
+            
+            <button type="button" class="btn reset-btn" id="resetFilters">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 2v6h6"></path>
+                <path d="M3 8C5 4 7 3 12 3c6 0 9 3 9 9s-3 9-9 9c-3 0-5-1-7-3"></path>
+                <path d="M3 16v6h6"></path>
+              </svg>
+              Reset
+            </button>
+          </div>
+        </form>
+      </div>
+    </section>
+    
+    <section class="products-section">
+      <div class="container">
+        <div class="category-description">
+          <h2>Quality Viewing Experience</h2>
+          <p>Televisions are central to home entertainment, bringing cinematic experiences, gaming, and streaming services right into your living room. Our range includes various screen sizes, display technologies, and smart features to meet diverse needs and budgets. From affordable HD models to premium 4K and OLED displays, we offer TVs that deliver stunning visuals, impressive sound, and seamless connectivity.</p>
+        </div>
+        
+        <div class="product-filters">
+          <div class="results-count">
+            <span id="productCount">8</span> products found
+          </div>
+          <div>
+            <span class="filter-label">Sort by:</span>
+            <select class="sort-by" id="sortProducts">
+              <option value="popularity">Popularity</option>
+              <option value="price-low">Price: Low to High</option>
+              <option value="price-high">Price: High to Low</option>
+              <option value="newest">Newest First</option>
+            </select>
+          </div>
+        </div>
+        
+        <div class="grid-view" id="productList">
+          <!-- Product 1 -->
+          <div class="product-card" data-type="oled" data-brand="LG" data-price="899.99">
+            <div class="product-img">
+              <img src="https://images.unsplash.com/photo-1593305841991-05c297ba4575?auto=format&fit=crop&q=80&w=500&h=375" alt="LG OLED TV">
+              <div class="product-tags">
+                <span class="product-tag tag-bestseller">Best Seller</span>
+              </div>
+              <button class="wishlist-btn" onclick="toggleWishlist(this)">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20.42 4.58a5.4 5.4 0 0 0-7.65 0l-.77.78-.77-.78a5.4 5.4 0 0 0-7.65 0C1.46 6.7 1.33 10.28 4 13l8 8 8-8c2.67-2.72 2.54-6.3.42-8.42z"></path>
+                </svg>
+              </button>
+            </div>
+            <div class="product-info">
+              <div class="product-rating">
+                <div class="stars">
+                  <span class="filled">★</span>
+                  <span class="filled">★</span>
+                  <span class="filled">★</span>
+                  <span class="filled">★</span>
+                  <span class="filled">★</span>
+                </div>
+                <span class="review-count">(87 reviews)</span>
+              </div>
+              <h3 class="product-title">LG 55" OLED 4K Smart TV</h3>
+              <p class="product-desc">Stunning OLED display with AI ThinQ and perfect black. Dolby Vision IQ and Dolby Atmos support.</p>
+              <div class="price-actions">
+                <div class="price-box">
+                  <span class="current-price">$899.99</span>
+                  <span class="old-price">$999.99</span>
+                </div>
+                <button class="cart-btn">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="9" cy="21" r="1"></circle>
+                    <circle cx="20" cy="21" r="1"></circle>
+                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                  </svg>
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Product 2 -->
+          <div class="product-card" data-type="qled" data-brand="Samsung" data-price="849.99">
+            <div class="product-img">
+              <img src="https://images.unsplash.com/photo-1601944179066-29b8f7e31269?auto=format&fit=crop&q=80&w=500&h=375" alt="Samsung QLED TV">
+              <div class="product-tags">
+                <span class="product-tag tag-new">New</span>
+              </div>
+              <button class="wishlist-btn" onclick="toggleWishlist(this)">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20.42 4.58a5.4 5.4 0 0 0-7.65 0l-.77.78-.77-.78a5.4 5.4 0 0 0-7.65 0C1.46 6.7 1.33 10.28 4 13l8 8 8-8c2.67-2.72 2.54-6.3.42-8.42z"></path>
+                </svg>
+              </button>
+            </div>
+            <div class="product-info">
+              <div class="product-rating">
+                <div class="stars">
+                  <span class="filled">★</span>
+                  <span class="filled">★</span>
+                  <span class="filled">★</span>
+                  <span class="filled">★</span>
+                  <span class="filled">★</span>
+                </div>
+                <span class="review-count">(56 reviews)</span>
+              </div>
+              <h3 class="product-title">Samsung 50" QLED 4K Smart TV</h3>
+              <p class="product-desc">Quantum dot technology for brilliant colors and contrast. Smart features with built-in voice assistants.</p>
+              <div class="price-actions">
+                <div class="price-box">
+                  <span class="current-price">$849.99</span>
+                  <span class="old-price">$949.99</span>
+                </div>
+                <button class="cart-btn">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="9" cy="21" r="1"></circle>
+                    <circle cx="20" cy="21" r="1"></circle>
+                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                  </svg>
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Product 3 -->
+          <div class="product-card" data-type="led" data-brand="TCL" data-price="329.99">
+            <div class="product-img">
+              <img src="https://images.unsplash.com/photo-1588416499018-d8c31e3d79c7?auto=format&fit=crop&q=80&w=500&h=375" alt="TCL LED TV">
+              <div class="product-tags">
+                <span class="product-tag tag-sale">Sale</span>
+              </div>
+              <button class="wishlist-btn" onclick="toggleWishlist(this)">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20.42 4.58a5.4 5.4 0 0 0-7.65 0l-.77.78-.77-.78a5.4 5.4 0 0 0-7.65 0C1.46 6.7 1.33 10.28 4 13l8 8 8-8c2.67-2.72 2.54-6.3.42-8.42z"></path>
+                </svg>
+              </button>
+            </div>
+            <div class="product-info">
+              <div class="product-rating">
+                <div class="stars">
+                  <span class="filled">★</span>
+                  <span class="filled">★</span>
+                  <span class="filled">★</span>
+                  <span class="filled">★</span>
+                  <span>★</span>
+                </div>
+                <span class="review-count">(38 reviews)</span>
+              </div>
+              <h3 class="product-title">TCL 43" 4K UHD Smart LED TV</h3>
+              <p class="product-desc">Affordable 4K display with HDR, Android TV platform and built-in Google Assistant.</p>
+              <div class="price-actions">
+                <div class="price-box">
+                  <span class="current-price">$329.99</span>
+                  <span class="old-price">$399.99</span>
+                </div>
+                <button class="cart-btn">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="9" cy="21" r="1"></circle>
+                    <circle cx="20" cy="21" r="1"></circle>
+                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                  </svg>
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Product 4 -->
+          <div class="product-card" data-type="android" data-brand="Sony" data-price="749.99">
+            <div class="product-img">
+              <img src="https://images.unsplash.com/photo-1593784991095-a205069470b6?auto=format&fit=crop&q=80&w=500&h=375" alt="Sony Bravia TV">
+              <button class="wishlist-btn" onclick="toggleWishlist(this)">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20.42 4.58a5.4 5.4 0 0 0-7.65 0l-.77.78-.77-.78a5.4 5.4 0 0 0-7.65 0C1.46 6.7 1.33 10.28 4 13l8 8 8-8c2.67-2.72 2.54-6.3.42-8.42z"></path>
+                </svg>
+              </button>
+            </div>
+            <div class="product-info">
+              <div class="product-rating">
+                <div class="stars">
+                  <span class="filled">★</span>
+                  <span class="filled">★</span>
+                  <span class="filled">★</span>
+                  <span class="filled">★</span>
+                  <span class="filled">★</span>
+                </div>
+                <span class="review-count">(45 reviews)</span>
+              </div>
+              <h3 class="product-title">Sony Bravia 55" Android TV</h3>
+              <p class="product-desc">Superior 4K HDR display with Triluminos Pro and cognitive processor XR. Advanced motion handling.</p>
+              <div class="price-actions">
+                <div class="price-box">
+                  <span class="current-price">$749.99</span>
+                  <span class="old-price">$829.99</span>
+                </div>
+                <button class="cart-btn">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="9" cy="21" r="1"></circle>
+                    <circle cx="20" cy="21" r="1"></circle>
+                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                  </svg>
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Product 5 -->
+          <div class="product-card" data-type="smart" data-brand="Hisense" data-price="259.99">
+            <div class="product-img">
+              <img src="https://images.unsplash.com/photo-1580897275296-87979517bd4e?auto=format&fit=crop&q=80&w=500&h=375" alt="Hisense Smart TV">
+              <div class="product-tags">
+                <span class="product-tag tag-sale">Sale</span>
+              </div>
+              <button class="wishlist-btn" onclick="toggleWishlist(this)">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20.42 4.58a5.4 5.4 0 0 0-7.65 0l-.77.78-.77-.78a5.4 5.4 0 0 0-7.65 0C1.46 6.7 1.33 10.28 4 13l8 8 8-8c2.67-2.72 2.54-6.3.42-8.42z"></path>
+                </svg>
+              </button>
+            </div>
+            <div class="product-info">
+              <div class="product-rating">
+                <div class="stars">
+                  <span class="filled">★</span>
+                  <span class="filled">★</span>
+                  <span class="filled">★</span>
+                  <span>★</span>
+                  <span>★</span>
+                </div>
+                <span class="review-count">(29 reviews)</span>
+              </div>
+              <h3 class="product-title">Hisense 40" Full HD Smart TV</h3>
+              <p class="product-desc">Budget-friendly smart TV with Vidaa U operating system, WiFi connectivity, and multiple streaming apps.</p>
+              <div class="price-actions">
+                <div class="price-box">
+                  <span class="current-price">$259.99</span>
+                  <span class="old-price">$299.99</span>
+                </div>
+                <button class="cart-btn">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="9" cy="21" r="1"></circle>
+                    <circle cx="20" cy="21" r="1"></circle>
+                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                  </svg>
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Product 6 -->
+          <div class="product-card" data-type="led" data-brand="Samsung" data-price="379.99">
+            <div class="product-img">
+              <img src="https://images.unsplash.com/photo-1585164102578-d6f196f34ee4?auto=format&fit=crop&q=80&w=500&h=375" alt="Samsung LED TV">
+              <button class="wishlist-btn" onclick="toggleWishlist(this)">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20.42 4.58a5.4 5.4 0 0 0-7.65 0l-.77.78-.77-.78a5.4 5.4 0 0 0-7.65 0C1.46 6.7 1.33 10.28 4 13l8 8 8-8c2.67-2.72 2.54-6.3.42-8.42z"></path>
+                </svg>
+              </button>
+            </div>
+            <div class="product-info">
+              <div class="product-rating">
+                <div class="stars">
+                  <span class="filled">★</span>
+                  <span class="filled">★</span>
+                  <span class="filled">★</span>
+                  <span class="filled">★</span>
+                  <span>★</span>
+                </div>
+                <span class="review-count">(34 reviews)</span>
+              </div>
+              <h3 class="product-title">Samsung 43" Crystal UHD 4K Smart TV</h3>
+              <p class="product-desc">Crystal processor 4K for enhanced color and clarity. Smart TV with Universal Guide and multiple voice assistants.</p>
+              <div class="price-actions">
+                <div class="price-box">
+                  <span class="current-price">$379.99</span>
+                  <span class="old-price">$429.99</span>
+                </div>
+                <button class="cart-btn">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="9" cy="21" r="1"></circle>
+                    <circle cx="20" cy="21" r="1"></circle>
+                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                  </svg>
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="text-center">
+          <a href="#" class="view-all-btn">Load More Products</a>
+        </div>
+        
+        <div class="category-info">
+          <div class="buying-guide">
+            <h3>Television Buying Guide</h3>
+            <p>With so many options available, choosing the right TV can be overwhelming. Here are key factors to consider when making your selection:</p>
+            
+            <div class="buying-guide-points">
+              <div class="guide-point">
+                <div class="guide-point-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                    <line x1="8" y1="21" x2="16" y2="21"></line>
+                    <line x1="12" y1="17" x2="12" y2="21"></line>
+                  </svg>
+                </div>
+                <div class="guide-point-content">
+                  <h4>Screen Size</h4>
+                  <p>Consider your viewing distance and room size. As a rule of thumb, measure the distance from your seating area to the TV in inches, then divide by 2 to get the ideal screen size in inches.</p>
+                </div>
+              </div>
+              
+              <div class="guide-point">
+                <div class="guide-point-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M14 4h6v6"></path>
+                    <path d="M20 4L10 14"></path>
+                    <path d="M10 4H4v16h16v-6"></path>
+                  </svg>
+                </div>
+                <div class="guide-point-content">
+                  <h4>Resolution</h4>
+                  <p>4K (3840 x 2160 pixels) is now standard for most TVs and offers excellent clarity. Consider 8K only for very large screens or if you're a tech enthusiast, as content is still limited.</p>
+                </div>
+              </div>
+              
+              <div class="guide-point">
+                <div class="guide-point-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 1v2"></path>
+                    <path d="M12 21v2"></path>
+                    <path d="M4.22 4.22l1.42 1.42"></path>
+                    <path d="M18.36 18.36l1.42 1.42"></path>
+                    <path d="M1 12h2"></path>
+                    <path d="M21 12h2"></path>
+                    <path d="M4.22 19.78l1.42-1.42"></path>
+                    <path d="M18.36 5.64l1.42-1.42"></path>
+                    <circle cx="12" cy="12" r="5"></circle>
+                  </svg>
+                </div>
+                <div class="guide-point-content">
+                  <h4>Display Technology</h4>
+                  <p>OLED offers perfect blacks and wide viewing angles but can be pricier. QLED and LED provide excellent brightness and value. Mini-LED is a newer technology offering improved contrast at a midrange price.</p>
+                </div>
+              </div>
+              
+              <div class="guide-point">
+                <div class="guide-point-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path>
+                  </svg>
+                </div>
+                <div class="guide-point-content">
+                  <h4>Smart Features</h4>
+                  <p>Most modern TVs are "smart" with built-in streaming capabilities. Consider which platform (Android TV, webOS, Tizen, Roku) has your preferred apps and user experience.</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="tv-specs-grid">
+              <div class="tv-spec-item">
+                <h4>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 1a3 3 0 0 0-3 3v16a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path>
+                    <circle cx="12" cy="14" r="3"></circle>
+                  </svg>
+                  HDR (High Dynamic Range)
+                </h4>
+                <p>HDR technology expands the range between the darkest and brightest parts of an image, providing more detail and realism. Look for formats like HDR10, HDR10+, or Dolby Vision for the best experience.</p>
+              </div>
+              
+              <div class="tv-spec-item">
+                <h4>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M6 18L18 6M6 6l12 12"></path>
+                  </svg>
+                  Refresh Rate
+                </h4>
+                <p>For smooth motion, especially in fast-moving content like sports or action movies, look for TVs with higher refresh rates (120Hz vs standard 60Hz). This is also important for gaming.</p>
+              </div>
+              
+              <div class="tv-spec-item">
+                <h4>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                    <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                  </svg>
+                  Sound Quality
+                </h4>
+                <p>Many slim TVs have limited audio capabilities. Consider TVs with Dolby Atmos support or budget for a separate soundbar or speaker system for a better audio experience.</p>
+              </div>
+              
+              <div class="tv-spec-item">
+                <h4>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                  </svg>
+                  Connectivity
+                </h4>
+                <p>Ensure your TV has enough HDMI ports for all your devices (gaming consoles, soundbars, etc.). For gamers, look for HDMI 2.1 support which enables 4K at 120Hz and other gaming features.</p>
+              </div>
+            </div>
+            
+            <h3 class="mt-5">Display Technologies Comparison</h3>
+            <table class="spec-table">
+              <thead>
+                <tr>
+                  <th>Technology</th>
+                  <th>Best For</th>
+                  <th>Price Range</th>
+                  <th>Key Features</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>LED</td>
+                  <td>Budget conscious, bright rooms</td>
+                  <td>$200-$600</td>
+                  <td>Good brightness, energy efficient, affordable</td>
+                </tr>
+                <tr>
+                  <td>QLED</td>
+                  <td>Bright rooms, vibrant colors</td>
+                  <td>$500-$1,500</td>
+                  <td>Quantum dots for enhanced color, high brightness</td>
+                </tr>
+                <tr>
+                  <td>OLED</td>
+                  <td>Dark room viewing, movie lovers</td>
+                  <td>$800-$3,000</td>
+                  <td>Perfect blacks, infinite contrast, wide viewing angles</td>
+                </tr>
+                <tr>
+                  <td>Mini-LED</td>
+                  <td>Balance seekers</td>
+                  <td>$700-$2,000</td>
+                  <td>Improved contrast over LED, better brightness than OLED</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section class="features-section">
+      <div class="container">
+        <div class="features-grid">
+          <div class="feature-item">
+            <div class="feature-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="1" y="3" width="15" height="13"></rect>
+                <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
+                <circle cx="5.5" cy="18.5" r="2.5"></circle>
+                <circle cx="18.5" cy="18.5" r="2.5"></circle>
+              </svg>
+            </div>
+            <h3 class="feature-title">Free Delivery</h3>
+            <p class="feature-desc">Free shipping on all orders over $250</p>
+          </div>
+          
+          <div class="feature-item">
+            <div class="feature-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"></path>
+                <path d="M9 12l2 2 4-4"></path>
+              </svg>
+            </div>
+            <h3 class="feature-title">Product Warranty</h3>
+            <p class="feature-desc">1-2 years warranty on all televisions</p>
+          </div>
+          
+          <div class="feature-item">
+            <div class="feature-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M12 6v6l4 2"></path>
+              </svg>
+            </div>
+            <h3 class="feature-title">Expert Setup</h3>
+            <p class="feature-desc">Professional installation available</p>
+          </div>
+          
+          <div class="feature-item">
+            <div class="feature-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+              </svg>
+            </div>
+            <h3 class="feature-title">Technical Support</h3>
+            <p class="feature-desc">Free tech support for product setup</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h3>Electronic And More</h3>
+          <p>Your trusted source for quality electronics and home appliances in Ghana.</p>
+          <div class="footer-social">
+            <a href="#">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+              </svg>
+            </a>
+            <a href="#">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+              </svg>
+            </a>
+            <a href="#">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+              </svg>
+            </a>
+            <a href="#">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path>
+                <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
+              </svg>
+            </a>
+          </div>
+        </div>
+        
+        <div class="footer-col">
+          <h3>Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Products</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+            <li><a href="#">FAQ</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-col">
+          <h3>Product Categories</h3>
+          <ul class="footer-links">
+            <li><a href="fridges.html">Fridges</a></li>
+            <li><a href="cookers.html">Cookers</a></li>
+            <li><a href="televisions.html">TVs</a></li>
+            <li><a href="air-conditioners.html">Air Conditioners</a></li>
+            <li><a href="washing-machines.html">Washing Machines</a></li>
+            <li><a href="cosmetics.html">Cosmetics</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-col">
+          <h3>Contact Info</h3>
+          <div class="footer-contact-item">
+            <div class="footer-contact-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+            </div>
+            <p>Pokuase, Accra City, Ghana</p>
+          </div>
+          <div class="footer-contact-item">
+            <div class="footer-contact-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+              </svg>
+            </div>
+            <p>+233 53 956 6710</p>
+          </div>
+          <div class="footer-contact-item">
+            <div class="footer-contact-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+            </div>
+            <p>electronicandmoregh@gmail.com</p>
+          </div>
+          <div class="footer-contact-item">
+            <div class="footer-contact-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+              </svg>
+            </div>
+            <p>Mon-Sat: 9am - 8pm</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <div class="footer-bottom-content">
+          <p class="copyright">&copy; 2025 Electronic And More. All rights reserved.</p>
+          <div class="legal-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Shipping Policy</a>
+          </div>
+          <div class="payment-methods">
+            <span>Payment Methods:</span>
+            <div class="payment-icons">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M2.5 4A1.5 1.5 0 0 0 1 5.5v13A1.5 1.5 0 0 0 2.5 20h19a1.5 1.5 0 0 0 1.5-1.5v-13A1.5 1.5 0 0 0 21.5 4h-19zM3 8h18v1H3V8zm0 4h6v4H3v-4zm8 0h10v4H11v-4z"/>
+              </svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-1 14H5c-.55 0-1-.45-1-1V7c0-.55.45-1 1-1h14c.55 0 1 .45 1 1v10c0 .55-.45 1-1 1z"/>
+                <path d="M7.5 13h2c.28 0 .5-.22.5-.5v-2c0-.28-.22-.5-.5-.5h-2c-.28 0-.5.22-.5.5v2c0 .28.22.5.5.5zm6 0h2c.28 0 .5-.22.5-.5v-2c0-.28-.22-.5-.5-.5h-2c-.28 0-.5.22-.5.5v2c0 .28.22.5.5.5z"/>
+              </svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V6h16v12z"/>
+                <path d="M11 10H9V8h2v2zm4 0h-2V8h2v2zm-7 4H6v-2h2v2zm4 0h-2v-2h2v2zm-4-8H6V4h2v2zm4 0h-2V4h2v2z"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+  <a href="https://wa.me/233539566710" class="whatsapp-float" target="_blank">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+    </svg>
+    <span class="whatsapp-text">Chat with us</span>
+  </a>
+  
+  <script>
+    // Mobile menu toggle
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const closeMenuBtn = document.getElementById('closeMenu');
+    const sideMenu = document.getElementById('sideMenu');
+    const menuOverlay = document.getElementById('menuOverlay');
+    
+    if (mobileMenuBtn) {
+      mobileMenuBtn.addEventListener('click', () => {
+        sideMenu.style.right = '0';
+        menuOverlay.style.display = 'block';
+      });
+    }
+    
+    if (closeMenuBtn) {
+      closeMenuBtn.addEventListener('click', () => {
+        sideMenu.style.right = '-100%';
+        menuOverlay.style.display = 'none';
+      });
+    }
+    
+    if (menuOverlay) {
+      menuOverlay.addEventListener('click', () => {
+        sideMenu.style.right = '-100%';
+        menuOverlay.style.display = 'none';
+      });
+    }
+    
+    // Product filtering
+    const searchInput = document.getElementById('searchInput');
+    const typeFilter = document.getElementById('typeFilter');
+    const brandFilter = document.getElementById('brandFilter');
+    const priceFilter = document.getElementById('priceFilter');
+    const resetFiltersBtn = document.getElementById('resetFilters');
+    const productCards = document.querySelectorAll('.product-card');
+    const productCount = document.getElementById('productCount');
+    const sortProducts = document.getElementById('sortProducts');
+    
+    function filterProducts() {
+      const searchTerm = searchInput.value.toLowerCase();
+      const type = typeFilter.value;
+      const brand = brandFilter.value;
+      const price = priceFilter.value;
+      
+      let visibleCount = 0;
+      
+      productCards.forEach(card => {
+        const productTitle = card.querySelector('.product-title').textContent.toLowerCase();
+        const productDesc = card.querySelector('.product-desc').textContent.toLowerCase();
+        const productType = card.dataset.type;
+        const productBrand = card.dataset.brand;
+        const productPrice = parseFloat(card.dataset.price);
+        
+        // Search filter
+        const matchesSearch = !searchTerm || 
+          productTitle.includes(searchTerm) || 
+          productDesc.includes(searchTerm);
+        
+        // Type filter
+        const matchesType = type === 'all-types' || !type || type === productType;
+        
+        // Brand filter
+        const matchesBrand = brand === 'all-brands' || !brand || brand === productBrand;
+        
+        // Price filter
+        let matchesPrice = true;
+        if (price === 'low') {
+          matchesPrice = productPrice < 400;
+        } else if (price === 'medium') {
+          matchesPrice = productPrice >= 400 && productPrice <= 800;
+        } else if (price === 'high') {
+          matchesPrice = productPrice > 800;
+        }
+        
+        if (matchesSearch && matchesType && matchesBrand && matchesPrice) {
+          card.style.display = '';
+          visibleCount++;
+        } else {
+          card.style.display = 'none';
+        }
+      });
+      
+      // Update product count
+      if (productCount) {
+        productCount.textContent = visibleCount;
+      }
+    }
+    
+    // Add event listeners to filters
+    if (searchInput) searchInput.addEventListener('input', filterProducts);
+    if (typeFilter) typeFilter.addEventListener('change', filterProducts);
+    if (brandFilter) brandFilter.addEventListener('change', filterProducts);
+    if (priceFilter) priceFilter.addEventListener('change', filterProducts);
+    
+    // Reset filters
+    if (resetFiltersBtn) {
+      resetFiltersBtn.addEventListener('click', () => {
+        if (searchInput) searchInput.value = '';
+        if (typeFilter) typeFilter.value = 'all-types';
+        if (brandFilter) brandFilter.value = 'all-brands';
+        if (priceFilter) priceFilter.value = 'all-prices';
+        filterProducts();
+      });
+    }
+    
+    // Product sorting
+    if (sortProducts) {
+      sortProducts.addEventListener('change', () => {
+        const sortValue = sortProducts.value;
+        const productList = document.getElementById('productList');
+        const productsArray = Array.from(productCards);
+        
+        productsArray.sort((a, b) => {
+          if (sortValue === 'price-low') {
+            return parseFloat(a.dataset.price) - parseFloat(b.dataset.price);
+          } else if (sortValue === 'price-high') {
+            return parseFloat(b.dataset.price) - parseFloat(a.dataset.price);
+          }
+          return 0; // Default or popularity sort
+        });
+        
+        // Clear and re-append sorted items
+        productList.innerHTML = '';
+        productsArray.forEach(product => {
+          productList.appendChild(product);
+        });
+      });
+    }
+    
+    // Toggle wishlist
+    function toggleWishlist(btn) {
+      btn.classList.toggle('active');
+      btn.querySelector('svg').style.fill = btn.classList.contains('active') ? 'currentColor' : 'none';
+    }
+  </script>
+</body>
+</html>
