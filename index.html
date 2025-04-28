@@ -20,9 +20,8 @@
         
         <nav class="nav-links">
           <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Products</a></li>
-            <li><a href="#">About</a></li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#featured">Products</a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>
         </nav>
@@ -54,12 +53,12 @@
       <div class="side-menu-category">
         <h3>Categories</h3>
         <ul>
-          <li><a href="#">Fridges</a></li>
-          <li><a href="#">Cookers</a></li>
-          <li><a href="#">TVs</a></li>
-          <li><a href="#">Air Conditioners</a></li>
-          <li><a href="#">Washing Machines</a></li>
-          <li><a href="#">Cosmetics</a></li>
+         <li><a href="fridges.html">Fridges</a></li>
+          <li><a href="cookers.html">Cookers</a></li>
+          <li><a href="televisions.html">TVs</a></li>
+          <li><a href="air-conditioners.html">Air Conditioners</a></li>
+          <li><a href="washing-machines.html">Washing Machines</a></li>
+          <li><a href="cosmetics.html">Cosmetics</a></li>
         </ul>
       </div>
       <div class="side-menu-category">
@@ -415,7 +414,7 @@
               <p>Our mission is to provide exceptional customer service and create lasting relationships with our clients. We carefully select each item to ensure it meets our high standards of quality and value."</p>
               <div class="ceo-signature">
                 <div class="name-position">
-                  <span class="ceo-name">John Mensah</span>
+                  <span class="ceo-name">Justice</span>
                   <span class="ceo-position">Founder & CEO</span>
                 </div>
               </div>
@@ -613,12 +612,12 @@
         <div class="footer-col">
           <h3>Product Categories</h3>
           <ul class="footer-links">
-            <li><a href="#">Fridges</a></li>
-            <li><a href="#">Cookers</a></li>
-            <li><a href="#">TVs</a></li>
-            <li><a href="#">Air Conditioners</a></li>
-            <li><a href="#">Washing Machines</a></li>
-            <li><a href="#">Cosmetics</a></li>
+            <li><a href="fridges.html">Fridges</a></li>
+            <li><a href="cookers.html">Cookers</a></li>
+            <li><a href="televisions.html">TVs</a></li>
+            <li><a href="air-conditioners.html">Air Conditioners</a></li>
+            <li><a href="washing-machines.html">Washing Machines</a></li>
+            <li><a href="cosmetics.html">Cosmetics</a></li>
           </ul>
         </div>
         
@@ -778,7 +777,18 @@
     
     // Add event listeners to filters
     if (searchInput) searchInput.addEventListener('input', filterProducts);
-    if (categoryFilter) categoryFilter.addEventListener('change', filterProducts);
+     if (categoryFilter) {
+      categoryFilter.addEventListener('change', (e) => {
+        const selectedCategory = e.target.value;
+        // Redirect to category pages if specific category is selected
+        if (selectedCategory === 'fridges') {
+          window.location.href = 'fridges.html';
+        } else if (selectedCategory === 'cookers') {
+          window.location.href = 'cookers.html';
+        } else if (selectedCategory === 'tvs') {
+          window.location.href = 'televisions.html';
+        } else if (selectedCategory === 'acs') {
+          window.location.href = 'air-conditioners.html';
     if (brandFilter) brandFilter.addEventListener('change', filterProducts);
     if (priceFilter) priceFilter.addEventListener('change', filterProducts);
     
