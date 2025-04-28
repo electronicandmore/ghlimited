@@ -4,18 +4,1140 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Electronic And More - Quality Electronics in Ghana</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #0D6631;
+      --primary-light: #0e7538;
+      --primary-dark: #084d25;
+      --secondary: #ffc107;
+      --secondary-dark: #e6ad00;
+      --neutral-50: #f8f9fa;
+      --neutral-100: #eaeef1;
+      --neutral-200: #dee3e7;
+      --neutral-300: #cfd6dd;
+      --neutral-400: #b0b9c2;
+      --neutral-500: #8996a2;
+      --neutral-600: #6b7884;
+      --neutral-700: #4f5b67;
+      --neutral-800: #343d47;
+      --neutral-900: #181e24;
+      --success: #10b981;
+      --warning: #f59e0b;
+      --error: #ef4444;
+      --info: #3b82f6;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.6;
+      color: var(--neutral-800);
+      background-color: var(--neutral-50);
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    /* Header */
+    header {
+      background-color: var(--primary);
+      color: white;
+      position: sticky;
+      top: 0;
+      width: 100%;
+      z-index: 40;
+      padding: 1rem 0;
+    }
+
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .logo-icon {
+      font-size: 1.75rem;
+      margin-right: 0.25rem;
+    }
+
+    .nav-links {
+      display: flex;
+    }
+
+    .nav-links ul {
+      display: flex;
+      list-style: none;
+      gap: 1.5rem;
+    }
+
+    .nav-links a {
+      color: white;
+      font-weight: 500;
+    }
+
+    .nav-links a:hover {
+      color: var(--secondary);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .search-bar {
+      background: white;
+      border-radius: 50px;
+      padding: 0.5rem 1rem;
+      display: flex;
+      align-items: center;
+      width: 300px;
+    }
+
+    .search-bar input {
+      width: 100%;
+      border: none;
+      background: transparent;
+      padding: 0.25rem;
+      outline: none;
+    }
+
+    .search-bar-icon {
+      color: var(--neutral-500);
+    }
+
+    .theme-toggle,
+    .cart-button,
+    .menu-button {
+      background: transparent;
+      border: none;
+      color: white;
+      font-size: 1.25rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    /* Side Menu */
+    .menu-sidebar {
+      position: fixed;
+      top: 0;
+      left: -250px;
+      width: 250px;
+      height: 100vh;
+      background-color: white;
+      z-index: 100;
+      box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+      overflow-y: auto;
+      transition: left 0.3s ease;
+    }
+
+    .menu-header {
+      background-color: var(--neutral-100);
+      color: var(--neutral-800);
+      padding: 1rem;
+      font-size: 1.25rem;
+      font-weight: bold;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--neutral-200);
+    }
+
+    .menu-header button {
+      background: none;
+      border: none;
+      font-size: 1.25rem;
+      cursor: pointer;
+    }
+
+    .menu-category {
+      margin-top: 1rem;
+    }
+
+    .menu-category-title {
+      font-weight: bold;
+      padding: 0.5rem 1rem;
+      color: var(--neutral-700);
+      text-transform: uppercase;
+      font-size: 0.9rem;
+    }
+
+    .menu-items {
+      list-style: none;
+    }
+
+    .menu-item {
+      padding: 0.5rem 1rem;
+      border-bottom: 1px solid var(--neutral-100);
+    }
+
+    .menu-item a {
+      display: block;
+      color: var(--neutral-800);
+      transition: color 0.2s ease;
+    }
+
+    .menu-item a:hover {
+      color: var(--primary);
+    }
+
+    .menu-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 99;
+      display: none;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(to right, var(--primary), #1a8f47);
+      color: white;
+      padding: 4rem 0;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+      margin-bottom: 2rem;
+      opacity: 0.9;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      font-weight: 600;
+      border-radius: 0.25rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .btn-primary {
+      background-color: white;
+      color: var(--primary);
+    }
+
+    .btn-primary:hover {
+      background-color: var(--neutral-100);
+    }
+
+    .btn-outline {
+      background-color: transparent;
+      border: 2px solid white;
+      color: white;
+    }
+
+    .btn-outline:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    /* Filter Bar */
+    .filter-bar {
+      background-color: white;
+      border-radius: 8px;
+      margin-top: -2rem;
+      margin-bottom: 2rem;
+      padding: 1.5rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      position: relative;
+    }
+
+    .filter-form {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .search-input {
+      flex: 1;
+      position: relative;
+    }
+
+    .search-input input {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border: 1px solid var(--neutral-200);
+      border-radius: 0.25rem;
+    }
+
+    .filter-selects {
+      display: flex;
+      gap: 0.75rem;
+    }
+
+    .select-wrapper {
+      position: relative;
+    }
+
+    .select-wrapper select {
+      padding: 0.75rem 2rem 0.75rem 1rem;
+      border: 1px solid var(--neutral-200);
+      border-radius: 0.25rem;
+      background-color: white;
+      appearance: none;
+      cursor: pointer;
+    }
+
+    .select-wrapper::after {
+      content: "▼";
+      font-size: 0.8rem;
+      color: var(--neutral-500);
+      position: absolute;
+      right: 0.75rem;
+      top: 50%;
+      transform: translateY(-50%);
+      pointer-events: none;
+    }
+
+    .reset-filters {
+      background-color: var(--neutral-100);
+      border: none;
+      padding: 0.75rem 1rem;
+      border-radius: 0.25rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    /* Products Section */
+    .products-section {
+      padding: 3rem 0;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+    }
+
+    .section-title {
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--neutral-800);
+    }
+
+    .view-toggle {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .view-btn {
+      background: var(--neutral-100);
+      border: none;
+      width: 40px;
+      height: 40px;
+      border-radius: 0.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    .view-btn.active {
+      background: var(--primary);
+      color: white;
+    }
+
+    .grid-view {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .product-card {
+      background: white;
+      border-radius: 0.5rem;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    }
+
+    .product-img {
+      position: relative;
+      height: 200px;
+      overflow: hidden;
+    }
+
+    .product-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .product-card:hover .product-img img {
+      transform: scale(1.05);
+    }
+
+    .product-tags {
+      position: absolute;
+      top: 0.75rem;
+      left: 0.75rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .product-tag {
+      padding: 0.25rem 0.5rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      border-radius: 0.25rem;
+      text-transform: uppercase;
+    }
+
+    .tag-new {
+      background-color: var(--info);
+      color: white;
+    }
+
+    .tag-bestseller {
+      background-color: var(--secondary);
+      color: var(--neutral-800);
+    }
+
+    .tag-sale {
+      background-color: var(--error);
+      color: white;
+    }
+
+    .wishlist-btn {
+      position: absolute;
+      top: 0.75rem;
+      right: 0.75rem;
+      background: white;
+      border: none;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .product-info {
+      padding: 1.25rem;
+    }
+
+    .product-rating {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .stars {
+      display: flex;
+      color: var(--neutral-400);
+    }
+
+    .stars .filled {
+      color: var(--secondary);
+    }
+
+    .review-count {
+      font-size: 0.85rem;
+      color: var(--neutral-500);
+    }
+
+    .product-title {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .product-desc {
+      color: var(--neutral-600);
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+    }
+
+    .price-actions {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .price-box {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .current-price {
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: var(--primary);
+    }
+
+    .old-price {
+      text-decoration: line-through;
+      color: var(--neutral-500);
+      font-size: 0.9rem;
+    }
+
+    .cart-btn {
+      background-color: var(--primary);
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 0.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+    }
+
+    .cart-btn:hover {
+      background-color: var(--primary-dark);
+    }
+
+    .view-all-btn {
+      display: block;
+      margin: 2.5rem auto 0;
+      background: var(--neutral-100);
+      color: var(--primary);
+      border: 2px solid var(--primary);
+      padding: 0.75rem 2rem;
+      font-weight: 600;
+      border-radius: 0.25rem;
+      text-align: center;
+      max-width: 200px;
+      transition: all 0.3s ease;
+    }
+
+    .view-all-btn:hover {
+      background: var(--primary);
+      color: white;
+    }
+
+    /* Features Section */
+    .features-section {
+      padding: 4rem 0;
+      background-color: var(--neutral-100);
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+
+    .feature-item {
+      background: white;
+      border-radius: 0.5rem;
+      padding: 2rem;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s ease;
+    }
+
+    .feature-item:hover {
+      transform: translateY(-5px);
+    }
+
+    .feature-icon {
+      margin: 0 auto 1.25rem;
+      width: 60px;
+      height: 60px;
+      background: var(--primary-light);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+    }
+
+    .feature-title {
+      font-size: 1.25rem;
+      margin-bottom: 0.75rem;
+      color: var(--neutral-800);
+    }
+
+    .feature-desc {
+      color: var(--neutral-600);
+    }
+
+    /* CEO Section */
+    .ceo-section {
+      padding: 4rem 0;
+    }
+
+    .ceo-card {
+      background: white;
+      border-radius: 0.5rem;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+    }
+
+    .ceo-content {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      padding: 3rem;
+    }
+
+    .ceo-img {
+      flex: 0 0 120px;
+    }
+
+    .ceo-img img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--primary);
+    }
+
+    .ceo-message {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .ceo-message h2 {
+      color: var(--primary);
+      margin-bottom: 1rem;
+      font-size: 1.75rem;
+    }
+
+    .ceo-message p {
+      margin-bottom: 1rem;
+      color: var(--neutral-700);
+    }
+
+    .ceo-signature {
+      margin-top: 1.5rem;
+    }
+
+    .name-position {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .ceo-name {
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: var(--neutral-800);
+    }
+
+    .ceo-position {
+      color: var(--neutral-600);
+    }
+
+    /* Newsletter Section */
+    .newsletter-section {
+      padding: 4rem 0;
+      background-color: var(--primary);
+      color: white;
+    }
+
+    .newsletter-content {
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .newsletter-content h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .newsletter-content p {
+      margin-bottom: 2rem;
+      opacity: 0.9;
+    }
+
+    .newsletter-form {
+      display: flex;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    .newsletter-input {
+      flex: 1;
+      padding: 1rem;
+      border: none;
+      border-radius: 0.25rem 0 0 0.25rem;
+      outline: none;
+    }
+
+    .newsletter-btn {
+      background-color: var(--secondary);
+      color: var(--neutral-800);
+      border: none;
+      padding: 1rem 1.5rem;
+      font-weight: 600;
+      border-radius: 0 0.25rem 0.25rem 0;
+      cursor: pointer;
+    }
+
+    .privacy-text {
+      font-size: 0.85rem;
+      margin-top: 1rem;
+      opacity: 0.8;
+    }
+
+    /* Contact Section */
+    .contact-section {
+      padding: 4rem 0;
+      background-color: var(--neutral-50);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 3rem;
+    }
+
+    .contact-info h2 {
+      font-size: 1.75rem;
+      margin-bottom: 1rem;
+      color: var(--neutral-800);
+    }
+
+    .contact-info p {
+      color: var(--neutral-600);
+      margin-bottom: 2rem;
+    }
+
+    .contact-items {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .contact-item {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .contact-icon {
+      flex-shrink: 0;
+      width: 40px;
+      height: 40px;
+      background: var(--primary-light);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .contact-item-content h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.25rem;
+      color: var(--neutral-800);
+    }
+
+    .contact-item-content p {
+      margin-bottom: 0;
+    }
+
+    .social-links {
+      margin-top: 2rem;
+    }
+
+    .social-links h3 {
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+      color: var(--neutral-800);
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .social-icon {
+      width: 40px;
+      height: 40px;
+      background: var(--neutral-200);
+      color: var(--neutral-700);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+
+    .social-icon:hover {
+      background: var(--primary);
+      color: white;
+    }
+
+    .contact-form-wrapper {
+      background: white;
+      border-radius: 0.5rem;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+    }
+
+    .contact-form {
+      padding: 2rem;
+    }
+
+    .contact-form h2 {
+      font-size: 1.75rem;
+      margin-bottom: 1.5rem;
+      color: var(--neutral-800);
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .form-label {
+      font-weight: 500;
+      color: var(--neutral-700);
+    }
+
+    .form-input, 
+    .form-textarea {
+      padding: 0.75rem;
+      border: 1px solid var(--neutral-300);
+      border-radius: 0.25rem;
+      outline: none;
+      transition: border-color 0.2s ease;
+    }
+
+    .form-input:focus, 
+    .form-textarea:focus {
+      border-color: var(--primary);
+    }
+
+    .form-textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .form-submit {
+      margin-top: 1rem;
+      background-color: var(--primary);
+      color: white;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      font-weight: 600;
+      border-radius: 0.25rem;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+    }
+
+    .form-submit:hover {
+      background-color: var(--primary-dark);
+    }
+
+    /* Footer */
+    footer {
+      background-color: var(--neutral-800);
+      color: white;
+      padding: 4rem 0 0;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 3rem;
+    }
+
+    .footer-col h3 {
+      font-size: 1.25rem;
+      margin-bottom: 1.5rem;
+      color: white;
+    }
+
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .footer-logo-icon {
+      font-size: 1.5rem;
+    }
+
+    .footer-logo-text {
+      font-size: 1.25rem;
+      font-weight: 700;
+    }
+
+    .footer-about {
+      color: var(--neutral-400);
+      margin-bottom: 1.5rem;
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .footer-social-icon {
+      width: 36px;
+      height: 36px;
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background-color 0.2s ease;
+    }
+
+    .footer-social-icon:hover {
+      background: var(--primary);
+    }
+
+    .footer-links {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 0.75rem;
+    }
+
+    .footer-links a {
+      color: var(--neutral-400);
+      transition: color 0.2s ease;
+    }
+
+    .footer-links a:hover {
+      color: white;
+    }
+
+    .footer-contact-item {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .footer-contact-icon {
+      width: 36px;
+      height: 36px;
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .footer-contact-text {
+      color: var(--neutral-400);
+      font-size: 0.9rem;
+    }
+
+    .footer-contact-text a {
+      color: var(--neutral-400);
+      transition: color 0.2s ease;
+    }
+
+    .footer-contact-text a:hover {
+      color: white;
+    }
+
+    .footer-bottom {
+      margin-top: 4rem;
+      padding: 1.5rem 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .footer-bottom-content {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .footer-copyright {
+      color: var(--neutral-500);
+      font-size: 0.9rem;
+    }
+
+    .footer-payment {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .payment-icon {
+      width: 40px;
+      height: 24px;
+      background: white;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* WhatsApp Float */
+    .chat-float {
+      position: fixed;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      background-color: #25D366;
+      color: white;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      cursor: pointer;
+      z-index: 50;
+      transition: all 0.3s ease;
+      font-size: 1.75rem;
+    }
+
+    .chat-float:hover {
+      transform: scale(1.1);
+    }
+
+    /* Utility Classes */
+    .text-center {
+      text-align: center;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+      
+      .mobile-menu-btn {
+        display: flex;
+      }
+      
+      .header-actions {
+        gap: 0.5rem;
+      }
+      
+      .search-bar {
+        width: 150px;
+      }
+      
+      .hero h1 {
+        font-size: 2rem;
+      }
+      
+      .hero p {
+        font-size: 1rem;
+      }
+      
+      .filter-form {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      
+      .filter-selects {
+        flex-wrap: wrap;
+      }
+      
+      .ceo-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 2rem;
+      }
+      
+      .newsletter-form {
+        flex-direction: column;
+      }
+      
+      .newsletter-input,
+      .newsletter-btn {
+        width: 100%;
+        border-radius: 0.25rem;
+      }
+      
+      .newsletter-btn {
+        margin-top: 0.5rem;
+      }
+      
+      .footer-bottom-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+    }
+  </style>
 </head>
 <body>
   <header>
     <div class="container">
       <div class="header-inner">
         <div class="logo">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="2" y="7" width="20" height="15" rx="2" ry="2"></rect>
-            <polyline points="17 2 12 7 7 2"></polyline>
-          </svg>
-          Electronic And More
+          <i class="fa-solid fa-tv logo-icon"></i>
+          <span>Electronic And More</span>
         </div>
         
         <nav class="nav-links">
@@ -27,78 +1149,78 @@
         </nav>
         
         <div class="header-actions">
-          <button class="mobile-menu-btn" id="mobileMenuBtn">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <line x1="3" y1="12" x2="21" y2="12"></line>
-              <line x1="3" y1="6" x2="21" y2="6"></line>
-              <line x1="3" y1="18" x2="21" y2="18"></line>
-            </svg>
+          <div class="search-bar">
+            <input type="text" placeholder="Search products...">
+            <i class="fa-solid fa-magnifying-glass search-bar-icon"></i>
+          </div>
+          <button class="theme-toggle">
+            <i class="fa-solid fa-moon"></i>
+          </button>
+          <button class="cart-button">
+            <i class="fa-solid fa-cart-shopping"></i>
+          </button>
+          <button class="menu-button" id="menuToggle">
+            <i class="fa-solid fa-bars"></i>
           </button>
         </div>
       </div>
     </div>
   </header>
   
-  <div class="side-menu" id="sideMenu">
-    <div class="side-menu-header">
-      <h2>Menu</h2>
+  <!-- Side Menu -->
+  <div class="menu-sidebar" id="menuSidebar">
+    <div class="menu-header">
+      <span>Menu</span>
       <button id="closeMenu">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <line x1="18" y1="6" x2="6" y2="18"></line>
-          <line x1="6" y1="6" x2="18" y2="18"></line>
-        </svg>
+        <i class="fa-solid fa-xmark"></i>
       </button>
     </div>
-    <div class="side-menu-content">
-      <div class="side-menu-category">
-        <h3>Categories</h3>
-        <ul>
-         <li><a href="fridges.html">Fridges</a></li>
-          <li><a href="cookers.html">Cookers</a></li>
-          <li><a href="televisions.html">TVs</a></li>
-          <li><a href="air-conditioners.html">Air Conditioners</a></li>
-          <li><a href="washing-machines.html">Washing Machines</a></li>
-          <li><a href="cosmetics.html">Cosmetics</a></li>
+    
+    <div class="menu-content">
+      <div class="menu-category">
+        <div class="menu-category-title">Categories</div>
+        <ul class="menu-items">
+          <li class="menu-item"><a href="fridges.html">Fridges</a></li>
+          <li class="menu-item"><a href="cookers.html">Cookers</a></li>
+          <li class="menu-item"><a href="televisions.html">TVs</a></li>
+          <li class="menu-item"><a href="air-conditioners.html">Air Conditioners</a></li>
+          <li class="menu-item"><a href="washing-machines.html">Washing Machines</a></li>
+          <li class="menu-item"><a href="cosmetics.html">Cosmetics</a></li>
         </ul>
       </div>
-      <div class="side-menu-category">
-        <h3>Account</h3>
-        <ul>
-          <li><a href="#">My Account</a></li>
-          <li><a href="#">Wishlist</a></li>
-          <li><a href="#">Orders</a></li>
+      
+      <div class="menu-category">
+        <div class="menu-category-title">Account</div>
+        <ul class="menu-items">
+          <li class="menu-item"><a href="#">My Account</a></li>
+          <li class="menu-item"><a href="#">Wishlist</a></li>
+          <li class="menu-item"><a href="#">Orders</a></li>
+          <li class="menu-item"><a href="tel:+233539566710">Call Us</a></li>
         </ul>
       </div>
-    </div>
-    <div class="side-menu-footer">
-      <a href="tel:+233539566710" class="call-btn">Call Us</a>
     </div>
   </div>
   <div class="menu-overlay" id="menuOverlay"></div>
   
   <main>
+    <!-- Hero Section -->
     <section class="hero">
       <div class="container">
         <h1>Quality Electronics at Unbeatable Prices</h1>
         <p>Your one-stop shop for home electronics and appliances in Ghana.</p>
-        <div class="btn-group">
+        <div class="hero-actions">
           <a href="#featured" class="btn btn-primary">Shop Now</a>
           <a href="#contact" class="btn btn-outline">Contact Us</a>
         </div>
       </div>
     </section>
     
-    <section class="filter-bar">
-      <div class="container">
+    <!-- Filter Bar -->
+    <div class="container">
+      <div class="filter-bar">
         <form class="filter-form">
           <div class="search-input">
             <input type="text" id="searchInput" placeholder="Search products...">
-            <div class="search-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="11" cy="11" r="8"></circle>
-                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-              </svg>
-            </div>
           </div>
           
           <div class="filter-selects">
@@ -133,18 +1255,14 @@
               </select>
             </div>
             
-            <button type="button" class="btn reset-btn" id="resetFilters">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M3 2v6h6"></path>
-                <path d="M3 8C5 4 7 3 12 3c6 0 9 3 9 9s-3 9-9 9c-3 0-5-1-7-3"></path>
-                <path d="M3 16v6h6"></path>
-              </svg>
+            <button type="button" class="reset-filters" id="resetFilters">
+              <i class="fa-solid fa-rotate"></i>
               Reset
             </button>
           </div>
         </form>
       </div>
-    </section>
+    </div>
     
     <section class="products-section" id="featured">
       <div class="container">
@@ -152,22 +1270,10 @@
           <h2 class="section-title">Featured Products</h2>
           <div class="view-toggle">
             <button class="view-btn active" id="gridViewBtn">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="3" y="3" width="7" height="7"></rect>
-                <rect x="14" y="3" width="7" height="7"></rect>
-                <rect x="3" y="14" width="7" height="7"></rect>
-                <rect x="14" y="14" width="7" height="7"></rect>
-              </svg>
+              <i class="fa-solid fa-grid-2"></i>
             </button>
             <button class="view-btn" id="listViewBtn">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="8" y1="6" x2="21" y2="6"></line>
-                <line x1="8" y1="12" x2="21" y2="12"></line>
-                <line x1="8" y1="18" x2="21" y2="18"></line>
-                <line x1="3" y1="6" x2="3.01" y2="6"></line>
-                <line x1="3" y1="12" x2="3.01" y2="12"></line>
-                <line x1="3" y1="18" x2="3.01" y2="18"></line>
-              </svg>
+              <i class="fa-solid fa-list"></i>
             </button>
           </div>
         </div>
@@ -181,9 +1287,7 @@
                 <span class="product-tag tag-new">New</span>
               </div>
               <button class="wishlist-btn" onclick="toggleWishlist(this)">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M20.42 4.58a5.4 5.4 0 0 0-7.65 0l-.77.78-.77-.78a5.4 5.4 0 0 0-7.65 0C1.46 6.7 1.33 10.28 4 13l8 8 8-8c2.67-2.72 2.54-6.3.42-8.42z"></path>
-                </svg>
+                <i class="fa-regular fa-heart"></i>
               </button>
             </div>
             <div class="product-info">
@@ -205,11 +1309,7 @@
                   <span class="old-price">$549.99</span>
                 </div>
                 <button class="cart-btn">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="9" cy="21" r="1"></circle>
-                    <circle cx="20" cy="21" r="1"></circle>
-                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
-                  </svg>
+                  <i class="fa-solid fa-cart-plus"></i>
                   Add to Cart
                 </button>
               </div>
@@ -224,9 +1324,7 @@
                 <span class="product-tag tag-bestseller">Best Seller</span>
               </div>
               <button class="wishlist-btn" onclick="toggleWishlist(this)">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M20.42 4.58a5.4 5.4 0 0 0-7.65 0l-.77.78-.77-.78a5.4 5.4 0 0 0-7.65 0C1.46 6.7 1.33 10.28 4 13l8 8 8-8c2.67-2.72 2.54-6.3.42-8.42z"></path>
-                </svg>
+                <i class="fa-regular fa-heart"></i>
               </button>
             </div>
             <div class="product-info">
@@ -248,11 +1346,7 @@
                   <span class="old-price">$999.99</span>
                 </div>
                 <button class="cart-btn">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="9" cy="21" r="1"></circle>
-                    <circle cx="20" cy="21" r="1"></circle>
-                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
-                  </svg>
+                  <i class="fa-solid fa-cart-plus"></i>
                   Add to Cart
                 </button>
               </div>
@@ -267,9 +1361,7 @@
                 <span class="product-tag tag-sale">Sale</span>
               </div>
               <button class="wishlist-btn" onclick="toggleWishlist(this)">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M20.42 4.58a5.4 5.4 0 0 0-7.65 0l-.77.78-.77-.78a5.4 5.4 0 0 0-7.65 0C1.46 6.7 1.33 10.28 4 13l8 8 8-8c2.67-2.72 2.54-6.3.42-8.42z"></path>
-                </svg>
+                <i class="fa-regular fa-heart"></i>
               </button>
             </div>
             <div class="product-info">
@@ -291,11 +1383,7 @@
                   <span class="old-price">$429.99</span>
                 </div>
                 <button class="cart-btn">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="9" cy="21" r="1"></circle>
-                    <circle cx="20" cy="21" r="1"></circle>
-                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
-                  </svg>
+                  <i class="fa-solid fa-cart-plus"></i>
                   Add to Cart
                 </button>
               </div>
@@ -307,9 +1395,7 @@
             <div class="product-img">
               <img src="https://images.unsplash.com/photo-1615678815958-5910c6811c25?auto=format&fit=crop&q=80&w=500&h=375" alt="Nasco Gas Cooker">
               <button class="wishlist-btn" onclick="toggleWishlist(this)">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M20.42 4.58a5.4 5.4 0 0 0-7.65 0l-.77.78-.77-.78a5.4 5.4 0 0 0-7.65 0C1.46 6.7 1.33 10.28 4 13l8 8 8-8c2.67-2.72 2.54-6.3.42-8.42z"></path>
-                </svg>
+                <i class="fa-regular fa-heart"></i>
               </button>
             </div>
             <div class="product-info">
@@ -330,18 +1416,12 @@
                   <span class="current-price">$249.99</span>
                 </div>
                 <button class="cart-btn">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="9" cy="21" r="1"></circle>
-                    <circle cx="20" cy="21" r="1"></circle>
-                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
-                  </svg>
+                  <i class="fa-solid fa-cart-plus"></i>
                   Add to Cart
                 </button>
               </div>
             </div>
           </div>
-          
-          <!-- More products here -->
         </div>
         
         <div class="text-center">
@@ -355,12 +1435,7 @@
         <div class="features-grid">
           <div class="feature-item">
             <div class="feature-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="1" y="3" width="15" height="13"></rect>
-                <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
-                <circle cx="5.5" cy="18.5" r="2.5"></circle>
-                <circle cx="18.5" cy="18.5" r="2.5"></circle>
-              </svg>
+              <i class="fa-solid fa-truck-fast"></i>
             </div>
             <h3 class="feature-title">Free Delivery</h3>
             <p class="feature-desc">Free shipping on all orders over $250</p>
@@ -368,10 +1443,7 @@
           
           <div class="feature-item">
             <div class="feature-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"></path>
-                <path d="M9 12l2 2 4-4"></path>
-              </svg>
+              <i class="fa-solid fa-shield-halved"></i>
             </div>
             <h3 class="feature-title">Product Warranty</h3>
             <p class="feature-desc">1-2 years warranty on all products</p>
@@ -379,10 +1451,7 @@
           
           <div class="feature-item">
             <div class="feature-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="1 4 1 10 7 10"></polyline>
-                <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path>
-              </svg>
+              <i class="fa-solid fa-rotate-left"></i>
             </div>
             <h3 class="feature-title">Easy Returns</h3>
             <p class="feature-desc">30-day return policy for peace of mind</p>
@@ -390,9 +1459,7 @@
           
           <div class="feature-item">
             <div class="feature-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-              </svg>
+              <i class="fa-solid fa-headset"></i>
             </div>
             <h3 class="feature-title">24/7 Support</h3>
             <p class="feature-desc">Dedicated customer service team</p>
@@ -448,10 +1515,7 @@
             <div class="contact-items">
               <div class="contact-item">
                 <div class="contact-icon">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                    <circle cx="12" cy="10" r="3"></circle>
-                  </svg>
+                  <i class="fa-solid fa-location-dot"></i>
                 </div>
                 <div class="contact-item-content">
                   <h3>Our Location</h3>
@@ -461,9 +1525,7 @@
               
               <div class="contact-item">
                 <div class="contact-icon">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-                  </svg>
+                  <i class="fa-solid fa-phone"></i>
                 </div>
                 <div class="contact-item-content">
                   <h3>Call Us</h3>
@@ -473,10 +1535,7 @@
               
               <div class="contact-item">
                 <div class="contact-icon">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                    <polyline points="22,6 12,13 2,6"></polyline>
-                  </svg>
+                  <i class="fa-solid fa-envelope"></i>
                 </div>
                 <div class="contact-item-content">
                   <h3>Email Us</h3>
@@ -486,10 +1545,7 @@
               
               <div class="contact-item">
                 <div class="contact-icon">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="12" cy="12" r="10"></circle>
-                    <polyline points="12 6 12 12 16 14"></polyline>
-                  </svg>
+                  <i class="fa-solid fa-clock"></i>
                 </div>
                 <div class="contact-item-content">
                   <h3>Working Hours</h3>
@@ -503,28 +1559,16 @@
               <h3>Follow Us</h3>
               <div class="social-icons">
                 <a href="#" class="social-icon">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
-                  </svg>
+                  <i class="fa-brands fa-facebook-f"></i>
                 </a>
                 <a href="#" class="social-icon">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-                  </svg>
+                  <i class="fa-brands fa-instagram"></i>
                 </a>
                 <a href="#" class="social-icon">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
-                  </svg>
+                  <i class="fa-brands fa-twitter"></i>
                 </a>
                 <a href="#" class="social-icon">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-                    <rect x="2" y="9" width="4" height="12"></rect>
-                    <circle cx="4" cy="4" r="2"></circle>
-                  </svg>
+                  <i class="fa-brands fa-linkedin-in"></i>
                 </a>
               </div>
             </div>
@@ -549,13 +1593,13 @@
                   <input type="text" id="subject" class="form-input" required>
                 </div>
                 
-                <div class="form-group form-message">
+                <div class="form-group" style="grid-column: 1 / -1;">
                   <label for="message" class="form-label">Your Message</label>
                   <textarea id="message" class="form-textarea" required></textarea>
                 </div>
                 
-                <div class="form-group form-message">
-                  <button type="submit" class="submit-btn">Send Message</button>
+                <div class="form-group" style="grid-column: 1 / -1;">
+                  <button type="submit" class="form-submit">Send Message</button>
                 </div>
               </form>
             </div>
@@ -569,120 +1613,108 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-col">
-          <h3>Electronic And More</h3>
-          <p>Your trusted source for quality electronics and home appliances in Ghana.</p>
+          <div class="footer-logo">
+            <i class="fa-solid fa-tv footer-logo-icon"></i>
+            <span class="footer-logo-text">Electronic And More</span>
+          </div>
+          <p class="footer-about">Ghana's premier destination for high-quality electronics and home appliances at competitive prices.</p>
           <div class="footer-social">
-            <a href="#">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
-              </svg>
+            <a href="#" class="footer-social-icon">
+              <i class="fa-brands fa-facebook-f"></i>
             </a>
-            <a href="#">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
-              </svg>
+            <a href="#" class="footer-social-icon">
+              <i class="fa-brands fa-instagram"></i>
             </a>
-            <a href="#">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-              </svg>
+            <a href="#" class="footer-social-icon">
+              <i class="fa-brands fa-twitter"></i>
             </a>
-            <a href="#">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path>
-                <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
-              </svg>
+            <a href="#" class="footer-social-icon">
+              <i class="fa-brands fa-linkedin-in"></i>
             </a>
           </div>
         </div>
         
         <div class="footer-col">
-          <h3>Quick Links</h3>
+          <h3>Shop by Category</h3>
           <ul class="footer-links">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About Us</a></li>
-            <li><a href="#">Products</a></li>
-            <li><a href="#">Contact</a></li>
-            <li><a href="#">FAQ</a></li>
-          </ul>
-        </div>
-        
-        <div class="footer-col">
-          <h3>Product Categories</h3>
-          <ul class="footer-links">
-            <li><a href="fridges.html">Fridges</a></li>
-            <li><a href="cookers.html">Cookers</a></li>
-            <li><a href="televisions.html">TVs</a></li>
+            <li><a href="fridges.html">Fridges & Freezers</a></li>
+            <li><a href="televisions.html">Televisions</a></li>
             <li><a href="air-conditioners.html">Air Conditioners</a></li>
+            <li><a href="cookers.html">Cookers & Ovens</a></li>
             <li><a href="washing-machines.html">Washing Machines</a></li>
             <li><a href="cosmetics.html">Cosmetics</a></li>
           </ul>
         </div>
         
         <div class="footer-col">
-          <h3>Contact Info</h3>
+          <h3>Customer Service</h3>
+          <ul class="footer-links">
+            <li><a href="#">My Account</a></li>
+            <li><a href="#">Track Order</a></li>
+            <li><a href="#">Return Policy</a></li>
+            <li><a href="#">Shipping Info</a></li>
+            <li><a href="#">Warranty Policy</a></li>
+            <li><a href="#">FAQs</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-col">
+          <h3>Contact Us</h3>
           <div class="footer-contact-item">
             <div class="footer-contact-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                <circle cx="12" cy="10" r="3"></circle>
-              </svg>
+              <i class="fa-solid fa-location-dot"></i>
             </div>
-            <p>Pokuase, Accra City, Ghana</p>
+            <div class="footer-contact-text">
+              Our Store<br>
+              Pokuase, Accra City, Ghana
+            </div>
           </div>
           <div class="footer-contact-item">
             <div class="footer-contact-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-              </svg>
+              <i class="fa-solid fa-phone"></i>
             </div>
-            <p>+233 53 956 6710</p>
+            <div class="footer-contact-text">
+              <a href="tel:+233539566710">+233 53 956 6710</a>
+            </div>
           </div>
           <div class="footer-contact-item">
             <div class="footer-contact-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                <polyline points="22,6 12,13 2,6"></polyline>
-              </svg>
+              <i class="fa-solid fa-envelope"></i>
             </div>
-            <p>electronicandmoregh@gmail.com</p>
+            <div class="footer-contact-text">
+              <a href="mailto:electronicandmoregh@gmail.com">electronicandmoregh@gmail.com</a>
+            </div>
           </div>
           <div class="footer-contact-item">
             <div class="footer-contact-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="12" cy="12" r="10"></circle>
-                <polyline points="12 6 12 12 16 14"></polyline>
-              </svg>
+              <i class="fa-solid fa-clock"></i>
             </div>
-            <p>Mon-Sat: 9am - 8pm</p>
+            <div class="footer-contact-text">
+              Monday - Saturday: 9:00 AM - 8:00 PM<br>
+              Sunday: 10:00 AM - 6:00 PM
+            </div>
           </div>
         </div>
       </div>
       
       <div class="footer-bottom">
         <div class="footer-bottom-content">
-          <p class="copyright">&copy; 2025 Electronic And More. All rights reserved.</p>
-          <div class="legal-links">
-            <a href="#">Privacy Policy</a>
-            <a href="#">Terms of Service</a>
-            <a href="#">Shipping Policy</a>
+          <div class="footer-copyright">
+            &copy; 2023 Electronic And More. All Rights Reserved. Designed with ❤️ in Ghana.
           </div>
-          <div class="payment-methods">
-            <span>Payment Methods:</span>
-            <div class="payment-icons">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M2.5 4A1.5 1.5 0 0 0 1 5.5v13A1.5 1.5 0 0 0 2.5 20h19a1.5 1.5 0 0 0 1.5-1.5v-13A1.5 1.5 0 0 0 21.5 4h-19zM3 8h18v1H3V8zm0 4h6v4H3v-4zm8 0h10v4H11v-4z"/>
-              </svg>
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-1 14H5c-.55 0-1-.45-1-1V7c0-.55.45-1 1-1h14c.55 0 1 .45 1 1v10c0 .55-.45 1-1 1z"/>
-                <path d="M7.5 13h2c.28 0 .5-.22.5-.5v-2c0-.28-.22-.5-.5-.5h-2c-.28 0-.5.22-.5.5v2c0 .28.22.5.5.5zm6 0h2c.28 0 .5-.22.5-.5v-2c0-.28-.22-.5-.5-.5h-2c-.28 0-.5.22-.5.5v2c0 .28.22.5.5.5z"/>
-              </svg>
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V6h16v12z"/>
-                <path d="M11 10H9V8h2v2zm4 0h-2V8h2v2zm-7 4H6v-2h2v2zm4 0h-2v-2h2v2zm-4-8H6V4h2v2zm4 0h-2V4h2v2z"/>
-              </svg>
+          
+          <div class="footer-payment">
+            <div class="payment-icon">
+              <i class="fa-brands fa-cc-visa"></i>
+            </div>
+            <div class="payment-icon">
+              <i class="fa-brands fa-cc-mastercard"></i>
+            </div>
+            <div class="payment-icon">
+              <i class="fa-brands fa-cc-paypal"></i>
+            </div>
+            <div class="payment-icon">
+              <i class="fa-solid fa-mobile-screen"></i>
             </div>
           </div>
         </div>
@@ -690,166 +1722,139 @@
     </div>
   </footer>
   
-  <a href="https://wa.me/233539566710" class="whatsapp-float" target="_blank">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
-    </svg>
-    <span class="whatsapp-text">Chat with us</span>
+  <!-- WhatsApp Float Button -->
+  <a href="https://wa.me/233539566710" class="chat-float" target="_blank">
+    <i class="fa-brands fa-whatsapp"></i>
   </a>
   
   <script>
-    // Mobile menu toggle
+    // Menu toggle functionality
     document.addEventListener('DOMContentLoaded', function() {
-      const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-      const closeMenuBtn = document.getElementById('closeMenu');
-      const sideMenu = document.getElementById('sideMenu');
+      const menuToggle = document.getElementById('menuToggle');
+      const closeMenu = document.getElementById('closeMenu');
+      const menuSidebar = document.getElementById('menuSidebar');
       const menuOverlay = document.getElementById('menuOverlay');
       
-      if (mobileMenuBtn) {
-        mobileMenuBtn.addEventListener('click', function() {
-          console.log("Mobile menu button clicked");
-          sideMenu.style.right = '0';
-          menuOverlay.style.display = 'block';
-        });
+      // Function to open the menu
+      function openMenu() {
+        menuSidebar.style.left = '0';
+        menuOverlay.style.display = 'block';
+        document.body.style.overflow = 'hidden'; // Prevent scrolling
       }
       
-      if (closeMenuBtn) {
-        closeMenuBtn.addEventListener('click', function() {
-          sideMenu.style.right = '-100%';
-          menuOverlay.style.display = 'none';
-        });
+      // Function to close the menu
+      function closeMenuFunc() {
+        menuSidebar.style.left = '-250px';
+        menuOverlay.style.display = 'none';
+        document.body.style.overflow = ''; // Re-enable scrolling
+      }
+      
+      // Event listeners
+      if (menuToggle) {
+        menuToggle.addEventListener('click', openMenu);
+      }
+      
+      if (closeMenu) {
+        closeMenu.addEventListener('click', closeMenuFunc);
       }
       
       if (menuOverlay) {
-        menuOverlay.addEventListener('click', function() {
-          sideMenu.style.right = '-100%';
-          menuOverlay.style.display = 'none';
+        menuOverlay.addEventListener('click', closeMenuFunc);
+      }
+      
+      // Product filtering functionality
+      const searchInput = document.getElementById('searchInput');
+      const categoryFilter = document.getElementById('categoryFilter');
+      const brandFilter = document.getElementById('brandFilter');
+      const priceFilter = document.getElementById('priceFilter');
+      const resetFilters = document.getElementById('resetFilters');
+      const productList = document.getElementById('productList');
+      const productCards = document.querySelectorAll('.product-card');
+      
+      // Function to filter products
+      function filterProducts() {
+        const searchTerm = searchInput.value.toLowerCase();
+        const category = categoryFilter.value;
+        const brand = brandFilter.value;
+        const price = priceFilter.value;
+        
+        productCards.forEach(card => {
+          const cardCategory = card.dataset.category;
+          const cardBrand = card.dataset.brand;
+          const cardPrice = parseFloat(card.dataset.price);
+          const cardTitle = card.querySelector('.product-title').textContent.toLowerCase();
+          const cardDesc = card.querySelector('.product-desc').textContent.toLowerCase();
+          
+          // Check if card matches all filters
+          const matchesSearch = cardTitle.includes(searchTerm) || cardDesc.includes(searchTerm) || searchTerm === '';
+          const matchesCategory = category === 'all-categories' || cardCategory === category;
+          const matchesBrand = brand === 'all-brands' || cardBrand === brand;
+          
+          let matchesPrice = true;
+          if (price === 'low') {
+            matchesPrice = cardPrice < 300;
+          } else if (price === 'medium') {
+            matchesPrice = cardPrice >= 300 && cardPrice <= 600;
+          } else if (price === 'high') {
+            matchesPrice = cardPrice > 600;
+          }
+          
+          if (matchesSearch && matchesCategory && matchesBrand && matchesPrice) {
+            card.style.display = '';
+          } else {
+            card.style.display = 'none';
+          }
         });
       }
-    });
-    
-    // Product filtering
-    const searchInput = document.getElementById('searchInput');
-    const categoryFilter = document.getElementById('categoryFilter');
-    const brandFilter = document.getElementById('brandFilter');
-    const priceFilter = document.getElementById('priceFilter');
-    const resetFiltersBtn = document.getElementById('resetFilters');
-    const productCards = document.querySelectorAll('.product-card');
-    
-    function filterProducts() {
-      const searchTerm = searchInput.value.toLowerCase();
-      const category = categoryFilter.value;
-      const brand = brandFilter.value;
-      const price = priceFilter.value;
       
-      productCards.forEach(card => {
-        const productTitle = card.querySelector('.product-title').textContent.toLowerCase();
-        const productDesc = card.querySelector('.product-desc').textContent.toLowerCase();
-        const productCategory = card.dataset.category;
-        const productBrand = card.dataset.brand;
-        const productPrice = parseFloat(card.dataset.price);
+      // Event listeners for filters
+      if (searchInput) searchInput.addEventListener('input', filterProducts);
+      if (categoryFilter) categoryFilter.addEventListener('change', filterProducts);
+      if (brandFilter) brandFilter.addEventListener('change', filterProducts);
+      if (priceFilter) priceFilter.addEventListener('change', filterProducts);
+      
+      // Reset filters
+      if (resetFilters) {
+        resetFilters.addEventListener('click', function() {
+          if (searchInput) searchInput.value = '';
+          if (categoryFilter) categoryFilter.value = 'all-categories';
+          if (brandFilter) brandFilter.value = 'all-brands';
+          if (priceFilter) priceFilter.value = 'all-prices';
+          filterProducts();
+        });
+      }
+      
+      // View toggle functionality
+      const gridViewBtn = document.getElementById('gridViewBtn');
+      const listViewBtn = document.getElementById('listViewBtn');
+      
+      if (gridViewBtn && listViewBtn && productList) {
+        gridViewBtn.addEventListener('click', function() {
+          productList.className = 'grid-view';
+          gridViewBtn.classList.add('active');
+          listViewBtn.classList.remove('active');
+        });
         
-        // Search filter
-        const matchesSearch = !searchTerm || 
-          productTitle.includes(searchTerm) || 
-          productDesc.includes(searchTerm);
-        
-        // Category filter
-        const matchesCategory = category === 'all-categories' || !category || category === productCategory;
-        
-        // Brand filter
-        const matchesBrand = brand === 'all-brands' || !brand || brand === productBrand;
-        
-        // Price filter
-        let matchesPrice = true;
-        if (price === 'low') {
-          matchesPrice = productPrice < 300;
-        } else if (price === 'medium') {
-          matchesPrice = productPrice >= 300 && productPrice <= 600;
-        } else if (price === 'high') {
-          matchesPrice = productPrice > 600;
-        }
-        
-        if (matchesSearch && matchesCategory && matchesBrand && matchesPrice) {
-          card.style.display = '';
+        listViewBtn.addEventListener('click', function() {
+          productList.className = 'list-view';
+          listViewBtn.classList.add('active');
+          gridViewBtn.classList.remove('active');
+        });
+      }
+      
+      // Wishlist functionality
+      window.toggleWishlist = function(button) {
+        if (button.querySelector('i').classList.contains('fa-regular')) {
+          button.querySelector('i').classList.remove('fa-regular');
+          button.querySelector('i').classList.add('fa-solid');
+          button.style.color = '#ef4444';
         } else {
-          card.style.display = 'none';
+          button.querySelector('i').classList.remove('fa-solid');
+          button.querySelector('i').classList.add('fa-regular');
+          button.style.color = '';
         }
-      });
-    }
-    
-    // Add event listeners to filters
-    if (searchInput) searchInput.addEventListener('input', filterProducts);
-     if (categoryFilter) {
-      categoryFilter.addEventListener('change', (e) => {
-        const selectedCategory = e.target.value;
-        // Redirect to category pages if specific category is selected
-        if (selectedCategory === 'fridges') {
-          window.location.href = 'fridges.html';
-        } else if (selectedCategory === 'cookers') {
-          window.location.href = 'cookers.html';
-        } else if (selectedCategory === 'tvs') {
-          window.location.href = 'televisions.html';
-        } else if (selectedCategory === 'acs') {
-          window.location.href = 'air-conditioners.html';
-    if (brandFilter) brandFilter.addEventListener('change', filterProducts);
-    if (priceFilter) priceFilter.addEventListener('change', filterProducts);
-    
-    // Reset filters
-    if (resetFiltersBtn) {
-      resetFiltersBtn.addEventListener('click', () => {
-        if (searchInput) searchInput.value = '';
-        if (categoryFilter) categoryFilter.value = 'all-categories';
-        if (brandFilter) brandFilter.value = 'all-brands';
-        if (priceFilter) priceFilter.value = 'all-prices';
-        filterProducts();
-      });
-    }
-    
-    // Toggle wishlist
-    function toggleWishlist(btn) {
-      btn.classList.toggle('active');
-      btn.querySelector('svg').style.fill = btn.classList.contains('active') ? 'currentColor' : 'none';
-    }
-    
-    // View toggle (grid/list)
-    const gridViewBtn = document.getElementById('gridViewBtn');
-    const listViewBtn = document.getElementById('listViewBtn');
-    const productList = document.getElementById('productList');
-    
-    if (gridViewBtn && listViewBtn && productList) {
-      gridViewBtn.addEventListener('click', () => {
-        productList.className = 'grid-view';
-        gridViewBtn.classList.add('active');
-        listViewBtn.classList.remove('active');
-      });
-      
-      listViewBtn.addEventListener('click', () => {
-        productList.className = 'list-view';
-        listViewBtn.classList.add('active');
-        gridViewBtn.classList.remove('active');
-      });
-    }
-    
-    // Form submissions
-    const newsletterForm = document.querySelector('.newsletter-form');
-    const contactForm = document.querySelector('.contact-form form');
-    
-    if (newsletterForm) {
-      newsletterForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        alert('Thank you for subscribing to our newsletter!');
-        newsletterForm.reset();
-      });
-    }
-    
-    if (contactForm) {
-      contactForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        alert('Thank you for your message. We will get back to you soon!');
-        contactForm.reset();
-      });
-    }
+      };
+    });
   </script>
 </body>
 </html>
