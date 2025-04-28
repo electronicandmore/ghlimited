@@ -1,0 +1,1129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cosmetics & Beauty Products - Electronic And More</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Additional page-specific styles */
+    .page-header {
+      background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&q=80&w=1200');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      padding: 4rem 0;
+      text-align: center;
+    }
+    .page-header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    .page-header p {
+      max-width: 700px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+      opacity: 0.9;
+    }
+    .product-filters {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+    }
+    .filter-label {
+      font-weight: 500;
+      margin-right: 0.5rem;
+    }
+    .sort-by {
+      padding: 0.5rem;
+      border-radius: 0.25rem;
+      border: 1px solid var(--neutral-300);
+    }
+    .category-description {
+      margin-bottom: 2rem;
+      line-height: 1.7;
+    }
+    .spec-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+      margin-bottom: 2rem;
+    }
+    .spec-table th, .spec-table td {
+      padding: 0.75rem 1rem;
+      text-align: left;
+      border-bottom: 1px solid var(--neutral-200);
+    }
+    .spec-table th {
+      background-color: var(--neutral-100);
+      font-weight: 600;
+    }
+    .dark .spec-table th {
+      background-color: var(--neutral-700);
+    }
+    .dark .spec-table td, .dark .spec-table th {
+      border-color: var(--neutral-700);
+    }
+    .category-info {
+      background-color: white;
+      border-radius: 1rem;
+      padding: 2rem;
+      margin-top: 3rem;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    }
+    .dark .category-info {
+      background-color: var(--neutral-800);
+    }
+    .buying-guide h3 {
+      margin-bottom: 1rem;
+    }
+    .buying-guide-points {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+    .guide-point {
+      display: flex;
+      gap: 1rem;
+    }
+    .guide-point-icon {
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 50%;
+      background-color: rgba(13, 102, 49, 0.1);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .dark .guide-point-icon {
+      color: var(--secondary);
+    }
+    .guide-point-content h4 {
+      margin-bottom: 0.5rem;
+    }
+    .skin-type-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+    .skin-card {
+      background-color: var(--neutral-50);
+      border-radius: 0.75rem;
+      padding: 1.5rem;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    }
+    .dark .skin-card {
+      background-color: var(--neutral-700);
+    }
+    .skin-card h4 {
+      margin-bottom: 0.75rem;
+      color: var(--primary);
+    }
+    .dark .skin-card h4 {
+      color: var(--secondary);
+    }
+    .natural-tip {
+      background-color: rgba(239, 68, 68, 0.05);
+      border-left: 4px solid var(--error);
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      border-radius: 0.25rem;
+    }
+    .natural-tip h4 {
+      color: var(--error);
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .ingredient-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    .ingredient-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .ingredient-item svg {
+      color: var(--error);
+      flex-shrink: 0;
+    }
+    .dark .ingredient-item svg {
+      color: #f87171;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="header-inner">
+        <div class="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="7" width="20" height="15" rx="2" ry="2"></rect>
+            <polyline points="17 2 12 7 7 2"></polyline>
+          </svg>
+          <a href="index.html">Electronic And More</a>
+        </div>
+        
+        <nav class="nav-links">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#featured">Products</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+          </ul>
+        </nav>
+        
+        <div class="header-actions">
+          <button class="mobile-menu-btn" id="mobileMenuBtn">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+  
+  <div class="side-menu" id="sideMenu">
+    <div class="side-menu-header">
+      <h2>Menu</h2>
+      <button id="closeMenu">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+    <div class="side-menu-content">
+      <div class="side-menu-category">
+        <h3>Categories</h3>
+        <ul>
+          <li><a href="fridges.html">Fridges</a></li>
+          <li><a href="cookers.html">Cookers</a></li>
+          <li><a href="televisions.html">TVs</a></li>
+          <li><a href="air-conditioners.html">Air Conditioners</a></li>
+          <li><a href="washing-machines.html">Washing Machines</a></li>
+          <li><a href="cosmetics.html">Cosmetics</a></li>
+        </ul>
+      </div>
+      <div class="side-menu-category">
+        <h3>Account</h3>
+        <ul>
+          <li><a href="#">My Account</a></li>
+          <li><a href="#">Wishlist</a></li>
+          <li><a href="#">Orders</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="side-menu-footer">
+      <a href="tel:+233539566710" class="call-btn">Call Us</a>
+    </div>
+  </div>
+  <div class="menu-overlay" id="menuOverlay"></div>
+  
+  <main>
+    <section class="page-header">
+      <div class="container">
+        <h1>Cosmetics & Beauty Products</h1>
+        <p>Enhance your natural beauty with our carefully selected range of skincare, makeup, and personal care products.</p>
+      </div>
+    </section>
+    
+    <section class="filter-bar">
+      <div class="container">
+        <form class="filter-form">
+          <div class="search-input">
+            <input type="text" id="searchInput" placeholder="Search cosmetics...">
+            <div class="search-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+            </div>
+          </div>
+          
+          <div class="filter-selects">
+            <div class="select-wrapper">
+              <select id="typeFilter">
+                <option value="all-types">All Types</option>
+                <option value="skincare">Skincare</option>
+                <option value="makeup">Makeup</option>
+                <option value="haircare">Hair Care</option>
+                <option value="fragrance">Fragrance</option>
+                <option value="natural">Natural Products</option>
+              </select>
+            </div>
+            
+            <div class="select-wrapper">
+              <select id="brandFilter">
+                <option value="all-brands">All Brands</option>
+                <option value="Nivea">Nivea</option>
+                <option value="Maybelline">Maybelline</option>
+                <option value="Shea-Butter">Shea Butter</option>
+                <option value="Revlon">Revlon</option>
+                <option value="LOreal">L'Oreal</option>
+              </select>
+            </div>
+            
+            <div class="select-wrapper">
+              <select id="priceFilter">
+                <option value="all-prices">All Prices</option>
+                <option value="low">Under $10</option>
+                <option value="medium">$10 - $30</option>
+                <option value="high">Above $30</option>
+              </select>
+            </div>
+            
+            <button type="button" class="btn reset-btn" id="resetFilters">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 2v6h6"></path>
+                <path d="M3 8C5 4 7 3 12 3c6 0 9 3 9 9s-3 9-9 9c-3 0-5-1-7-3"></path>
+                <path d="M3 16v6h6"></path>
+              </svg>
+              Reset
+            </button>
+          </div>
+        </form>
+      </div>
+    </section>
+    
+    <section class="products-section">
+      <div class="container">
+        <div class="category-description">
+          <h2>Beauty & Skincare Products</h2>
+          <p>In addition to our premium electronics, we offer a carefully curated selection of beauty and personal care products. From luxurious skincare to everyday essentials, our range includes locally-sourced natural products and international brands that help you look and feel your best. We focus on quality formulations that address various skin concerns and enhance your natural beauty, all at competitive prices.</p>
+        </div>
+        
+        <div class="product-filters">
+          <div class="results-count">
+            <span id="productCount">9</span> products found
+          </div>
+          <div>
+            <span class="filter-label">Sort by:</span>
+            <select class="sort-by" id="sortProducts">
+              <option value="popularity">Popularity</option>
+              <option value="price-low">Price: Low to High</option>
+              <option value="price-high">Price: High to Low</option>
+              <option value="newest">Newest First</option>
+            </select>
+          </div>
+        </div>
+        
+        <div class="grid-view" id="productList">
+          <!-- Product 1 -->
+          <div class="product-card" data-type="skincare" data-brand="Nivea" data-price="12.99">
+            <div class="product-img">
+              <img src="https://images.unsplash.com/photo-1625772452859-1c03d5bf1137?auto=format&fit=crop&q=80&w=500&h=375" alt="Nivea Face Cream">
+              <div class="product-tags">
+                <span class="product-tag tag-bestseller">Best Seller</span>
+              </div>
+              <button class="wishlist-btn" onclick="toggleWishlist(this)">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20.42 4.58a5.4 5.4 0 0 0-7.65 0l-.77.78-.77-.78a5.4 5.4 0 0 0-7.65 0C1.46 6.7 1.33 10.28 4 13l8 8 8-8c2.67-2.72 2.54-6.3.42-8.42z"></path>
+                </svg>
+              </button>
+            </div>
+            <div class="product-info">
+              <div class="product-rating">
+                <div class="stars">
+                  <span class="filled">★</span>
+                  <span class="filled">★</span>
+                  <span class="filled">★</span>
+                  <span class="filled">★</span>
+                  <span class="filled">★</span>
+                </div>
+                <span class="review-count">(62 reviews)</span>
+              </div>
+              <h3 class="product-title">Nivea Q10 Anti-Wrinkle Face Cream</h3>
+              <p class="product-desc">Advanced moisturizing formula with Q10 and vitamin C to reduce fine lines and boost skin elasticity.</p>
+              <div class="price-actions">
+                <div class="price-box">
+                  <span class="current-price">$12.99</span>
+                  <span class="old-price">$15.99</span>
+                </div>
+                <button class="cart-btn">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="9" cy="21" r="1"></circle>
+                    <circle cx="20" cy="21" r="1"></circle>
+                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                  </svg>
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Product 2 -->
+          <div class="product-card" data-type="makeup" data-brand="Maybelline" data-price="8.99">
+            <div class="product-img">
+              <img src="https://images.unsplash.com/photo-1631730587066-b8dfd7a27778?auto=format&fit=crop&q=80&w=500&h=375" alt="Maybelline Mascara">
+              <div class="product-tags">
+                <span class="product-tag tag-new">New</span>
+              </div>
+              <button class="wishlist-btn" onclick="toggleWishlist(this)">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20.42 4.58a5.4 5.4 0 0 0-7.65 0l-.77.78-.77-.78a5.4 5.4 0 0 0-7.65 0C1.46 6.7 1.33 10.28 4 13l8 8 8-8c2.67-2.72 2.54-6.3.42-8.42z"></path>
+                </svg>
+              </button>
+            </div>
+            <div class="product-info">
+              <div class="product-rating">
+                <div class="stars">
+                  <span class="filled">★</span>
+                  <span class="filled">★</span>
+                  <span class="filled">★</span>
+                  <span class="filled">★</span>
+                  <span>★</span>
+                </div>
+                <span class="review-count">(47 reviews)</span>
+              </div>
+              <h3 class="product-title">Maybelline Lash Sensational Mascara</h3>
+              <p class="product-desc">Volumizing mascara with fanning brush that captures every lash for a multiplied effect.</p>
+              <div class="price-actions">
+                <div class="price-box">
+                  <span class="current-price">$8.99</span>
+                  <span class="old-price">$10.99</span>
+                </div>
+                <button class="cart-btn">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="9" cy="21" r="1"></circle>
+                    <circle cx="20" cy="21" r="1"></circle>
+                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                  </svg>
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Product 3 -->
+          <div class="product-card" data-type="natural" data-brand="Shea-Butter" data-price="15.99">
+            <div class="product-img">
+              <img src="https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&q=80&w=500&h=375" alt="Raw Shea Butter">
+              <div class="product-tags">
+                <span class="product-tag tag-sale">Sale</span>
+              </div>
+              <button class="wishlist-btn" onclick="toggleWishlist(this)">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20.42 4.58a5.4 5.4 0 0 0-7.65 0l-.77.78-.77-.78a5.4 5.4 0 0 0-7.65 0C1.46 6.7 1.33 10.28 4 13l8 8 8-8c2.67-2.72 2.54-6.3.42-8.42z"></path>
+                </svg>
+              </button>
+            </div>
+            <div class="product-info">
+              <div class="product-rating">
+                <div class="stars">
+                  <span class="filled">★</span>
+                  <span class="filled">★</span>
+                  <span class="filled">★</span>
+                  <span class="filled">★</span>
+                  <span class="filled">★</span>
+                </div>
+                <span class="review-count">(89 reviews)</span>
+              </div>
+              <h3 class="product-title">Pure Ghanaian Shea Butter 250g</h3>
+              <p class="product-desc">100% raw, unrefined shea butter for natural moisture. Perfect for skin and hair care, locally sourced.</p>
+              <div class="price-actions">
+                <div class="price-box">
+                  <span class="current-price">$15.99</span>
+                  <span class="old-price">$19.99</span>
+                </div>
+                <button class="cart-btn">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="9" cy="21" r="1"></circle>
+                    <circle cx="20" cy="21" r="1"></circle>
+                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                  </svg>
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Product 4 -->
+          <div class="product-card" data-type="haircare" data-brand="LOreal" data-price="14.99">
+            <div class="product-img">
+              <img src="https://images.unsplash.com/photo-1621000291646-a3f5c1f501a4?auto=format&fit=crop&q=80&w=500&h=375" alt="L'Oreal Shampoo">
+              <button class="wishlist-btn" onclick="toggleWishlist(this)">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20.42 4.58a5.4 5.4 0 0 0-7.65 0l-.77.78-.77-.78a5.4 5.4 0 0 0-7.65 0C1.46 6.7 1.33 10.28 4 13l8 8 8-8c2.67-2.72 2.54-6.3.42-8.42z"></path>
+                </svg>
+              </button>
+            </div>
+            <div class="product-info">
+              <div class="product-rating">
+                <div class="stars">
+                  <span class="filled">★</span>
+                  <span class="filled">★</span>
+                  <span class="filled">★</span>
+                  <span class="filled">★</span>
+                  <span>★</span>
+                </div>
+                <span class="review-count">(32 reviews)</span>
+              </div>
+              <h3 class="product-title">L'Oreal Elvive Extraordinary Oil Shampoo</h3>
+              <p class="product-desc">Nourishing formula with coconut oil for dry hair, adding softness and shine without weighing down.</p>
+              <div class="price-actions">
+                <div class="price-box">
+                  <span class="current-price">$14.99</span>
+                </div>
+                <button class="cart-btn">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="9" cy="21" r="1"></circle>
+                    <circle cx="20" cy="21" r="1"></circle>
+                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                  </svg>
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Product 5 -->
+          <div class="product-card" data-type="fragrance" data-brand="Revlon" data-price="39.99">
+            <div class="product-img">
+              <img src="https://images.unsplash.com/photo-1558383817-c645b9d59330?auto=format&fit=crop&q=80&w=500&h=375" alt="Revlon Perfume">
+              <div class="product-tags">
+                <span class="product-tag tag-new">New</span>
+              </div>
+              <button class="wishlist-btn" onclick="toggleWishlist(this)">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20.42 4.58a5.4 5.4 0 0 0-7.65 0l-.77.78-.77-.78a5.4 5.4 0 0 0-7.65 0C1.46 6.7 1.33 10.28 4 13l8 8 8-8c2.67-2.72 2.54-6.3.42-8.42z"></path>
+                </svg>
+              </button>
+            </div>
+            <div class="product-info">
+              <div class="product-rating">
+                <div class="stars">
+                  <span class="filled">★</span>
+                  <span class="filled">★</span>
+                  <span class="filled">★</span>
+                  <span class="filled">★</span>
+                  <span>★</span>
+                </div>
+                <span class="review-count">(15 reviews)</span>
+              </div>
+              <h3 class="product-title">Revlon Charlie Gold Eau de Toilette</h3>
+              <p class="product-desc">Classic fragrance with floral and spicy notes. Long-lasting scent for all-day freshness.</p>
+              <div class="price-actions">
+                <div class="price-box">
+                  <span class="current-price">$39.99</span>
+                  <span class="old-price">$49.99</span>
+                </div>
+                <button class="cart-btn">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="9" cy="21" r="1"></circle>
+                    <circle cx="20" cy="21" r="1"></circle>
+                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                  </svg>
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Product 6 -->
+          <div class="product-card" data-type="makeup" data-brand="Maybelline" data-price="7.99">
+            <div class="product-img">
+              <img src="https://images.unsplash.com/photo-1617897903246-719242758050?auto=format&fit=crop&q=80&w=500&h=375" alt="Maybelline Lipstick">
+              <button class="wishlist-btn" onclick="toggleWishlist(this)">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20.42 4.58a5.4 5.4 0 0 0-7.65 0l-.77.78-.77-.78a5.4 5.4 0 0 0-7.65 0C1.46 6.7 1.33 10.28 4 13l8 8 8-8c2.67-2.72 2.54-6.3.42-8.42z"></path>
+                </svg>
+              </button>
+            </div>
+            <div class="product-info">
+              <div class="product-rating">
+                <div class="stars">
+                  <span class="filled">★</span>
+                  <span class="filled">★</span>
+                  <span class="filled">★</span>
+                  <span class="filled">★</span>
+                  <span>★</span>
+                </div>
+                <span class="review-count">(28 reviews)</span>
+              </div>
+              <h3 class="product-title">Maybelline SuperStay Matte Ink Lipstick</h3>
+              <p class="product-desc">Long-lasting liquid lipstick with matte finish. No-transfer formula that stays up to 16 hours.</p>
+              <div class="price-actions">
+                <div class="price-box">
+                  <span class="current-price">$7.99</span>
+                  <span class="old-price">$9.99</span>
+                </div>
+                <button class="cart-btn">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="9" cy="21" r="1"></circle>
+                    <circle cx="20" cy="21" r="1"></circle>
+                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                  </svg>
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="text-center">
+          <a href="#" class="view-all-btn">Load More Products</a>
+        </div>
+        
+        <div class="category-info">
+          <div class="buying-guide">
+            <h3>Cosmetics & Skincare Guide</h3>
+            <p>Everyone's skin is unique, and finding the right products for your needs can make a significant difference in your beauty routine. Here are some key considerations to help you make informed choices:</p>
+            
+            <div class="buying-guide-points">
+              <div class="guide-point">
+                <div class="guide-point-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M7 16.3c2.2 0 4-1.83 4-4.05 0-1.16-.57-2.26-1.71-3.19S7.29 6.75 7 5.3c-.29 1.45-1.14 2.84-2.29 3.76S3 11.1 3 12.25c0 2.22 1.8 4.05 4 4.05z"></path>
+                    <path d="M12.56 6.6A10.97 10.97 0 0 0 14 3.02c.5 2.5 2 4.9 4 6.5s3 3.5 3 5.5a6.98 6.98 0 0 1-11.91 4.97"></path>
+                  </svg>
+                </div>
+                <div class="guide-point-content">
+                  <h4>Know Your Skin Type</h4>
+                  <p>Understanding whether you have dry, oily, combination, or sensitive skin helps you choose products formulated specifically for your needs, maximizing effectiveness.</p>
+                </div>
+              </div>
+              
+              <div class="guide-point">
+                <div class="guide-point-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path>
+                    <line x1="7" y1="7" x2="7.01" y2="7"></line>
+                  </svg>
+                </div>
+                <div class="guide-point-content">
+                  <h4>Check Ingredients</h4>
+                  <p>Look for products free from harmful chemicals like parabens, sulfates, and artificial fragrances if you have sensitive skin. Natural ingredients often provide gentle yet effective care.</p>
+                </div>
+              </div>
+              
+              <div class="guide-point">
+                <div class="guide-point-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                  </svg>
+                </div>
+                <div class="guide-point-content">
+                  <h4>Sun Protection</h4>
+                  <p>Choose skincare products with SPF or use a dedicated sunscreen daily. Sun protection is the most effective anti-aging strategy and helps prevent skin damage.</p>
+                </div>
+              </div>
+              
+              <div class="guide-point">
+                <div class="guide-point-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                    <path d="M22 6l-10 7L2 6"></path>
+                  </svg>
+                </div>
+                <div class="guide-point-content">
+                  <h4>Patch Test</h4>
+                  <p>Always test new products on a small area of skin before full application, especially if you have sensitive skin or allergies, to avoid adverse reactions.</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="skin-type-cards">
+              <div class="skin-card">
+                <h4>Dry Skin</h4>
+                <p><strong>Signs:</strong> Tight feeling, flakiness, rough patches, fine lines</p>
+                <p><strong>Ingredients to look for:</strong> Hyaluronic acid, glycerin, ceramides, shea butter, oils</p>
+                <p><strong>Products to focus on:</strong> Rich moisturizers, hydrating serums, cream cleansers</p>
+              </div>
+              
+              <div class="skin-card">
+                <h4>Oily Skin</h4>
+                <p><strong>Signs:</strong> Shine, enlarged pores, prone to breakouts</p>
+                <p><strong>Ingredients to look for:</strong> Salicylic acid, niacinamide, tea tree oil, clay</p>
+                <p><strong>Products to focus on:</strong> Oil-free moisturizers, mattifying primers, gel cleansers</p>
+              </div>
+              
+              <div class="skin-card">
+                <h4>Combination Skin</h4>
+                <p><strong>Signs:</strong> Oily T-zone (forehead, nose, chin), dry cheeks</p>
+                <p><strong>Ingredients to look for:</strong> Balancing ingredients like witch hazel, zinc, hyaluronic acid</p>
+                <p><strong>Products to focus on:</strong> Balancing toners, lightweight moisturizers, multi-masking</p>
+              </div>
+              
+              <div class="skin-card">
+                <h4>Sensitive Skin</h4>
+                <p><strong>Signs:</strong> Redness, irritation, reaction to products, stinging sensation</p>
+                <p><strong>Ingredients to look for:</strong> Aloe vera, chamomile, oat extract, fragrance-free</p>
+                <p><strong>Products to focus on:</strong> Hypoallergenic formulas, minimal ingredient lists, mild cleansers</p>
+              </div>
+            </div>
+            
+            <div class="natural-tip">
+              <h4>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+                  <line x1="12" y1="9" x2="12" y2="13"></line>
+                  <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                </svg>
+                Ingredients to Avoid
+              </h4>
+              <p>Many conventional beauty products contain potentially harmful ingredients that may cause irritation, hormone disruption, or other health concerns. Be aware of these common ingredients to watch out for:</p>
+              
+              <div class="ingredient-list">
+                <div class="ingredient-item">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="15" y1="9" x2="9" y2="15"></line>
+                    <line x1="9" y1="9" x2="15" y2="15"></line>
+                  </svg>
+                  <span>Parabens</span>
+                </div>
+                
+                <div class="ingredient-item">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="15" y1="9" x2="9" y2="15"></line>
+                    <line x1="9" y1="9" x2="15" y2="15"></line>
+                  </svg>
+                  <span>Phthalates</span>
+                </div>
+                
+                <div class="ingredient-item">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="15" y1="9" x2="9" y2="15"></line>
+                    <line x1="9" y1="9" x2="15" y2="15"></line>
+                  </svg>
+                  <span>Formaldehyde</span>
+                </div>
+                
+                <div class="ingredient-item">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="15" y1="9" x2="9" y2="15"></line>
+                    <line x1="9" y1="9" x2="15" y2="15"></line>
+                  </svg>
+                  <span>Sulfates (SLS/SLES)</span>
+                </div>
+                
+                <div class="ingredient-item">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="15" y1="9" x2="9" y2="15"></line>
+                    <line x1="9" y1="9" x2="15" y2="15"></line>
+                  </svg>
+                  <span>Synthetic fragrances</span>
+                </div>
+                
+                <div class="ingredient-item">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="15" y1="9" x2="9" y2="15"></line>
+                    <line x1="9" y1="9" x2="15" y2="15"></line>
+                  </svg>
+                  <span>Triclosan</span>
+                </div>
+                
+                <div class="ingredient-item">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="15" y1="9" x2="9" y2="15"></line>
+                    <line x1="9" y1="9" x2="15" y2="15"></line>
+                  </svg>
+                  <span>Petroleum/Mineral oil</span>
+                </div>
+                
+                <div class="ingredient-item">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="15" y1="9" x2="9" y2="15"></line>
+                    <line x1="9" y1="9" x2="15" y2="15"></line>
+                  </svg>
+                  <span>Oxybenzone</span>
+                </div>
+              </div>
+            </div>
+            
+            <h3 class="mt-5">Basic Skincare Routine</h3>
+            <table class="spec-table">
+              <thead>
+                <tr>
+                  <th>Step</th>
+                  <th>Purpose</th>
+                  <th>Frequency</th>
+                  <th>Products</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Cleansing</td>
+                  <td>Remove dirt, oil, makeup</td>
+                  <td>Morning & Night</td>
+                  <td>Gentle cleanser appropriate for skin type</td>
+                </tr>
+                <tr>
+                  <td>Toning</td>
+                  <td>Balance skin pH, prepare for treatments</td>
+                  <td>Morning & Night</td>
+                  <td>Alcohol-free toner or essence</td>
+                </tr>
+                <tr>
+                  <td>Treatment</td>
+                  <td>Target specific concerns</td>
+                  <td>Morning & Night (varies)</td>
+                  <td>Serums, spot treatments, actives</td>
+                </tr>
+                <tr>
+                  <td>Moisturizing</td>
+                  <td>Hydrate and protect skin barrier</td>
+                  <td>Morning & Night</td>
+                  <td>Moisturizer suited to skin type</td>
+                </tr>
+                <tr>
+                  <td>Sun Protection</td>
+                  <td>Prevent sun damage</td>
+                  <td>Morning (reapply)</td>
+                  <td>Broad-spectrum SPF 30+</td>
+                </tr>
+                <tr>
+                  <td>Exfoliating</td>
+                  <td>Remove dead skin cells</td>
+                  <td>1-3 times/week</td>
+                  <td>Chemical or physical exfoliant</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section class="features-section">
+      <div class="container">
+        <div class="features-grid">
+          <div class="feature-item">
+            <div class="feature-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="1" y="3" width="15" height="13"></rect>
+                <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
+                <circle cx="5.5" cy="18.5" r="2.5"></circle>
+                <circle cx="18.5" cy="18.5" r="2.5"></circle>
+              </svg>
+            </div>
+            <h3 class="feature-title">Free Delivery</h3>
+            <p class="feature-desc">Free shipping on all orders over $30</p>
+          </div>
+          
+          <div class="feature-item">
+            <div class="feature-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"></path>
+                <path d="M9 12l2 2 4-4"></path>
+              </svg>
+            </div>
+            <h3 class="feature-title">Authentic Products</h3>
+            <p class="feature-desc">Guaranteed genuine items</p>
+          </div>
+          
+          <div class="feature-item">
+            <div class="feature-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="17 1 21 5 17 9"></polyline>
+                <path d="M3 11V9a4 4 0 0 1 4-4h14"></path>
+                <polyline points="7 23 3 19 7 15"></polyline>
+                <path d="M21 13v2a4 4 0 0 1-4 4H3"></path>
+              </svg>
+            </div>
+            <h3 class="feature-title">Easy Returns</h3>
+            <p class="feature-desc">30-day hassle-free return policy</p>
+          </div>
+          
+          <div class="feature-item">
+            <div class="feature-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+              </svg>
+            </div>
+            <h3 class="feature-title">Expert Advice</h3>
+            <p class="feature-desc">Beauty consultants available</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h3>Electronic And More</h3>
+          <p>Your trusted source for quality electronics and home appliances in Ghana.</p>
+          <div class="footer-social">
+            <a href="#">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+              </svg>
+            </a>
+            <a href="#">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+              </svg>
+            </a>
+            <a href="#">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+              </svg>
+            </a>
+            <a href="#">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path>
+                <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
+              </svg>
+            </a>
+          </div>
+        </div>
+        
+        <div class="footer-col">
+          <h3>Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Products</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+            <li><a href="#">FAQ</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-col">
+          <h3>Product Categories</h3>
+          <ul class="footer-links">
+            <li><a href="fridges.html">Fridges</a></li>
+            <li><a href="cookers.html">Cookers</a></li>
+            <li><a href="televisions.html">TVs</a></li>
+            <li><a href="air-conditioners.html">Air Conditioners</a></li>
+            <li><a href="washing-machines.html">Washing Machines</a></li>
+            <li><a href="cosmetics.html">Cosmetics</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-col">
+          <h3>Contact Info</h3>
+          <div class="footer-contact-item">
+            <div class="footer-contact-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+            </div>
+            <p>Pokuase, Accra City, Ghana</p>
+          </div>
+          <div class="footer-contact-item">
+            <div class="footer-contact-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+              </svg>
+            </div>
+            <p>+233 53 956 6710</p>
+          </div>
+          <div class="footer-contact-item">
+            <div class="footer-contact-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+            </div>
+            <p>electronicandmoregh@gmail.com</p>
+          </div>
+          <div class="footer-contact-item">
+            <div class="footer-contact-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+              </svg>
+            </div>
+            <p>Mon-Sat: 9am - 8pm</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <div class="footer-bottom-content">
+          <p class="copyright">&copy; 2025 Electronic And More. All rights reserved.</p>
+          <div class="legal-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Shipping Policy</a>
+          </div>
+          <div class="payment-methods">
+            <span>Payment Methods:</span>
+            <div class="payment-icons">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M2.5 4A1.5 1.5 0 0 0 1 5.5v13A1.5 1.5 0 0 0 2.5 20h19a1.5 1.5 0 0 0 1.5-1.5v-13A1.5 1.5 0 0 0 21.5 4h-19zM3 8h18v1H3V8zm0 4h6v4H3v-4zm8 0h10v4H11v-4z"/>
+              </svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-1 14H5c-.55 0-1-.45-1-1V7c0-.55.45-1 1-1h14c.55 0 1 .45 1 1v10c0 .55-.45 1-1 1z"/>
+                <path d="M7.5 13h2c.28 0 .5-.22.5-.5v-2c0-.28-.22-.5-.5-.5h-2c-.28 0-.5.22-.5.5v2c0 .28.22.5.5.5zm6 0h2c.28 0 .5-.22.5-.5v-2c0-.28-.22-.5-.5-.5h-2c-.28 0-.5.22-.5.5v2c0 .28.22.5.5.5z"/>
+              </svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V6h16v12z"/>
+                <path d="M11 10H9V8h2v2zm4 0h-2V8h2v2zm-7 4H6v-2h2v2zm4 0h-2v-2h2v2zm-4-8H6V4h2v2zm4 0h-2V4h2v2z"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+  <a href="https://wa.me/233539566710" class="whatsapp-float" target="_blank">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+    </svg>
+    <span class="whatsapp-text">Chat with us</span>
+  </a>
+  
+  <script>
+    // Mobile menu toggle
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const closeMenuBtn = document.getElementById('closeMenu');
+    const sideMenu = document.getElementById('sideMenu');
+    const menuOverlay = document.getElementById('menuOverlay');
+    
+    if (mobileMenuBtn) {
+      mobileMenuBtn.addEventListener('click', () => {
+        sideMenu.style.right = '0';
+        menuOverlay.style.display = 'block';
+      });
+    }
+    
+    if (closeMenuBtn) {
+      closeMenuBtn.addEventListener('click', () => {
+        sideMenu.style.right = '-100%';
+        menuOverlay.style.display = 'none';
+      });
+    }
+    
+    if (menuOverlay) {
+      menuOverlay.addEventListener('click', () => {
+        sideMenu.style.right = '-100%';
+        menuOverlay.style.display = 'none';
+      });
+    }
+    
+    // Product filtering
+    const searchInput = document.getElementById('searchInput');
+    const typeFilter = document.getElementById('typeFilter');
+    const brandFilter = document.getElementById('brandFilter');
+    const priceFilter = document.getElementById('priceFilter');
+    const resetFiltersBtn = document.getElementById('resetFilters');
+    const productCards = document.querySelectorAll('.product-card');
+    const productCount = document.getElementById('productCount');
+    const sortProducts = document.getElementById('sortProducts');
+    
+    function filterProducts() {
+      const searchTerm = searchInput.value.toLowerCase();
+      const type = typeFilter.value;
+      const brand = brandFilter.value;
+      const price = priceFilter.value;
+      
+      let visibleCount = 0;
+      
+      productCards.forEach(card => {
+        const productTitle = card.querySelector('.product-title').textContent.toLowerCase();
+        const productDesc = card.querySelector('.product-desc').textContent.toLowerCase();
+        const productType = card.dataset.type;
+        const productBrand = card.dataset.brand;
+        const productPrice = parseFloat(card.dataset.price);
+        
+        // Search filter
+        const matchesSearch = !searchTerm || 
+          productTitle.includes(searchTerm) || 
+          productDesc.includes(searchTerm);
+        
+        // Type filter
+        const matchesType = type === 'all-types' || !type || type === productType;
+        
+        // Brand filter
+        const matchesBrand = brand === 'all-brands' || !brand || brand === productBrand;
+        
+        // Price filter
+        let matchesPrice = true;
+        if (price === 'low') {
+          matchesPrice = productPrice < 10;
+        } else if (price === 'medium') {
+          matchesPrice = productPrice >= 10 && productPrice <= 30;
+        } else if (price === 'high') {
+          matchesPrice = productPrice > 30;
+        }
+        
+        if (matchesSearch && matchesType && matchesBrand && matchesPrice) {
+          card.style.display = '';
+          visibleCount++;
+        } else {
+          card.style.display = 'none';
+        }
+      });
+      
+      // Update product count
+      if (productCount) {
+        productCount.textContent = visibleCount;
+      }
+    }
+    
+    // Add event listeners to filters
+    if (searchInput) searchInput.addEventListener('input', filterProducts);
+    if (typeFilter) typeFilter.addEventListener('change', filterProducts);
+    if (brandFilter) brandFilter.addEventListener('change', filterProducts);
+    if (priceFilter) priceFilter.addEventListener('change', filterProducts);
+    
+    // Reset filters
+    if (resetFiltersBtn) {
+      resetFiltersBtn.addEventListener('click', () => {
+        if (searchInput) searchInput.value = '';
+        if (typeFilter) typeFilter.value = 'all-types';
+        if (brandFilter) brandFilter.value = 'all-brands';
+        if (priceFilter) priceFilter.value = 'all-prices';
+        filterProducts();
+      });
+    }
+    
+    // Product sorting
+    if (sortProducts) {
+      sortProducts.addEventListener('change', () => {
+        const sortValue = sortProducts.value;
+        const productList = document.getElementById('productList');
+        const productsArray = Array.from(productCards);
+        
+        productsArray.sort((a, b) => {
+          if (sortValue === 'price-low') {
+            return parseFloat(a.dataset.price) - parseFloat(b.dataset.price);
+          } else if (sortValue === 'price-high') {
+            return parseFloat(b.dataset.price) - parseFloat(a.dataset.price);
+          }
+          return 0; // Default or popularity sort
+        });
+        
+        // Clear and re-append sorted items
+        productList.innerHTML = '';
+        productsArray.forEach(product => {
+          productList.appendChild(product);
+        });
+      });
+    }
+    
+    // Toggle wishlist
+    function toggleWishlist(btn) {
+      btn.classList.toggle('active');
+      btn.querySelector('svg').style.fill = btn.classList.contains('active') ? 'currentColor' : 'none';
+    }
+  </script>
+</body>
+</html>
