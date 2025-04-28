@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Electronic And More - Quality Electronics in Ghana</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="header-inner">
+        <div class="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="7" width="20" height="15" rx="2" ry="2"></rect>
+            <polyline points="17 2 12 7 7 2"></polyline>
+          </svg>
+          Electronic And More
+        </div>
+        
+        <nav class="nav-links">
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Products</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+        
+        <div class="header-actions">
+          <button class="mobile-menu-btn" id="mobileMenuBtn">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+  
+  <div class="side-menu" id="sideMenu">
+    <div class="side-menu-header">
+      <h2>Menu</h2>
+      <button id="closeMenu">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+    <div class="side-menu-content">
+      <div class="side-menu-category">
+        <h3>Categories</h3>
+        <ul>
+          <li><a href="#">Fridges</a></li>
+          <li><a href="#">Cookers</a></li>
+          <li><a href="#">TVs</a></li>
+          <li><a href="#">Air Conditioners</a></li>
+          <li><a href="#">Washing Machines</a></li>
+          <li><a href="#">Cosmetics</a></li>
+        </ul>
+      </div>
+      <div class="side-menu-category">
+        <h3>Account</h3>
+        <ul>
+          <li><a href="#">My Account</a></li>
+          <li><a href="#">Wishlist</a></li>
+          <li><a href="#">Orders</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="side-menu-footer">
+      <a href="tel:+233539566710" class="call-btn">Call Us</a>
+    </div>
+  </div>
+  <div class="menu-overlay" id="menuOverlay"></div>
+  
+  <main>
+    <section class="hero">
+      <div class="container">
+        <h1>Quality Electronics at Unbeatable Prices</h1>
+        <p>Your one-stop shop for home electronics and appliances in Ghana.</p>
+        <div class="btn-group">
+          <a href="#featured" class="btn btn-primary">Shop Now</a>
+          <a href="#contact" class="btn btn-outline">Contact Us</a>
+        </div>
+      </div>
+    </section>
+    
+    <section class="filter-bar">
+      <div class="container">
+        <form class="filter-form">
+          <div class="search-input">
+            <input type="text" id="searchInput" placeholder="Search products...">
+            <div class="search-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+            </div>
+          </div>
+          
+          <div class="filter-selects">
+            <div class="select-wrapper">
+              <select id="categoryFilter">
+                <option value="all-categories">All Categories</option>
+                <option value="fridges">Fridges</option>
+                <option value="cookers">Cookers</option>
+                <option value="tvs">TVs</option>
+                <option value="acs">Air Conditioners</option>
+                <option value="washers">Washing Machines</option>
+                <option value="cosmetics">Cosmetics</option>
+              </select>
+            </div>
+            
+            <div class="select-wrapper">
+              <select id="brandFilter">
+                <option value="all-brands">All Brands</option>
+                <option value="Samsung">Samsung</option>
+                <option value="LG">LG</option>
+                <option value="TCL">TCL</option>
+                <option value="Nasco">Nasco</option>
+              </select>
+            </div>
+            
+            <div class="select-wrapper">
+              <select id="priceFilter">
+                <option value="all-prices">All Prices</option>
+                <option value="low">Under $300</option>
+                <option value="medium">$300 - $600</option>
+                <option value="high">Over $600</option>
+              </select>
+            </div>
+            
+            <button type="button" class="btn reset-btn" id="resetFilters">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 2v6h6"></path>
+                <path d="M3 8C5 4 7 3 12 3c6 0 9 3 9 9s-3 9-9 9c-3 0-5-1-7-3"></path>
+                <path d="M3 16v6h6"></path>
+              </svg>
+              Reset
+            </button>
+          </div>
+        </form>
+      </div>
+    </section>
+    
+    <section class="products-section" id="featured">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Featured Products</h2>
+          <div class="view-toggle">
+            <button class="view-btn active" id="gridViewBtn">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="7" height="7"></rect>
+                <rect x="14" y="3" width="7" height="7"></rect>
+                <rect x="3" y="14" width="7" height="7"></rect>
+                <rect x="14" y="14" width="7" height="7"></rect>
+              </svg>
+            </button>
+            <button class="view-btn" id="listViewBtn">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="8" y1="6" x2="21" y2="6"></line>
+                <line x1="8" y1="12" x2="21" y2="12"></line>
+                <line x1="8" y1="18" x2="21" y2="18"></line>
+                <line x1="3" y1="6" x2="3.01" y2="6"></line>
+                <line x1="3" y1="12" x2="3.01" y2="12"></line>
+                <line x1="3" y1="18" x2="3.01" y2="18"></line>
+              </svg>
+            </button>
+          </div>
+        </div>
+        
+        <div class="grid-view" id="productList">
+          <!-- Product 1 -->
+          <div class="product-card" data-category="fridges" data-brand="Samsung" data-price="499.99">
+            <div class="product-img">
+              <img src="https://images.unsplash.com/photo-1646410637023-4b72692288ec?auto=format&fit=crop&q=80&w=500&h=375" alt="Samsung Refrigerator">
+              <div class="product-tags">
+                <span class="product-tag tag-new">New</span>
+              </div>
+              <button class="wishlist-btn" onclick="toggleWishlist(this)">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20.42 4.58a5.4 5.4 0 0 0-7.65 0l-.77.78-.77-.78a5.4 5.4 0 0 0-7.65 0C1.46 6.7 1.33 10.28 4 13l8 8 8-8c2.67-2.72 2.54-6.3.42-8.42z"></path>
+                </svg>
+              </button>
+            </div>
+            <div class="product-info">
+              <div class="product-rating">
+                <div class="stars">
+                  <span class="filled">★</span>
+                  <span class="filled">★</span>
+                  <span class="filled">★</span>
+                  <span class="filled">★</span>
+                  <span>★</span>
+                </div>
+                <span class="review-count">(42 reviews)</span>
+              </div>
+              <h3 class="product-title">Samsung Double Door Refrigerator</h3>
+              <p class="product-desc">Energy-efficient cooling system with digital inverter technology.</p>
+              <div class="price-actions">
+                <div class="price-box">
+                  <span class="current-price">$499.99</span>
+                  <span class="old-price">$549.99</span>
+                </div>
+                <button class="cart-btn">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="9" cy="21" r="1"></circle>
+                    <circle cx="20" cy="21" r="1"></circle>
+                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                  </svg>
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Product 2 -->
+          <div class="product-card" data-category="tvs" data-brand="LG" data-price="899.99">
+            <div class="product-img">
+              <img src="https://images.unsplash.com/photo-1593305841991-05c297ba4575?auto=format&fit=crop&q=80&w=500&h=375" alt="LG OLED TV">
+              <div class="product-tags">
+                <span class="product-tag tag-bestseller">Best Seller</span>
+              </div>
+              <button class="wishlist-btn" onclick="toggleWishlist(this)">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20.42 4.58a5.4 5.4 0 0 0-7.65 0l-.77.78-.77-.78a5.4 5.4 0 0 0-7.65 0C1.46 6.7 1.33 10.28 4 13l8 8 8-8c2.67-2.72 2.54-6.3.42-8.42z"></path>
+                </svg>
+              </button>
+            </div>
+            <div class="product-info">
+              <div class="product-rating">
+                <div class="stars">
+                  <span class="filled">★</span>
+                  <span class="filled">★</span>
+                  <span class="filled">★</span>
+                  <span class="filled">★</span>
+                  <span class="filled">★</span>
+                </div>
+                <span class="review-count">(87 reviews)</span>
+              </div>
+              <h3 class="product-title">LG 55" OLED 4K Smart TV</h3>
+              <p class="product-desc">Stunning OLED display with AI ThinQ and perfect black.</p>
+              <div class="price-actions">
+                <div class="price-box">
+                  <span class="current-price">$899.99</span>
+                  <span class="old-price">$999.99</span>
+                </div>
+                <button class="cart-btn">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="9" cy="21" r="1"></circle>
+                    <circle cx="20" cy="21" r="1"></circle>
+                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                  </svg>
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Product 3 -->
+          <div class="product-card" data-category="acs" data-brand="Samsung" data-price="349.99">
+            <div class="product-img">
+              <img src="https://images.unsplash.com/photo-1551236350-62a1e6a1b6d3?auto=format&fit=crop&q=80&w=500&h=375" alt="Samsung Air Conditioner">
+              <div class="product-tags">
+                <span class="product-tag tag-sale">Sale</span>
+              </div>
+              <button class="wishlist-btn" onclick="toggleWishlist(this)">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20.42 4.58a5.4 5.4 0 0 0-7.65 0l-.77.78-.77-.78a5.4 5.4 0 0 0-7.65 0C1.46 6.7 1.33 10.28 4 13l8 8 8-8c2.67-2.72 2.54-6.3.42-8.42z"></path>
+                </svg>
+              </button>
+            </div>
+            <div class="product-info">
+              <div class="product-rating">
+                <div class="stars">
+                  <span class="filled">★</span>
+                  <span class="filled">★</span>
+                  <span class="filled">★</span>
+                  <span class="filled">★</span>
+                  <span>★</span>
+                </div>
+                <span class="review-count">(36 reviews)</span>
+              </div>
+              <h3 class="product-title">Samsung Inverter Split AC</h3>
+              <p class="product-desc">Energy-efficient cooling with fast cool technology.</p>
+              <div class="price-actions">
+                <div class="price-box">
+                  <span class="current-price">$349.99</span>
+                  <span class="old-price">$429.99</span>
+                </div>
+                <button class="cart-btn">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="9" cy="21" r="1"></circle>
+                    <circle cx="20" cy="21" r="1"></circle>
+                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                  </svg>
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Product 4 -->
+          <div class="product-card" data-category="cookers" data-brand="Nasco" data-price="249.99">
+            <div class="product-img">
+              <img src="https://images.unsplash.com/photo-1615678815958-5910c6811c25?auto=format&fit=crop&q=80&w=500&h=375" alt="Nasco Gas Cooker">
+              <button class="wishlist-btn" onclick="toggleWishlist(this)">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20.42 4.58a5.4 5.4 0 0 0-7.65 0l-.77.78-.77-.78a5.4 5.4 0 0 0-7.65 0C1.46 6.7 1.33 10.28 4 13l8 8 8-8c2.67-2.72 2.54-6.3.42-8.42z"></path>
+                </svg>
+              </button>
+            </div>
+            <div class="product-info">
+              <div class="product-rating">
+                <div class="stars">
+                  <span class="filled">★</span>
+                  <span class="filled">★</span>
+                  <span class="filled">★</span>
+                  <span>★</span>
+                  <span>★</span>
+                </div>
+                <span class="review-count">(24 reviews)</span>
+              </div>
+              <h3 class="product-title">Nasco 4-Burner Gas Cooker</h3>
+              <p class="product-desc">Reliable cooking performance with auto-ignition and oven.</p>
+              <div class="price-actions">
+                <div class="price-box">
+                  <span class="current-price">$249.99</span>
+                </div>
+                <button class="cart-btn">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="9" cy="21" r="1"></circle>
+                    <circle cx="20" cy="21" r="1"></circle>
+                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                  </svg>
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+          </div>
+          
+          <!-- More products here -->
+        </div>
+        
+        <div class="text-center">
+          <a href="#" class="view-all-btn">View All Products</a>
+        </div>
+      </div>
+    </section>
+    
+    <section class="features-section">
+      <div class="container">
+        <div class="features-grid">
+          <div class="feature-item">
+            <div class="feature-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="1" y="3" width="15" height="13"></rect>
+                <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
+                <circle cx="5.5" cy="18.5" r="2.5"></circle>
+                <circle cx="18.5" cy="18.5" r="2.5"></circle>
+              </svg>
+            </div>
+            <h3 class="feature-title">Free Delivery</h3>
+            <p class="feature-desc">Free shipping on all orders over $250</p>
+          </div>
+          
+          <div class="feature-item">
+            <div class="feature-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"></path>
+                <path d="M9 12l2 2 4-4"></path>
+              </svg>
+            </div>
+            <h3 class="feature-title">Product Warranty</h3>
+            <p class="feature-desc">1-2 years warranty on all products</p>
+          </div>
+          
+          <div class="feature-item">
+            <div class="feature-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="1 4 1 10 7 10"></polyline>
+                <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path>
+              </svg>
+            </div>
+            <h3 class="feature-title">Easy Returns</h3>
+            <p class="feature-desc">30-day return policy for peace of mind</p>
+          </div>
+          
+          <div class="feature-item">
+            <div class="feature-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+              </svg>
+            </div>
+            <h3 class="feature-title">24/7 Support</h3>
+            <p class="feature-desc">Dedicated customer service team</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section class="ceo-section">
+      <div class="container">
+        <div class="ceo-card">
+          <div class="ceo-content">
+            <div class="ceo-img">
+              <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=200&h=200" alt="CEO Portrait">
+            </div>
+            <div class="ceo-message">
+              <h2>Message from Our CEO</h2>
+              <p>"Welcome to Electronic And More! As CEO, I am proud to offer quality products that enhance your lifestyle at competitive prices.</p>
+              <p>Our mission is to provide exceptional customer service and create lasting relationships with our clients. We carefully select each item to ensure it meets our high standards of quality and value."</p>
+              <div class="ceo-signature">
+                <div class="name-position">
+                  <span class="ceo-name">John Mensah</span>
+                  <span class="ceo-position">Founder & CEO</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section class="newsletter-section">
+      <div class="container">
+        <div class="newsletter-content">
+          <h2>Join Our Newsletter</h2>
+          <p>Subscribe to receive updates, access to exclusive deals, and more.</p>
+          <form class="newsletter-form">
+            <input type="email" class="newsletter-input" placeholder="Enter your email" required>
+            <button type="submit" class="newsletter-btn">Subscribe</button>
+          </form>
+          <p class="privacy-text">By subscribing, you agree to our Privacy Policy and consent to receive updates from our company.</p>
+        </div>
+      </div>
+    </section>
+    
+    <section class="contact-section" id="contact">
+      <div class="container">
+        <div class="contact-grid">
+          <div class="contact-info">
+            <h2>Get In Touch</h2>
+            <p>Have questions about our products or services? Our team is here to help you with anything you need.</p>
+            
+            <div class="contact-items">
+              <div class="contact-item">
+                <div class="contact-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                  </svg>
+                </div>
+                <div class="contact-item-content">
+                  <h3>Our Location</h3>
+                  <p>Pokuase, Accra City, Ghana</p>
+                </div>
+              </div>
+              
+              <div class="contact-item">
+                <div class="contact-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                  </svg>
+                </div>
+                <div class="contact-item-content">
+                  <h3>Call Us</h3>
+                  <p><a href="tel:+233539566710">+233 53 956 6710</a></p>
+                </div>
+              </div>
+              
+              <div class="contact-item">
+                <div class="contact-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                    <polyline points="22,6 12,13 2,6"></polyline>
+                  </svg>
+                </div>
+                <div class="contact-item-content">
+                  <h3>Email Us</h3>
+                  <p><a href="mailto:electronicandmoregh@gmail.com">electronicandmoregh@gmail.com</a></p>
+                </div>
+              </div>
+              
+              <div class="contact-item">
+                <div class="contact-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="12 6 12 12 16 14"></polyline>
+                  </svg>
+                </div>
+                <div class="contact-item-content">
+                  <h3>Working Hours</h3>
+                  <p>Monday - Saturday: 9:00 AM - 8:00 PM</p>
+                  <p>Sunday: 10:00 AM - 6:00 PM</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="social-links">
+              <h3>Follow Us</h3>
+              <div class="social-icons">
+                <a href="#" class="social-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                  </svg>
+                </a>
+                <a href="#" class="social-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                  </svg>
+                </a>
+                <a href="#" class="social-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+                  </svg>
+                </a>
+                <a href="#" class="social-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                    <rect x="2" y="9" width="4" height="12"></rect>
+                    <circle cx="4" cy="4" r="2"></circle>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="contact-form-wrapper">
+            <div class="contact-form">
+              <h2>Send us a Message</h2>
+              <form class="form-grid">
+                <div class="form-group">
+                  <label for="name" class="form-label">Your Name</label>
+                  <input type="text" id="name" class="form-input" required>
+                </div>
+                
+                <div class="form-group">
+                  <label for="email" class="form-label">Your Email</label>
+                  <input type="email" id="email" class="form-input" required>
+                </div>
+                
+                <div class="form-group">
+                  <label for="subject" class="form-label">Subject</label>
+                  <input type="text" id="subject" class="form-input" required>
+                </div>
+                
+                <div class="form-group form-message">
+                  <label for="message" class="form-label">Your Message</label>
+                  <textarea id="message" class="form-textarea" required></textarea>
+                </div>
+                
+                <div class="form-group form-message">
+                  <button type="submit" class="submit-btn">Send Message</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h3>Electronic And More</h3>
+          <p>Your trusted source for quality electronics and home appliances in Ghana.</p>
+          <div class="footer-social">
+            <a href="#">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+              </svg>
+            </a>
+            <a href="#">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+              </svg>
+            </a>
+            <a href="#">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+              </svg>
+            </a>
+            <a href="#">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path>
+                <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
+              </svg>
+            </a>
+          </div>
+        </div>
+        
+        <div class="footer-col">
+          <h3>Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Products</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">FAQ</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-col">
+          <h3>Product Categories</h3>
+          <ul class="footer-links">
+            <li><a href="#">Fridges</a></li>
+            <li><a href="#">Cookers</a></li>
+            <li><a href="#">TVs</a></li>
+            <li><a href="#">Air Conditioners</a></li>
+            <li><a href="#">Washing Machines</a></li>
+            <li><a href="#">Cosmetics</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-col">
+          <h3>Contact Info</h3>
+          <div class="footer-contact-item">
+            <div class="footer-contact-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+            </div>
+            <p>Pokuase, Accra City, Ghana</p>
+          </div>
+          <div class="footer-contact-item">
+            <div class="footer-contact-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+              </svg>
+            </div>
+            <p>+233 53 956 6710</p>
+          </div>
+          <div class="footer-contact-item">
+            <div class="footer-contact-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+            </div>
+            <p>electronicandmoregh@gmail.com</p>
+          </div>
+          <div class="footer-contact-item">
+            <div class="footer-contact-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+              </svg>
+            </div>
+            <p>Mon-Sat: 9am - 8pm</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <div class="footer-bottom-content">
+          <p class="copyright">&copy; 2025 Electronic And More. All rights reserved.</p>
+          <div class="legal-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Shipping Policy</a>
+          </div>
+          <div class="payment-methods">
+            <span>Payment Methods:</span>
+            <div class="payment-icons">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M2.5 4A1.5 1.5 0 0 0 1 5.5v13A1.5 1.5 0 0 0 2.5 20h19a1.5 1.5 0 0 0 1.5-1.5v-13A1.5 1.5 0 0 0 21.5 4h-19zM3 8h18v1H3V8zm0 4h6v4H3v-4zm8 0h10v4H11v-4z"/>
+              </svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-1 14H5c-.55 0-1-.45-1-1V7c0-.55.45-1 1-1h14c.55 0 1 .45 1 1v10c0 .55-.45 1-1 1z"/>
+                <path d="M7.5 13h2c.28 0 .5-.22.5-.5v-2c0-.28-.22-.5-.5-.5h-2c-.28 0-.5.22-.5.5v2c0 .28.22.5.5.5zm6 0h2c.28 0 .5-.22.5-.5v-2c0-.28-.22-.5-.5-.5h-2c-.28 0-.5.22-.5.5v2c0 .28.22.5.5.5z"/>
+              </svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V6h16v12z"/>
+                <path d="M11 10H9V8h2v2zm4 0h-2V8h2v2zm-7 4H6v-2h2v2zm4 0h-2v-2h2v2zm-4-8H6V4h2v2zm4 0h-2V4h2v2z"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+  <a href="https://wa.me/233539566710" class="whatsapp-float" target="_blank">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+    </svg>
+    <span class="whatsapp-text">Chat with us</span>
+  </a>
+  
+  <script>
+    // Mobile menu toggle
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const closeMenuBtn = document.getElementById('closeMenu');
+    const sideMenu = document.getElementById('sideMenu');
+    const menuOverlay = document.getElementById('menuOverlay');
+    
+    if (mobileMenuBtn) {
+      mobileMenuBtn.addEventListener('click', () => {
+        sideMenu.style.right = '0';
+        menuOverlay.style.display = 'block';
+      });
+    }
+    
+    if (closeMenuBtn) {
+      closeMenuBtn.addEventListener('click', () => {
+        sideMenu.style.right = '-100%';
+        menuOverlay.style.display = 'none';
+      });
+    }
+    
+    if (menuOverlay) {
+      menuOverlay.addEventListener('click', () => {
+        sideMenu.style.right = '-100%';
+        menuOverlay.style.display = 'none';
+      });
+    }
+    
+    // Product filtering
+    const searchInput = document.getElementById('searchInput');
+    const categoryFilter = document.getElementById('categoryFilter');
+    const brandFilter = document.getElementById('brandFilter');
+    const priceFilter = document.getElementById('priceFilter');
+    const resetFiltersBtn = document.getElementById('resetFilters');
+    const productCards = document.querySelectorAll('.product-card');
+    
+    function filterProducts() {
+      const searchTerm = searchInput.value.toLowerCase();
+      const category = categoryFilter.value;
+      const brand = brandFilter.value;
+      const price = priceFilter.value;
+      
+      productCards.forEach(card => {
+        const productTitle = card.querySelector('.product-title').textContent.toLowerCase();
+        const productDesc = card.querySelector('.product-desc').textContent.toLowerCase();
+        const productCategory = card.dataset.category;
+        const productBrand = card.dataset.brand;
+        const productPrice = parseFloat(card.dataset.price);
+        
+        // Search filter
+        const matchesSearch = !searchTerm || 
+          productTitle.includes(searchTerm) || 
+          productDesc.includes(searchTerm);
+        
+        // Category filter
+        const matchesCategory = category === 'all-categories' || !category || category === productCategory;
+        
+        // Brand filter
+        const matchesBrand = brand === 'all-brands' || !brand || brand === productBrand;
+        
+        // Price filter
+        let matchesPrice = true;
+        if (price === 'low') {
+          matchesPrice = productPrice < 300;
+        } else if (price === 'medium') {
+          matchesPrice = productPrice >= 300 && productPrice <= 600;
+        } else if (price === 'high') {
+          matchesPrice = productPrice > 600;
+        }
+        
+        if (matchesSearch && matchesCategory && matchesBrand && matchesPrice) {
+          card.style.display = '';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+    
+    // Add event listeners to filters
+    if (searchInput) searchInput.addEventListener('input', filterProducts);
+    if (categoryFilter) categoryFilter.addEventListener('change', filterProducts);
+    if (brandFilter) brandFilter.addEventListener('change', filterProducts);
+    if (priceFilter) priceFilter.addEventListener('change', filterProducts);
+    
+    // Reset filters
+    if (resetFiltersBtn) {
+      resetFiltersBtn.addEventListener('click', () => {
+        if (searchInput) searchInput.value = '';
+        if (categoryFilter) categoryFilter.value = 'all-categories';
+        if (brandFilter) brandFilter.value = 'all-brands';
+        if (priceFilter) priceFilter.value = 'all-prices';
+        filterProducts();
+      });
+    }
+    
+    // Toggle wishlist
+    function toggleWishlist(btn) {
+      btn.classList.toggle('active');
+      btn.querySelector('svg').style.fill = btn.classList.contains('active') ? 'currentColor' : 'none';
+    }
+    
+    // View toggle (grid/list)
+    const gridViewBtn = document.getElementById('gridViewBtn');
+    const listViewBtn = document.getElementById('listViewBtn');
+    const productList = document.getElementById('productList');
+    
+    if (gridViewBtn && listViewBtn && productList) {
+      gridViewBtn.addEventListener('click', () => {
+        productList.className = 'grid-view';
+        gridViewBtn.classList.add('active');
+        listViewBtn.classList.remove('active');
+      });
+      
+      listViewBtn.addEventListener('click', () => {
+        productList.className = 'list-view';
+        listViewBtn.classList.add('active');
+        gridViewBtn.classList.remove('active');
+      });
+    }
+    
+    // Form submissions
+    const newsletterForm = document.querySelector('.newsletter-form');
+    const contactForm = document.querySelector('.contact-form form');
+    
+    if (newsletterForm) {
+      newsletterForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        alert('Thank you for subscribing to our newsletter!');
+        newsletterForm.reset();
+      });
+    }
+    
+    if (contactForm) {
+      contactForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        alert('Thank you for your message. We will get back to you soon!');
+        contactForm.reset();
+      });
+    }
+  </script>
+</body>
+</html>
