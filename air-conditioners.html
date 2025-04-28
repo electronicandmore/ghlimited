@@ -812,31 +812,34 @@
   
   <script>
     // Mobile menu toggle
-    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-    const closeMenuBtn = document.getElementById('closeMenu');
-    const sideMenu = document.getElementById('sideMenu');
-    const menuOverlay = document.getElementById('menuOverlay');
-    
-    if (mobileMenuBtn) {
-      mobileMenuBtn.addEventListener('click', () => {
-        sideMenu.style.right = '0';
-        menuOverlay.style.display = 'block';
-      });
-    }
-    
-    if (closeMenuBtn) {
-      closeMenuBtn.addEventListener('click', () => {
-        sideMenu.style.right = '-100%';
-        menuOverlay.style.display = 'none';
-      });
-    }
-    
-    if (menuOverlay) {
-      menuOverlay.addEventListener('click', () => {
-        sideMenu.style.right = '-100%';
-        menuOverlay.style.display = 'none';
-      });
-    }
+    document.addEventListener('DOMContentLoaded', function() {
+      const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+      const closeMenuBtn = document.getElementById('closeMenu');
+      const sideMenu = document.getElementById('sideMenu');
+      const menuOverlay = document.getElementById('menuOverlay');
+      
+      if (mobileMenuBtn) {
+        mobileMenuBtn.addEventListener('click', function() {
+          console.log("Mobile menu button clicked");
+          sideMenu.style.right = '0';
+          menuOverlay.style.display = 'block';
+        });
+      }
+      
+      if (closeMenuBtn) {
+        closeMenuBtn.addEventListener('click', function() {
+          sideMenu.style.right = '-100%';
+          menuOverlay.style.display = 'none';
+        });
+      }
+      
+      if (menuOverlay) {
+        menuOverlay.addEventListener('click', function() {
+          sideMenu.style.right = '-100%';
+          menuOverlay.style.display = 'none';
+        });
+      }
+    });
     
     // Product filtering
     const searchInput = document.getElementById('searchInput');
