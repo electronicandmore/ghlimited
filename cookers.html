@@ -511,40 +511,102 @@
               <p class="product-desc">Ultra-compact single burner design, ideal for small spaces or as a secondary cooking option.</p>
               <div class="price-actions">
                 <div class="price-box">
-                  <span class="current-price">$65.99</span>
-                </div>
-                <button class="cart-btn">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="9" cy="21" r="1"></circle>
-                    <circle cx="20" cy="21" r="1"></circle>
-                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
-                  </svg>
-                  Add to Cart
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <div class="text-center">
-          <a href="#" class="view-all-btn">Load More Products</a>
-        </div>
-        
-        <div class="category-info">
-          <div class="buying-guide">
-            <h3>Gas Cooker Buying Guide</h3>
-            <p>When choosing a gas cooker, consider these important factors to find the perfect fit for your kitchen:</p>
-            
-            <div class="buying-guide-points">
-              <div class="guide-point">
-                <div class="guide-point-icon">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M19 21V5a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v16"></path>
+                   <button type="button" class="category-btn" id="categoryToggle">
+              <i class="fa-solid fa-sliders"></i> 
+              Categories
+            </button>
                     <path d="M1 21h22"></path>
                     <path d="M8 21v-7h8v7"></path>
                   </svg>
                 </div>
                 <div class="guide-point-content">
+                    </div>
+          
+          <!-- Categories toggle menu -->
+          <div class="categories-menu" id="categoriesMenu">
+            <div class="categories-section">
+              <h3>Types</h3>
+              <div class="categories-options">
+                <label class="category-option">
+                  <input type="radio" name="type" value="all-types" checked>
+                  <span>All Types</span>
+                </label>
+                <label class="category-option">
+                  <input type="radio" name="type" value="free-standing">
+                  <span>Free Standing</span>
+                </label>
+                <label class="category-option">
+                  <input type="radio" name="type" value="table-top">
+                  <span>Table Top</span>
+                </label>
+                <label class="category-option">
+                  <input type="radio" name="type" value="built-in">
+                  <span>Built-in</span>
+                </label>
+                <label class="category-option">
+                  <input type="radio" name="type" value="induction">
+                  <span>Induction</span>
+                </label>
+              </div>
+            </div>
+            
+            <div class="categories-section">
+              <h3>Brands</h3>
+              <div class="categories-options">
+                <label class="category-option">
+                  <input type="radio" name="brand" value="all-brands" checked>
+                  <span>All Brands</span>
+                </label>
+                <label class="category-option">
+                  <input type="radio" name="brand" value="Nasco">
+                  <span>Nasco</span>
+                </label>
+                <label class="category-option">
+                  <input type="radio" name="brand" value="Nexus">
+                  <span>Nexus</span>
+                </label>
+                <label class="category-option">
+                  <input type="radio" name="brand" value="Mika">
+                  <span>Mika</span>
+                </label>
+                <label class="category-option">
+                  <input type="radio" name="brand" value="Von">
+                  <span>Von</span>
+                </label>
+                <label class="category-option">
+                  <input type="radio" name="brand" value="Bosch">
+                  <span>Bosch</span>
+                </label>
+              </div>
+            </div>
+            
+            <div class="categories-section">
+              <h3>Price Range</h3>
+              <div class="categories-options">
+                <label class="category-option">
+                  <input type="radio" name="price" value="all-prices" checked>
+                  <span>All Prices</span>
+                </label>
+                <label class="category-option">
+                  <input type="radio" name="price" value="low">
+                  <span>Under $200</span>
+                </label>
+                <label class="category-option">
+                  <input type="radio" name="price" value="medium">
+                  <span>$200 - $400</span>
+                </label>
+                <label class="category-option">
+                  <input type="radio" name="price" value="high">
+                  <span>Above $400</span>
+                </label>
+              </div>
+            </div>
+            
+            <div class="categories-footer">
+              <button type="button" class="apply-filters-btn" id="applyFilters">
+                Apply Filters
+              </button>
+            </div>
                   <h4>Cooker Type</h4>
                   <p>Choose between free-standing models (complete cookers with oven), table-top burners (portable and space-saving), or built-in options (for customized kitchens).</p>
                 </div>
