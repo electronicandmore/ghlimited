@@ -114,6 +114,205 @@
       font-weight: 600;
     }
     
+    /* Menu Sidebar */
+    .menu-sidebar {
+      position: fixed;
+      top: 0;
+      left: -300px;
+      height: 100%;
+      width: 300px;
+      background-color: white;
+      z-index: 1000;
+      overflow-y: auto;
+      transition: left 0.3s ease;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    .dark .menu-sidebar {
+      background-color: var(--neutral-800);
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    }
+    
+    .menu-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.25rem;
+      border-bottom: 1px solid var(--neutral-200);
+    }
+    
+    .dark .menu-header {
+      border-color: var(--neutral-700);
+    }
+    
+    .menu-header span {
+      font-weight: 600;
+      font-size: 1.25rem;
+    }
+    
+    .menu-content {
+      padding: 1.25rem;
+    }
+    
+    .menu-category {
+      margin-bottom: 2rem;
+    }
+    
+    .menu-category-title {
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: var(--neutral-600);
+      font-size: 0.875rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    
+    .dark .menu-category-title {
+      color: var(--neutral-400);
+    }
+    
+    .menu-items {
+      list-style: none;
+      padding: 0;
+    }
+    
+    .menu-item {
+      margin-bottom: 0.25rem;
+    }
+    
+    .menu-item a {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.75rem 0;
+      color: var(--neutral-800);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    
+    .dark .menu-item a {
+      color: var(--neutral-200);
+    }
+    
+    .menu-item a:hover {
+      color: var(--primary);
+    }
+    
+    .dark .menu-item a:hover {
+      color: var(--secondary);
+    }
+    
+    .menu-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 999;
+      display: none;
+    }
+    
+    /* Filter Category in Menu */
+    .filter-category {
+      margin-bottom: 1.5rem;
+      border-bottom: 1px solid var(--neutral-200);
+      padding-bottom: 1.5rem;
+    }
+    
+    .dark .filter-category {
+      border-color: var(--neutral-700);
+    }
+    
+    .filter-category-title {
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .filter-options {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+    }
+    
+    .filter-option {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .filter-option input {
+      accent-color: var(--primary);
+    }
+    
+    .dark .filter-option input {
+      accent-color: var(--secondary);
+    }
+    
+    .filter-option span {
+      font-size: 0.9rem;
+    }
+    
+    .filter-actions {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 1.5rem;
+    }
+    
+    .apply-filters-btn {
+      background-color: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 0.25rem;
+      padding: 0.5rem 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    
+    .apply-filters-btn:hover {
+      background-color: var(--primary-dark);
+    }
+    
+    .dark .apply-filters-btn {
+      background-color: var(--secondary);
+      color: var(--neutral-900);
+    }
+    
+    .dark .apply-filters-btn:hover {
+      background-color: var(--secondary-dark);
+    }
+    
+    .reset-filters-btn {
+      background: none;
+      border: 1px solid var(--neutral-300);
+      color: var(--neutral-700);
+      border-radius: 0.25rem;
+      padding: 0.5rem 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .reset-filters-btn:hover {
+      background-color: var(--neutral-100);
+    }
+    
+    .dark .reset-filters-btn {
+      color: var(--neutral-300);
+      border-color: var(--neutral-600);
+    }
+    
+    .dark .reset-filters-btn:hover {
+      background-color: var(--neutral-700);
+    }
+    
     /* Hero Section */
     .hero {
       background: linear-gradient(rgba(13, 102, 49, 0.9), rgba(13, 102, 49, 0.8)), url('https://images.unsplash.com/photo-1580810943647-bd3d310646cf?auto=format&fit=crop&q=80&w=1200');
@@ -462,123 +661,6 @@
     .dark .feature-tag {
       background-color: rgba(255, 193, 7, 0.1);
       color: var(--secondary);
-      }
-    
-    /* Categories Toggle Menu */
-    .category-btn {
-      background-color: var(--primary);
-      color: white;
-      border: none;
-      border-radius: 0.25rem;
-      padding: 0.5rem 1rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-weight: 500;
-      cursor: pointer;
-      transition: background-color 0.3s;
-    }
-    
-    .category-btn:hover {
-      background-color: var(--primary-dark);
-    }
-    
-    .dark .category-btn {
-      background-color: var(--secondary);
-      color: var(--neutral-900);
-    }
-    
-    .dark .category-btn:hover {
-      background-color: var(--secondary-dark);
-    }
-    
-    .categories-menu {
-      display: none;
-      position: absolute;
-      top: 100%;
-      left: 0;
-      right: 0;
-      background-color: white;
-      border-radius: 0.5rem;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-      z-index: 20;
-      margin-top: 0.5rem;
-      padding: 1.5rem;
-    }
-    
-    .dark .categories-menu {
-      background-color: var(--neutral-800);
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-    }
-    
-    .categories-section {
-      margin-bottom: 1.5rem;
-    }
-    
-    .categories-section h3 {
-      font-size: 1rem;
-      margin-bottom: 0.75rem;
-      color: var(--neutral-600);
-      font-weight: 600;
-    }
-    
-    .dark .categories-section h3 {
-      color: var(--neutral-400);
-    }
-    
-    .categories-options {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-    }
-    
-    .category-option {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      cursor: pointer;
-    }
-    
-    .category-option input {
-      accent-color: var(--primary);
-    }
-    
-    .dark .category-option input {
-      accent-color: var(--secondary);
-    }
-    
-    .category-option span {
-      font-size: 0.9rem;
-    }
-    
-    .categories-footer {
-      display: flex;
-      justify-content: flex-end;
-      margin-top: 1rem;
-    }
-    
-    .apply-filters-btn {
-      background-color: var(--primary);
-      color: white;
-      border: none;
-      border-radius: 0.25rem;
-      padding: 0.5rem 1rem;
-      font-weight: 500;
-      cursor: pointer;
-      transition: background-color 0.3s;
-    }
-    
-    .apply-filters-btn:hover {
-      background-color: var(--primary-dark);
-    }
-    
-    .dark .apply-filters-btn {
-      background-color: var(--secondary);
-      color: var(--neutral-900);
-    }
-    
-    .dark .apply-filters-btn:hover {
-      background-color: var(--secondary-dark);
     }
     
     .installation-info {
@@ -609,6 +691,354 @@
     
     .dark .installation-info-icon {
       background-color: var(--neutral-700);
+    }
+    
+    /* Filter bar */
+    .filter-bar {
+      margin-bottom: 2rem;
+    }
+    
+    .filter-form {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+    
+    .search-input {
+      flex-grow: 1;
+      position: relative;
+    }
+    
+    .search-input input {
+      width: 100%;
+      padding: 0.75rem 1rem 0.75rem 2.75rem;
+      border: 1px solid var(--neutral-300);
+      border-radius: 0.5rem;
+      font-size: 0.95rem;
+    }
+    
+    .dark .search-input input {
+      background-color: var(--neutral-800);
+      border-color: var(--neutral-700);
+      color: var(--neutral-100);
+    }
+    
+    .filters-btn {
+      background-color: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 0.5rem;
+      padding: 0.75rem 1.25rem;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    
+    .filters-btn:hover {
+      background-color: var(--primary-dark);
+    }
+    
+    .dark .filters-btn {
+      background-color: var(--secondary);
+      color: var(--neutral-900);
+    }
+    
+    .dark .filters-btn:hover {
+      background-color: var(--secondary-dark);
+    }
+    
+    /* Products Grid */
+    .grid-view {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+    
+    .product-card {
+      background-color: white;
+      border-radius: 1rem;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    
+    .dark .product-card {
+      background-color: var(--neutral-800);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+    
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    }
+    
+    .dark .product-card:hover {
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    }
+    
+    .product-img {
+      position: relative;
+      height: 200px;
+      overflow: hidden;
+    }
+    
+    .product-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s;
+    }
+    
+    .product-card:hover .product-img img {
+      transform: scale(1.05);
+    }
+    
+    .wishlist-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background-color: white;
+      border: none;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      z-index: 5;
+    }
+    
+    .dark .wishlist-btn {
+      background-color: var(--neutral-700);
+      color: white;
+    }
+    
+    .product-info {
+      padding: 1.25rem;
+    }
+    
+    .product-rating {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .stars {
+      display: flex;
+      color: var(--neutral-400);
+    }
+    
+    .stars .filled {
+      color: var(--secondary);
+    }
+    
+    .review-count {
+      font-size: 0.75rem;
+      color: var(--neutral-500);
+    }
+    
+    .product-title {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+    
+    .product-desc {
+      font-size: 0.875rem;
+      color: var(--neutral-600);
+      margin-bottom: 1rem;
+      line-height: 1.4;
+    }
+    
+    .dark .product-desc {
+      color: var(--neutral-400);
+    }
+    
+    .price-actions {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .price-box {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .current-price {
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: var(--neutral-900);
+    }
+    
+    .dark .current-price {
+      color: white;
+    }
+    
+    .old-price {
+      font-size: 0.875rem;
+      color: var(--neutral-500);
+      text-decoration: line-through;
+    }
+    
+    .cart-btn {
+      background-color: var(--primary);
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 0.25rem;
+      font-weight: 500;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: background-color 0.3s;
+    }
+    
+    .cart-btn:hover {
+      background-color: var(--primary-dark);
+    }
+    
+    .dark .cart-btn {
+      background-color: var(--secondary);
+      color: var(--neutral-900);
+    }
+    
+    .dark .cart-btn:hover {
+      background-color: var(--secondary-dark);
+    }
+    
+    .view-all-btn {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      background-color: var(--primary);
+      color: white;
+      border-radius: 0.5rem;
+      text-decoration: none;
+      font-weight: 500;
+      margin-top: 2rem;
+      transition: background-color 0.3s;
+    }
+    
+    .view-all-btn:hover {
+      background-color: var(--primary-dark);
+    }
+    
+    .dark .view-all-btn {
+      background-color: var(--secondary);
+      color: var(--neutral-900);
+    }
+    
+    .dark .view-all-btn:hover {
+      background-color: var(--secondary-dark);
+    }
+    
+    .text-center {
+      text-align: center;
+    }
+    
+    /* Features Section */
+    .features-section {
+      background-color: var(--neutral-100);
+      padding: 4rem 0;
+      margin-top: 4rem;
+    }
+    
+    .dark .features-section {
+      background-color: var(--neutral-900);
+    }
+    
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+    
+    .feature-item {
+      text-align: center;
+    }
+    
+    .feature-icon {
+      width: 4rem;
+      height: 4rem;
+      background-color: white;
+      margin: 0 auto 1rem;
+      border-radius: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      color: var(--primary);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    }
+    
+    .dark .feature-icon {
+      background-color: var(--neutral-800);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      color: var(--secondary);
+    }
+    
+    .feature-title {
+      font-size: 1.25rem;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+    
+    .feature-desc {
+      color: var(--neutral-600);
+      font-size: 0.875rem;
+    }
+    
+    .dark .feature-desc {
+      color: var(--neutral-400);
+    }
+    
+    /* WhatsApp Float */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      background-color: #25d366;
+      color: white;
+      width: 3.5rem;
+      height: 3.5rem;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+      z-index: 100;
+      transition: all 0.3s;
+      overflow: hidden;
+      text-decoration: none;
+    }
+    
+    .whatsapp-float:hover {
+      width: auto;
+      padding: 0 1.5rem;
+      border-radius: 50px;
+    }
+    
+    .whatsapp-text {
+      white-space: nowrap;
+      margin-left: 0.75rem;
+      font-weight: 500;
+      opacity: 0;
+      transform: translateX(10px);
+      transition: all 0.3s;
+    }
+    
+    .whatsapp-float:hover .whatsapp-text {
+      opacity: 1;
+      transform: translateX(0);
     }
   </style>
 </head>
@@ -651,7 +1081,7 @@
     </div>
   </header>
   
-  <!-- Side Menu -->
+  <!-- Side Menu with Filter Categories -->
   <div class="menu-sidebar" id="menuSidebar">
     <div class="menu-header">
       <span>Menu</span>
@@ -661,25 +1091,125 @@
     </div>
     
     <div class="menu-content">
+      <!-- Filter Categories -->
+      <div class="filter-category">
+        <div class="filter-category-title">
+          <i class="fa-solid fa-filter"></i> Filter Products
+        </div>
+        
+        <div class="filter-section">
+          <h3>AC Types</h3>
+          <div class="filter-options">
+            <label class="filter-option">
+              <input type="radio" name="type" value="all-types" checked>
+              <span>All Types</span>
+            </label>
+            <label class="filter-option">
+              <input type="radio" name="type" value="split">
+              <span>Split AC</span>
+            </label>
+            <label class="filter-option">
+              <input type="radio" name="type" value="window">
+              <span>Window AC</span>
+            </label>
+            <label class="filter-option">
+              <input type="radio" name="type" value="portable">
+              <span>Portable</span>
+            </label>
+            <label class="filter-option">
+              <input type="radio" name="type" value="cassette">
+              <span>Cassette</span>
+            </label>
+            <label class="filter-option">
+              <input type="radio" name="type" value="floor-standing">
+              <span>Floor Standing</span>
+            </label>
+          </div>
+        </div>
+        
+        <div class="filter-section">
+          <h3>Brands</h3>
+          <div class="filter-options">
+            <label class="filter-option">
+              <input type="radio" name="brand" value="all-brands" checked>
+              <span>All Brands</span>
+            </label>
+            <label class="filter-option">
+              <input type="radio" name="brand" value="Samsung">
+              <span>Samsung</span>
+            </label>
+            <label class="filter-option">
+              <input type="radio" name="brand" value="LG">
+              <span>LG</span>
+            </label>
+            <label class="filter-option">
+              <input type="radio" name="brand" value="Hisense">
+              <span>Hisense</span>
+            </label>
+            <label class="filter-option">
+              <input type="radio" name="brand" value="Nasco">
+              <span>Nasco</span>
+            </label>
+            <label class="filter-option">
+              <input type="radio" name="brand" value="Midea">
+              <span>Midea</span>
+            </label>
+          </div>
+        </div>
+        
+        <div class="filter-section">
+          <h3>Price Range</h3>
+          <div class="filter-options">
+            <label class="filter-option">
+              <input type="radio" name="price" value="all-prices" checked>
+              <span>All Prices</span>
+            </label>
+            <label class="filter-option">
+              <input type="radio" name="price" value="low">
+              <span>Under $300</span>
+            </label>
+            <label class="filter-option">
+              <input type="radio" name="price" value="medium">
+              <span>$300 - $600</span>
+            </label>
+            <label class="filter-option">
+              <input type="radio" name="price" value="high">
+              <span>Above $600</span>
+            </label>
+          </div>
+        </div>
+        
+        <div class="filter-actions">
+          <button type="button" class="apply-filters-btn" id="applyFilters">
+            Apply Filters
+          </button>
+          <button type="button" class="reset-filters-btn" id="resetFilters">
+            <i class="fa-solid fa-rotate"></i>
+            Reset
+          </button>
+        </div>
+      </div>
+      
+      <!-- Navigation Categories -->
       <div class="menu-category">
         <div class="menu-category-title">Categories</div>
         <ul class="menu-items">
-          <li class="menu-item"><a href="fridges.html">Fridges</a></li>
-          <li class="menu-item"><a href="cookers.html">Cookers</a></li>
-          <li class="menu-item"><a href="televisions.html">TVs</a></li>
-          <li class="menu-item"><a href="air-conditioners.html">Air Conditioners</a></li>
-          <li class="menu-item"><a href="washing-machines.html">Washing Machines</a></li>
-          <li class="menu-item"><a href="cosmetics.html">Cosmetics</a></li>
+          <li class="menu-item"><a href="fridges.html"><i class="fa-solid fa-snowflake"></i> Fridges</a></li>
+          <li class="menu-item"><a href="cookers.html"><i class="fa-solid fa-fire"></i> Cookers</a></li>
+          <li class="menu-item"><a href="televisions.html"><i class="fa-solid fa-tv"></i> TVs</a></li>
+          <li class="menu-item"><a href="air-conditioners.html"><i class="fa-solid fa-wind"></i> Air Conditioners</a></li>
+          <li class="menu-item"><a href="washing-machines.html"><i class="fa-solid fa-shirt"></i> Washing Machines</a></li>
+          <li class="menu-item"><a href="cosmetics.html"><i class="fa-solid fa-spray-can"></i> Cosmetics</a></li>
         </ul>
       </div>
       
       <div class="menu-category">
         <div class="menu-category-title">Account</div>
         <ul class="menu-items">
-          <li class="menu-item"><a href="#">My Account</a></li>
-          <li class="menu-item"><a href="#">Wishlist</a></li>
-          <li class="menu-item"><a href="#">Orders</a></li>
-          <li class="menu-item"><a href="tel:+233539566710">Call Us</a></li>
+          <li class="menu-item"><a href="#"><i class="fa-solid fa-user"></i> My Account</a></li>
+          <li class="menu-item"><a href="#"><i class="fa-solid fa-heart"></i> Wishlist</a></li>
+          <li class="menu-item"><a href="#"><i class="fa-solid fa-box"></i> Orders</a></li>
+          <li class="menu-item"><a href="tel:+233539566710"><i class="fa-solid fa-phone"></i> Call Us</a></li>
         </ul>
       </div>
     </div>
@@ -715,108 +1245,10 @@
             <i class="fa-solid fa-magnifying-glass search-bar-icon"></i>
           </div>
           
-          <div class="filter-selects">
-            <button type="button" class="category-btn" id="categoryToggle">
-              <i class="fa-solid fa-sliders"></i> 
-              Categories
-            </button>
-            
-            <button type="button" class="reset-filters" id="resetFilters">
-              <i class="fa-solid fa-rotate"></i>
-              Reset
-            </button>
-              </div>
-          
-          <!-- Categories toggle menu -->
-          <div class="categories-menu" id="categoriesMenu">
-            <div class="categories-section">
-              <h3>Types</h3>
-              <div class="categories-options">
-                <label class="category-option">
-                  <input type="radio" name="type" value="all-types" checked>
-                  <span>All Types</span>
-                </label>
-                <label class="category-option">
-                  <input type="radio" name="type" value="split">
-                  <span>Split AC</span>
-                </label>
-                <label class="category-option">
-                  <input type="radio" name="type" value="window">
-                  <span>Window AC</span>
-                </label>
-                <label class="category-option">
-                  <input type="radio" name="type" value="portable">
-                  <span>Portable AC</span>
-                </label>
-                <label class="category-option">
-                  <input type="radio" name="type" value="cassette">
-                  <span>Cassette AC</span>
-                </label>
-                <label class="category-option">
-                  <input type="radio" name="type" value="floor-standing">
-                  <span>Floor Standing AC</span>
-                </label>
-              </div>
-            </div>
-            
-            <div class="categories-section">
-              <h3>Brands</h3>
-              <div class="categories-options">
-                <label class="category-option">
-                  <input type="radio" name="brand" value="all-brands" checked>
-                  <span>All Brands</span>
-                </label>
-                <label class="category-option">
-                  <input type="radio" name="brand" value="Samsung">
-                  <span>Samsung</span>
-                </label>
-                <label class="category-option">
-                  <input type="radio" name="brand" value="LG">
-                  <span>LG</span>
-                </label>
-                <label class="category-option">
-                  <input type="radio" name="brand" value="Hisense">
-                  <span>Hisense</span>
-                </label>
-                <label class="category-option">
-                  <input type="radio" name="brand" value="Nasco">
-                  <span>Nasco</span>
-                </label>
-                <label class="category-option">
-                  <input type="radio" name="brand" value="Midea">
-                  <span>Midea</span>
-                </label>
-              </div>
-            </div>
-            
-            <div class="categories-section">
-              <h3>Price Range</h3>
-              <div class="categories-options">
-                <label class="category-option">
-                  <input type="radio" name="price" value="all-prices" checked>
-                  <span>All Prices</span>
-                </label>
-                <label class="category-option">
-                  <input type="radio" name="price" value="low">
-                  <span>Under $300</span>
-                </label>
-                <label class="category-option">
-                  <input type="radio" name="price" value="medium">
-                  <span>$300 - $600</span>
-                </label>
-                <label class="category-option">
-                  <input type="radio" name="price" value="high">
-                  <span>Above $600</span>
-                </label>
-              </div>
-            </div>
-            
-            <div class="categories-footer">
-              <button type="button" class="apply-filters-btn" id="applyFilters">
-                Apply Filters
-              </button>
-            </div>
-          </div>
+          <button type="button" class="filters-btn" id="filtersBtn">
+            <i class="fa-solid fa-sliders"></i>
+            Filters & Categories
+          </button>
         </form>
       </div>
     </section>
@@ -993,7 +1425,7 @@
             </div>
           </div>
           
-          <!-- Additional products would go here -->
+          <!-- More products would go here -->
         </div>
         
         <div class="text-center">
@@ -1266,9 +1698,12 @@
     // Menu toggle functionality
     document.addEventListener('DOMContentLoaded', function() {
       const menuToggle = document.getElementById('menuToggle');
+      const filtersBtn = document.getElementById('filtersBtn');
       const closeMenu = document.getElementById('closeMenu');
       const menuSidebar = document.getElementById('menuSidebar');
       const menuOverlay = document.getElementById('menuOverlay');
+      const applyFilters = document.getElementById('applyFilters');
+      const resetFilters = document.getElementById('resetFilters');
       
       // Function to open the menu
       function openMenu() {
@@ -1279,7 +1714,7 @@
       
       // Function to close the menu
       function closeMenuFunc() {
-        menuSidebar.style.left = '-250px';
+        menuSidebar.style.left = '-300px';
         menuOverlay.style.display = 'none';
         document.body.style.overflow = ''; // Re-enable scrolling
       }
@@ -1287,6 +1722,10 @@
       // Event listeners
       if (menuToggle) {
         menuToggle.addEventListener('click', openMenu);
+      }
+      
+      if (filtersBtn) {
+        filtersBtn.addEventListener('click', openMenu);
       }
       
       if (closeMenu) {
@@ -1297,35 +1736,59 @@
         menuOverlay.addEventListener('click', closeMenuFunc);
       }
       
-      // Product filtering functionality
-      const searchInput = document.getElementById('searchInput');
-      const typeFilter = document.getElementById('typeFilter');
-      const brandFilter = document.getElementById('brandFilter');
-      const priceFilter = document.getElementById('priceFilter');
-      const resetFilters = document.getElementById('resetFilters');
-      const productList = document.getElementById('productList');
-      const productCards = document.querySelectorAll('.product-card');
-      const productCountEl = document.getElementById('productCount');
-      const sortProducts = document.getElementById('sortProducts');
+      // Apply filters
+      if (applyFilters) {
+        applyFilters.addEventListener('click', function() {
+          // Get the selected values
+          const typeValue = document.querySelector('input[name="type"]:checked').value;
+          const brandValue = document.querySelector('input[name="brand"]:checked').value;
+          const priceValue = document.querySelector('input[name="price"]:checked').value;
+          
+          // Filter products
+          filterProductsByValues(typeValue, brandValue, priceValue);
+          
+          // Close the menu
+          closeMenuFunc();
+        });
+      }
       
-      // Function to filter products
-      function filterProducts() {
-        const searchTerm = searchInput.value.toLowerCase();
-        const type = typeFilter.value;
-        const brand = brandFilter.value;
-        const price = priceFilter.value;
-        
+      // Reset filters
+      if (resetFilters) {
+        resetFilters.addEventListener('click', function() {
+          // Reset radio buttons
+          document.querySelector('input[name="type"][value="all-types"]').checked = true;
+          document.querySelector('input[name="brand"][value="all-brands"]').checked = true;
+          document.querySelector('input[name="price"][value="all-prices"]').checked = true;
+          
+          // Clear search input
+          if (document.getElementById('searchInput')) {
+            document.getElementById('searchInput').value = '';
+          }
+          
+          // Reset the product display
+          const productCards = document.querySelectorAll('.product-card');
+          productCards.forEach(card => {
+            card.style.display = '';
+          });
+          
+          // Update count
+          const productCountEl = document.getElementById('productCount');
+          if (productCountEl) {
+            productCountEl.textContent = productCards.length;
+          }
+        });
+      }
+      
+      // Function to filter products by selected values
+      function filterProductsByValues(type, brand, price) {
+        const productCards = document.querySelectorAll('.product-card');
         let visibleCount = 0;
         
         productCards.forEach(card => {
           const cardType = card.dataset.type;
           const cardBrand = card.dataset.brand;
           const cardPrice = parseFloat(card.dataset.price);
-          const cardTitle = card.querySelector('.product-title').textContent.toLowerCase();
-          const cardDesc = card.querySelector('.product-desc').textContent.toLowerCase();
           
-          // Check if card matches all filters
-          const matchesSearch = cardTitle.includes(searchTerm) || cardDesc.includes(searchTerm) || searchTerm === '';
           const matchesType = type === 'all-types' || cardType === type;
           const matchesBrand = brand === 'all-brands' || cardBrand === brand;
           
@@ -1338,7 +1801,7 @@
             matchesPrice = cardPrice > 600;
           }
           
-          if (matchesSearch && matchesType && matchesBrand && matchesPrice) {
+          if (matchesType && matchesBrand && matchesPrice) {
             card.style.display = '';
             visibleCount++;
           } else {
@@ -1347,32 +1810,47 @@
         });
         
         // Update product count
+        const productCountEl = document.getElementById('productCount');
         if (productCountEl) {
           productCountEl.textContent = visibleCount;
         }
       }
       
-      // Event listeners for filters
-      if (searchInput) searchInput.addEventListener('input', filterProducts);
-      if (typeFilter) typeFilter.addEventListener('change', filterProducts);
-      if (brandFilter) brandFilter.addEventListener('change', filterProducts);
-      if (priceFilter) priceFilter.addEventListener('change', filterProducts);
-      
-      // Reset filters
-      if (resetFilters) {
-        resetFilters.addEventListener('click', function() {
-          if (searchInput) searchInput.value = '';
-          if (typeFilter) typeFilter.value = 'all-types';
-          if (brandFilter) brandFilter.value = 'all-brands';
-          if (priceFilter) priceFilter.value = 'all-prices';
-          filterProducts();
+      // Search functionality
+      const searchInput = document.getElementById('searchInput');
+      if (searchInput) {
+        searchInput.addEventListener('input', function() {
+          const searchTerm = searchInput.value.toLowerCase();
+          const productCards = document.querySelectorAll('.product-card');
+          let visibleCount = 0;
+          
+          productCards.forEach(card => {
+            const productTitle = card.querySelector('.product-title').textContent.toLowerCase();
+            const productDesc = card.querySelector('.product-desc').textContent.toLowerCase();
+            
+            if (productTitle.includes(searchTerm) || productDesc.includes(searchTerm) || searchTerm === '') {
+              card.style.display = '';
+              visibleCount++;
+            } else {
+              card.style.display = 'none';
+            }
+          });
+          
+          // Update product count
+          const productCountEl = document.getElementById('productCount');
+          if (productCountEl) {
+            productCountEl.textContent = visibleCount;
+          }
         });
       }
       
       // Product sorting
+      const sortProducts = document.getElementById('sortProducts');
       if (sortProducts) {
         sortProducts.addEventListener('change', () => {
           const sortValue = sortProducts.value;
+          const productList = document.getElementById('productList');
+          const productCards = document.querySelectorAll('.product-card');
           const productsArray = Array.from(productCards);
           
           productsArray.sort((a, b) => {
