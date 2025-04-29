@@ -403,8 +403,125 @@
               </div>
             </div>
           </div>
+
+           }
+    
+    /* Categories Toggle Menu */
+    .category-btn {
+      background-color: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 0.25rem;
+      padding: 0.5rem 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    
+    .category-btn:hover {
+      background-color: var(--primary-dark);
+    }
+    
+    .dark .category-btn {
+      background-color: var(--secondary);
+      color: var(--neutral-900);
+    }
+    
+    .dark .category-btn:hover {
+      background-color: var(--secondary-dark);
+    }
+    
+    .categories-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background-color: white;
+      border-radius: 0.5rem;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+      z-index: 20;
+      margin-top: 0.5rem;
+      padding: 1.5rem;
+    }
+    
+    .dark .categories-menu {
+      background-color: var(--neutral-800);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    }
+    
+    .categories-section {
+      margin-bottom: 1.5rem;
+    }
+    
+    .categories-section h3 {
+      font-size: 1rem;
+      margin-bottom: 0.75rem;
+      color: var(--neutral-600);
+      font-weight: 600;
+    }
+    
+    .dark .categories-section h3 {
+      color: var(--neutral-400);
+    }
+    
+    .categories-options {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+    
+    .category-option {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      cursor: pointer;
+    }
+    
+    .category-option input {
+      accent-color: var(--primary);
+    }
+    
+    .dark .category-option input {
+      accent-color: var(--secondary);
+    }
+    
+    .category-option span {
+      font-size: 0.9rem;
+    }
+    
+    .categories-footer {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 1rem;
+    }
+    
+    .apply-filters-btn {
+      background-color: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 0.25rem;
+      padding: 0.5rem 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    
+    .apply-filters-btn:hover {
+      background-color: var(--primary-dark);
+    }
+    
+    .dark .apply-filters-btn {
+      background-color: var(--secondary);
+      color: var(--neutral-900);
+    }
+    
+    .dark .apply-filters-btn:hover {
+      background-color: var(--secondary-dark);
           
-          <!-- Product 4 -->
           <div class="product-card" data-type="induction" data-brand="Bosch" data-price="499.99">
             <div class="product-img">
               <img src="https://images.unsplash.com/photo-1631048500962-19328719232a?auto=format&fit=crop&q=80&w=500&h=375" alt="Bosch Induction Cooktop">
