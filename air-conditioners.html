@@ -599,41 +599,106 @@
           </div>
           
           <div class="filter-selects">
-            <div class="select-wrapper">
-              <select id="typeFilter">
-                <option value="all-types">All Types</option>
-                <option value="split">Split AC</option>
-                <option value="window">Window AC</option>
-                <option value="portable">Portable AC</option>
-                <option value="cassette">Cassette AC</option>
-                <option value="floor-standing">Floor Standing AC</option>
-              </select>
-            </div>
-            
-            <div class="select-wrapper">
-              <select id="brandFilter">
-                <option value="all-brands">All Brands</option>
-                <option value="Samsung">Samsung</option>
-                <option value="LG">LG</option>
-                <option value="Hisense">Hisense</option>
-                <option value="Nasco">Nasco</option>
-                <option value="Midea">Midea</option>
-              </select>
-            </div>
-            
-            <div class="select-wrapper">
-              <select id="priceFilter">
-                <option value="all-prices">All Prices</option>
-                <option value="low">Under $300</option>
-                <option value="medium">$300 - $600</option>
-                <option value="high">Above $600</option>
-              </select>
-            </div>
+            <button type="button" class="category-btn" id="categoryToggle">
+              <i class="fa-solid fa-sliders"></i> 
+              Categories
+            </button>
             
             <button type="button" class="reset-filters" id="resetFilters">
               <i class="fa-solid fa-rotate"></i>
               Reset
             </button>
+              </div>
+          
+          <!-- Categories toggle menu -->
+          <div class="categories-menu" id="categoriesMenu">
+            <div class="categories-section">
+              <h3>Types</h3>
+              <div class="categories-options">
+                <label class="category-option">
+                  <input type="radio" name="type" value="all-types" checked>
+                  <span>All Types</span>
+                </label>
+                <label class="category-option">
+                  <input type="radio" name="type" value="split">
+                  <span>Split AC</span>
+                </label>
+                <label class="category-option">
+                  <input type="radio" name="type" value="window">
+                  <span>Window AC</span>
+                </label>
+                <label class="category-option">
+                  <input type="radio" name="type" value="portable">
+                  <span>Portable AC</span>
+                </label>
+                <label class="category-option">
+                  <input type="radio" name="type" value="cassette">
+                  <span>Cassette AC</span>
+                </label>
+                <label class="category-option">
+                  <input type="radio" name="type" value="floor-standing">
+                  <span>Floor Standing AC</span>
+                </label>
+              </div>
+            </div>
+            
+            <div class="categories-section">
+              <h3>Brands</h3>
+              <div class="categories-options">
+                <label class="category-option">
+                  <input type="radio" name="brand" value="all-brands" checked>
+                  <span>All Brands</span>
+                </label>
+                <label class="category-option">
+                  <input type="radio" name="brand" value="Samsung">
+                  <span>Samsung</span>
+                </label>
+                <label class="category-option">
+                  <input type="radio" name="brand" value="LG">
+                  <span>LG</span>
+                </label>
+                <label class="category-option">
+                  <input type="radio" name="brand" value="Hisense">
+                  <span>Hisense</span>
+                </label>
+                <label class="category-option">
+                  <input type="radio" name="brand" value="Nasco">
+                  <span>Nasco</span>
+                </label>
+                <label class="category-option">
+                  <input type="radio" name="brand" value="Midea">
+                  <span>Midea</span>
+                </label>
+              </div>
+            </div>
+            
+            <div class="categories-section">
+              <h3>Price Range</h3>
+              <div class="categories-options">
+                <label class="category-option">
+                  <input type="radio" name="price" value="all-prices" checked>
+                  <span>All Prices</span>
+                </label>
+                <label class="category-option">
+                  <input type="radio" name="price" value="low">
+                  <span>Under $300</span>
+                </label>
+                <label class="category-option">
+                  <input type="radio" name="price" value="medium">
+                  <span>$300 - $600</span>
+                </label>
+                <label class="category-option">
+                  <input type="radio" name="price" value="high">
+                  <span>Above $600</span>
+                </label>
+              </div>
+            </div>
+            
+            <div class="categories-footer">
+              <button type="button" class="apply-filters-btn" id="applyFilters">
+                Apply Filters
+              </button>
+            </div>
           </div>
         </form>
       </div>
