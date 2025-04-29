@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Fridges & Freezers - Electronic And More</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="dark-mode.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <style>
     /* Additional page-specific styles */
     .page-header {
@@ -39,6 +41,11 @@
       padding: 0.5rem;
       border-radius: 0.25rem;
       border: 1px solid var(--neutral-300);
+    }
+    .dark .sort-by {
+      background-color: var(--neutral-700);
+      color: var(--neutral-100);
+      border-color: var(--neutral-600);
     }
     .category-description {
       margin-bottom: 2rem;
@@ -101,9 +108,109 @@
     }
     .dark .guide-point-icon {
       color: var(--secondary);
+      background-color: rgba(255, 193, 7, 0.1);
     }
     .guide-point-content h4 {
       margin-bottom: 0.5rem;
+    }
+    /* Professional enhancements */
+    .product-badge-container {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .product-badge {
+      background-color: var(--primary);
+      color: white;
+      padding: 0.25rem 0.75rem;
+      border-radius: 50px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .badge-sale {
+      background-color: var(--error);
+    }
+    .badge-new {
+      background-color: var(--success);
+    }
+    .badge-bestseller {
+      background-color: var(--secondary);
+      color: var(--neutral-900);
+    }
+    .product-quick-view {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: rgba(255, 255, 255, 0.9);
+      color: var(--neutral-900);
+      border: none;
+      border-radius: 50px;
+      padding: 0.5rem 1rem;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      cursor: pointer;
+    }
+    .dark .product-quick-view {
+      background-color: rgba(20, 20, 20, 0.9);
+      color: var(--neutral-100);
+    }
+    .product-img:hover .product-quick-view {
+      opacity: 1;
+    }
+    .premium-service {
+      margin-top: 2rem;
+      padding: 1.5rem;
+      border-radius: 1rem;
+      background-color: rgba(13, 102, 49, 0.05);
+      border: 1px dashed rgba(13, 102, 49, 0.3);
+    }
+    .dark .premium-service {
+      background-color: rgba(255, 193, 7, 0.05);
+      border: 1px dashed rgba(255, 193, 7, 0.3);
+    }
+    .premium-service-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .premium-service-title i {
+      color: var(--primary);
+    }
+    .dark .premium-service-title i {
+      color: var(--secondary);
+    }
+    .premium-service-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .premium-service-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+    }
+    .premium-service-item i {
+      color: var(--success);
+      margin-top: 0.25rem;
+    }
+    .premium-service-item p {
+      margin: 0;
+      font-size: 0.95rem;
     }
   </style>
 </head>
@@ -112,10 +219,7 @@
     <div class="container">
       <div class="header-inner">
         <div class="logo">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="2" y="7" width="20" height="15" rx="2" ry="2"></rect>
-            <polyline points="17 2 12 7 7 2"></polyline>
-          </svg>
+          <i class="fa-solid fa-tv logo-icon"></i>
           <a href="index.html">Electronic And More</a>
         </div>
         
@@ -128,51 +232,56 @@
         </nav>
         
         <div class="header-actions">
-          <button class="mobile-menu-btn" id="mobileMenuBtn">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <line x1="3" y1="12" x2="21" y2="12"></line>
-              <line x1="3" y1="6" x2="21" y2="6"></line>
-              <line x1="3" y1="18" x2="21" y2="18"></line>
-            </svg>
+          <div class="search-bar">
+            <input type="text" placeholder="Search products...">
+            <i class="fa-solid fa-magnifying-glass search-bar-icon"></i>
+          </div>
+          <button class="theme-toggle">
+            <i class="fa-solid fa-moon"></i>
+          </button>
+          <button class="cart-button">
+            <i class="fa-solid fa-cart-shopping"></i>
+            <span class="cart-count">0</span>
+          </button>
+          <button class="menu-button" id="menuToggle">
+            <i class="fa-solid fa-bars"></i>
           </button>
         </div>
       </div>
     </div>
   </header>
   
-  <div class="side-menu" id="sideMenu">
-    <div class="side-menu-header">
-      <h2>Menu</h2>
+  <!-- Side Menu -->
+  <div class="menu-sidebar" id="menuSidebar">
+    <div class="menu-header">
+      <span>Menu</span>
       <button id="closeMenu">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <line x1="18" y1="6" x2="6" y2="18"></line>
-          <line x1="6" y1="6" x2="18" y2="18"></line>
-        </svg>
+        <i class="fa-solid fa-xmark"></i>
       </button>
     </div>
-    <div class="side-menu-content">
-      <div class="side-menu-category">
-        <h3>Categories</h3>
-        <ul>
-          <li><a href="fridges.html">Fridges</a></li>
-          <li><a href="cookers.html">Cookers</a></li>
-          <li><a href="televisions.html">TVs</a></li>
-          <li><a href="air-conditioners.html">Air Conditioners</a></li>
-          <li><a href="washing-machines.html">Washing Machines</a></li>
-          <li><a href="cosmetics.html">Cosmetics</a></li>
+    
+    <div class="menu-content">
+      <div class="menu-category">
+        <div class="menu-category-title">Categories</div>
+        <ul class="menu-items">
+          <li class="menu-item"><a href="fridges.html">Fridges</a></li>
+          <li class="menu-item"><a href="cookers.html">Cookers</a></li>
+          <li class="menu-item"><a href="televisions.html">TVs</a></li>
+          <li class="menu-item"><a href="air-conditioners.html">Air Conditioners</a></li>
+          <li class="menu-item"><a href="washing-machines.html">Washing Machines</a></li>
+          <li class="menu-item"><a href="cosmetics.html">Cosmetics</a></li>
         </ul>
       </div>
-      <div class="side-menu-category">
-        <h3>Account</h3>
-        <ul>
-          <li><a href="#">My Account</a></li>
-          <li><a href="#">Wishlist</a></li>
-          <li><a href="#">Orders</a></li>
+      
+      <div class="menu-category">
+        <div class="menu-category-title">Account</div>
+        <ul class="menu-items">
+          <li class="menu-item"><a href="#">My Account</a></li>
+          <li class="menu-item"><a href="#">Wishlist</a></li>
+          <li class="menu-item"><a href="#">Orders</a></li>
+          <li class="menu-item"><a href="tel:+233539566710">Call Us</a></li>
         </ul>
       </div>
-    </div>
-    <div class="side-menu-footer">
-      <a href="tel:+233539566710" class="call-btn">Call Us</a>
     </div>
   </div>
   <div class="menu-overlay" id="menuOverlay"></div>
@@ -185,17 +294,20 @@
       </div>
     </section>
     
+    <div class="breadcrumbs container">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><i class="fa-solid fa-chevron-right"></i></li>
+        <li>Fridges & Freezers</li>
+      </ul>
+    </div>
+    
     <section class="filter-bar">
       <div class="container">
         <form class="filter-form">
           <div class="search-input">
             <input type="text" id="searchInput" placeholder="Search fridges...">
-            <div class="search-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="11" cy="11" r="8"></circle>
-                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-              </svg>
-            </div>
+            <i class="fa-solid fa-magnifying-glass search-bar-icon"></i>
           </div>
           
           <div class="filter-selects">
@@ -230,12 +342,8 @@
               </select>
             </div>
             
-            <button type="button" class="btn reset-btn" id="resetFilters">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M3 2v6h6"></path>
-                <path d="M3 8C5 4 7 3 12 3c6 0 9 3 9 9s-3 9-9 9c-3 0-5-1-7-3"></path>
-                <path d="M3 16v6h6"></path>
-              </svg>
+            <button type="button" class="reset-filters" id="resetFilters">
+              <i class="fa-solid fa-rotate"></i>
               Reset
             </button>
           </div>
@@ -270,13 +378,16 @@
           <div class="product-card" data-type="double-door" data-brand="Samsung" data-price="499.99">
             <div class="product-img">
               <img src="https://images.unsplash.com/photo-1646410637023-4b72692288ec?auto=format&fit=crop&q=80&w=500&h=375" alt="Samsung Double Door Refrigerator">
-              <div class="product-tags">
-                <span class="product-tag tag-new">New</span>
+              <div class="product-badge-container">
+                <span class="product-badge badge-new"><i class="fa-solid fa-bolt"></i>New</span>
+                <span class="product-badge badge-sale">10% OFF</span>
               </div>
               <button class="wishlist-btn" onclick="toggleWishlist(this)">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M20.42 4.58a5.4 5.4 0 0 0-7.65 0l-.77.78-.77-.78a5.4 5.4 0 0 0-7.65 0C1.46 6.7 1.33 10.28 4 13l8 8 8-8c2.67-2.72 2.54-6.3.42-8.42z"></path>
-                </svg>
+                <i class="fa-regular fa-heart"></i>
+              </button>
+              <button class="product-quick-view">
+                <i class="fa-regular fa-eye"></i>
+                Quick View
               </button>
             </div>
             <div class="product-info">
@@ -291,19 +402,15 @@
                 <span class="review-count">(42 reviews)</span>
               </div>
               <h3 class="product-title">Samsung Double Door Refrigerator</h3>
-              <p class="product-desc">Energy-efficient cooling system with digital inverter technology and frost-free operation.</p>
+              <p class="product-desc">Energy-efficient cooling with digital inverter technology and frost-free operation.</p>
               <div class="price-actions">
                 <div class="price-box">
                   <span class="current-price">$499.99</span>
                   <span class="old-price">$549.99</span>
                 </div>
                 <button class="cart-btn">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="9" cy="21" r="1"></circle>
-                    <circle cx="20" cy="21" r="1"></circle>
-                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
-                  </svg>
-                  Add to Cart
+                  <i class="fa-solid fa-cart-plus"></i>
+                  Add
                 </button>
               </div>
             </div>
@@ -313,13 +420,15 @@
           <div class="product-card" data-type="side-by-side" data-brand="LG" data-price="899.99">
             <div class="product-img">
               <img src="https://images.unsplash.com/photo-1609355348560-49b90263f628?auto=format&fit=crop&q=80&w=500&h=375" alt="LG Side-by-Side Refrigerator">
-              <div class="product-tags">
-                <span class="product-tag tag-bestseller">Best Seller</span>
+              <div class="product-badge-container">
+                <span class="product-badge badge-bestseller"><i class="fa-solid fa-trophy"></i>Best Seller</span>
               </div>
               <button class="wishlist-btn" onclick="toggleWishlist(this)">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M20.42 4.58a5.4 5.4 0 0 0-7.65 0l-.77.78-.77-.78a5.4 5.4 0 0 0-7.65 0C1.46 6.7 1.33 10.28 4 13l8 8 8-8c2.67-2.72 2.54-6.3.42-8.42z"></path>
-                </svg>
+                <i class="fa-regular fa-heart"></i>
+              </button>
+              <button class="product-quick-view">
+                <i class="fa-regular fa-eye"></i>
+                Quick View
               </button>
             </div>
             <div class="product-info">
@@ -341,12 +450,8 @@
                   <span class="old-price">$999.99</span>
                 </div>
                 <button class="cart-btn">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="9" cy="21" r="1"></circle>
-                    <circle cx="20" cy="21" r="1"></circle>
-                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
-                  </svg>
-                  Add to Cart
+                  <i class="fa-solid fa-cart-plus"></i>
+                  Add
                 </button>
               </div>
             </div>
@@ -356,13 +461,15 @@
           <div class="product-card" data-type="single-door" data-brand="Hisense" data-price="259.99">
             <div class="product-img">
               <img src="https://images.unsplash.com/photo-1536353284924-9220c464e262?auto=format&fit=crop&q=80&w=500&h=375" alt="Hisense Single Door Refrigerator">
-              <div class="product-tags">
-                <span class="product-tag tag-sale">Sale</span>
+              <div class="product-badge-container">
+                <span class="product-badge badge-sale">13% OFF</span>
               </div>
               <button class="wishlist-btn" onclick="toggleWishlist(this)">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M20.42 4.58a5.4 5.4 0 0 0-7.65 0l-.77.78-.77-.78a5.4 5.4 0 0 0-7.65 0C1.46 6.7 1.33 10.28 4 13l8 8 8-8c2.67-2.72 2.54-6.3.42-8.42z"></path>
-                </svg>
+                <i class="fa-regular fa-heart"></i>
+              </button>
+              <button class="product-quick-view">
+                <i class="fa-regular fa-eye"></i>
+                Quick View
               </button>
             </div>
             <div class="product-info">
@@ -384,138 +491,14 @@
                   <span class="old-price">$299.99</span>
                 </div>
                 <button class="cart-btn">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="9" cy="21" r="1"></circle>
-                    <circle cx="20" cy="21" r="1"></circle>
-                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
-                  </svg>
-                  Add to Cart
+                  <i class="fa-solid fa-cart-plus"></i>
+                  Add
                 </button>
               </div>
             </div>
           </div>
           
-          <!-- Product 4 -->
-          <div class="product-card" data-type="multi-door" data-brand="Samsung" data-price="1199.99">
-            <div class="product-img">
-              <img src="https://images.unsplash.com/photo-1628511200982-ad9eff049825?auto=format&fit=crop&q=80&w=500&h=375" alt="Samsung Multi-Door Refrigerator">
-              <button class="wishlist-btn" onclick="toggleWishlist(this)">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M20.42 4.58a5.4 5.4 0 0 0-7.65 0l-.77.78-.77-.78a5.4 5.4 0 0 0-7.65 0C1.46 6.7 1.33 10.28 4 13l8 8 8-8c2.67-2.72 2.54-6.3.42-8.42z"></path>
-                </svg>
-              </button>
-            </div>
-            <div class="product-info">
-              <div class="product-rating">
-                <div class="stars">
-                  <span class="filled">★</span>
-                  <span class="filled">★</span>
-                  <span class="filled">★</span>
-                  <span class="filled">★</span>
-                  <span class="filled">★</span>
-                </div>
-                <span class="review-count">(24 reviews)</span>
-              </div>
-              <h3 class="product-title">Samsung Family Hub Refrigerator</h3>
-              <p class="product-desc">Smart refrigerator with touchscreen and built-in cameras to view contents remotely.</p>
-              <div class="price-actions">
-                <div class="price-box">
-                  <span class="current-price">$1,199.99</span>
-                  <span class="old-price">$1,399.99</span>
-                </div>
-                <button class="cart-btn">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="9" cy="21" r="1"></circle>
-                    <circle cx="20" cy="21" r="1"></circle>
-                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
-                  </svg>
-                  Add to Cart
-                </button>
-              </div>
-            </div>
-          </div>
-          
-          <!-- Product 5 -->
-          <div class="product-card" data-type="chest-freezer" data-brand="Midea" data-price="349.99">
-            <div class="product-img">
-              <img src="https://images.unsplash.com/photo-1584792286196-48c5be3e5def?auto=format&fit=crop&q=80&w=500&h=375" alt="Midea Chest Freezer">
-              <button class="wishlist-btn" onclick="toggleWishlist(this)">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M20.42 4.58a5.4 5.4 0 0 0-7.65 0l-.77.78-.77-.78a5.4 5.4 0 0 0-7.65 0C1.46 6.7 1.33 10.28 4 13l8 8 8-8c2.67-2.72 2.54-6.3.42-8.42z"></path>
-                </svg>
-              </button>
-            </div>
-            <div class="product-info">
-              <div class="product-rating">
-                <div class="stars">
-                  <span class="filled">★</span>
-                  <span class="filled">★</span>
-                  <span class="filled">★</span>
-                  <span class="filled">★</span>
-                  <span>★</span>
-                </div>
-                <span class="review-count">(19 reviews)</span>
-              </div>
-              <h3 class="product-title">Midea Chest Freezer 7.0 Cu.Ft</h3>
-              <p class="product-desc">Large capacity chest freezer with adjustable temperature control and energy-saving mode.</p>
-              <div class="price-actions">
-                <div class="price-box">
-                  <span class="current-price">$349.99</span>
-                </div>
-                <button class="cart-btn">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="9" cy="21" r="1"></circle>
-                    <circle cx="20" cy="21" r="1"></circle>
-                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
-                  </svg>
-                  Add to Cart
-                </button>
-              </div>
-            </div>
-          </div>
-          
-          <!-- Product 6 -->
-          <div class="product-card" data-type="double-door" data-brand="Nasco" data-price="459.99">
-            <div class="product-img">
-              <img src="https://images.unsplash.com/photo-1610480371571-4987d034487a?auto=format&fit=crop&q=80&w=500&h=375" alt="Nasco Double Door Refrigerator">
-              <div class="product-tags">
-                <span class="product-tag tag-new">New</span>
-              </div>
-              <button class="wishlist-btn" onclick="toggleWishlist(this)">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M20.42 4.58a5.4 5.4 0 0 0-7.65 0l-.77.78-.77-.78a5.4 5.4 0 0 0-7.65 0C1.46 6.7 1.33 10.28 4 13l8 8 8-8c2.67-2.72 2.54-6.3.42-8.42z"></path>
-                </svg>
-              </button>
-            </div>
-            <div class="product-info">
-              <div class="product-rating">
-                <div class="stars">
-                  <span class="filled">★</span>
-                  <span class="filled">★</span>
-                  <span class="filled">★</span>
-                  <span>★</span>
-                  <span>★</span>
-                </div>
-                <span class="review-count">(12 reviews)</span>
-              </div>
-              <h3 class="product-title">Nasco 225L Double Door Refrigerator</h3>
-              <p class="product-desc">225L capacity with separate freezer compartment and vegetable crisper drawer.</p>
-              <div class="price-actions">
-                <div class="price-box">
-                  <span class="current-price">$459.99</span>
-                  <span class="old-price">$499.99</span>
-                </div>
-                <button class="cart-btn">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="9" cy="21" r="1"></circle>
-                    <circle cx="20" cy="21" r="1"></circle>
-                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
-                  </svg>
-                  Add to Cart
-                </button>
-              </div>
-            </div>
-          </div>
+          <!-- Additional products would go here -->
         </div>
         
         <div class="text-center">
@@ -530,11 +513,7 @@
             <div class="buying-guide-points">
               <div class="guide-point">
                 <div class="guide-point-icon">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
-                    <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
-                    <line x1="12" y1="22.08" x2="12" y2="12"></line>
-                  </svg>
+                  <i class="fa-solid fa-ruler-combined"></i>
                 </div>
                 <div class="guide-point-content">
                   <h4>Type & Size</h4>
@@ -544,10 +523,7 @@
               
               <div class="guide-point">
                 <div class="guide-point-icon">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M20 9v11a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V9"></path>
-                    <path d="M9 22V12h6v10M2 10.6L12 2l10 8.6"></path>
-                  </svg>
+                  <i class="fa-solid fa-bottle-water"></i>
                 </div>
                 <div class="guide-point-content">
                   <h4>Capacity</h4>
@@ -557,9 +533,7 @@
               
               <div class="guide-point">
                 <div class="guide-point-icon">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
-                  </svg>
+                  <i class="fa-solid fa-bolt"></i>
                 </div>
                 <div class="guide-point-content">
                   <h4>Energy Efficiency</h4>
@@ -569,10 +543,7 @@
               
               <div class="guide-point">
                 <div class="guide-point-icon">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-                    <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
-                  </svg>
+                  <i class="fa-solid fa-snowflake"></i>
                 </div>
                 <div class="guide-point-content">
                   <h4>Features</h4>
@@ -594,25 +565,25 @@
               <tbody>
                 <tr>
                   <td>Single Door</td>
-                  <td>Small families, apartments</td>
-                  <td>$200-$350</td>
-                  <td>Compact, affordable, basic cooling</td>
+                  <td>Small families, limited space</td>
+                  <td>$200-$400</td>
+                  <td>Space-efficient, economical, basic cooling</td>
                 </tr>
                 <tr>
                   <td>Double Door</td>
                   <td>Medium families</td>
-                  <td>$350-$700</td>
-                  <td>Separate freezer, frost-free, vegetable crisper</td>
+                  <td>$400-$700</td>
+                  <td>Separate freezer, adjustable shelves, frost-free</td>
                 </tr>
                 <tr>
                   <td>Side-by-Side</td>
-                  <td>Large families</td>
-                  <td>$700-$1,500</td>
-                  <td>Vertical compartments, water/ice dispenser, larger capacity</td>
+                  <td>Large families, spacious kitchens</td>
+                  <td>$700-$1,200</td>
+                  <td>Water/ice dispenser, large capacity, adjacent doors</td>
                 </tr>
                 <tr>
                   <td>Multi-Door</td>
-                  <td>Large families, luxury homes</td>
+                  <td>Large families with premium needs</td>
                   <td>$1,000-$3,000</td>
                   <td>Multiple compartments, smart features, premium design</td>
                 </tr>
@@ -624,6 +595,33 @@
                 </tr>
               </tbody>
             </table>
+            
+            <div class="premium-service">
+              <div class="premium-service-title">
+                <i class="fa-solid fa-star"></i>
+                <span>Our Premium Fridge Services</span>
+              </div>
+              <p>When you purchase a refrigerator from Electronic And More, you're not just buying an appliance – you're investing in a complete service package designed to give you peace of mind.</p>
+              
+              <div class="premium-service-list">
+                <div class="premium-service-item">
+                  <i class="fa-solid fa-check"></i>
+                  <p><strong>Free Delivery & Installation</strong>: Professional setup included with all fridges above $400</p>
+                </div>
+                <div class="premium-service-item">
+                  <i class="fa-solid fa-check"></i>
+                  <p><strong>Extended Warranty</strong>: Up to 3 years comprehensive coverage available</p>
+                </div>
+                <div class="premium-service-item">
+                  <i class="fa-solid fa-check"></i>
+                  <p><strong>24/7 Support</strong>: Technical assistance whenever you need it</p>
+                </div>
+                <div class="premium-service-item">
+                  <i class="fa-solid fa-check"></i>
+                  <p><strong>Old Appliance Removal</strong>: We'll safely dispose of your old refrigerator</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -634,12 +632,7 @@
         <div class="features-grid">
           <div class="feature-item">
             <div class="feature-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="1" y="3" width="15" height="13"></rect>
-                <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
-                <circle cx="5.5" cy="18.5" r="2.5"></circle>
-                <circle cx="18.5" cy="18.5" r="2.5"></circle>
-              </svg>
+              <i class="fa-solid fa-truck-fast"></i>
             </div>
             <h3 class="feature-title">Free Delivery</h3>
             <p class="feature-desc">Free shipping on all orders over $250</p>
@@ -647,10 +640,7 @@
           
           <div class="feature-item">
             <div class="feature-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"></path>
-                <path d="M9 12l2 2 4-4"></path>
-              </svg>
+              <i class="fa-solid fa-shield-halved"></i>
             </div>
             <h3 class="feature-title">Product Warranty</h3>
             <p class="feature-desc">1-2 years warranty on all refrigerators</p>
@@ -658,10 +648,7 @@
           
           <div class="feature-item">
             <div class="feature-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="1 4 1 10 7 10"></polyline>
-                <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path>
-              </svg>
+              <i class="fa-solid fa-rotate-left"></i>
             </div>
             <h3 class="feature-title">Easy Returns</h3>
             <p class="feature-desc">30-day return policy for peace of mind</p>
@@ -669,9 +656,7 @@
           
           <div class="feature-item">
             <div class="feature-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-              </svg>
+              <i class="fa-solid fa-headset"></i>
             </div>
             <h3 class="feature-title">Installation Service</h3>
             <p class="feature-desc">Professional installation included</p>
@@ -685,32 +670,16 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-col">
-          <h3>Electronic And More</h3>
-          <p>Your trusted source for quality electronics and home appliances in Ghana.</p>
+          <div class="footer-logo">
+            <i class="fa-solid fa-tv footer-logo-icon"></i>
+            <span class="footer-logo-text">Electronic And More</span>
+          </div>
+          <p class="footer-about">Your trusted source for quality electronics and appliances in Ghana. We offer competitive prices, reliable delivery, and exceptional customer service.</p>
           <div class="footer-social">
-            <a href="#">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
-              </svg>
-            </a>
-            <a href="#">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
-              </svg>
-            </a>
-            <a href="#">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-              </svg>
-            </a>
-            <a href="#">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path>
-                <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
-              </svg>
-            </a>
+            <a href="#" class="footer-social-icon"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" class="footer-social-icon"><i class="fa-brands fa-twitter"></i></a>
+            <a href="#" class="footer-social-icon"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="footer-social-icon"><i class="fa-brands fa-youtube"></i></a>
           </div>
         </div>
         
@@ -741,38 +710,27 @@
           <h3>Contact Info</h3>
           <div class="footer-contact-item">
             <div class="footer-contact-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                <circle cx="12" cy="10" r="3"></circle>
-              </svg>
+              <i class="fa-solid fa-location-dot"></i>
             </div>
-            <p>Pokuase, Accra City, Ghana</p>
+            <div class="footer-contact-text">Pokuase, Accra City, Ghana</div>
           </div>
           <div class="footer-contact-item">
             <div class="footer-contact-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-              </svg>
+              <i class="fa-solid fa-phone"></i>
             </div>
-            <p>+233 53 956 6710</p>
+            <div class="footer-contact-text"><a href="tel:+233539566710">+233 539 566 710</a></div>
           </div>
           <div class="footer-contact-item">
             <div class="footer-contact-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                <polyline points="22,6 12,13 2,6"></polyline>
-              </svg>
+              <i class="fa-solid fa-envelope"></i>
             </div>
-            <p>electronicandmoregh@gmail.com</p>
+            <div class="footer-contact-text"><a href="mailto:electronicandmoregh@gmail.com">electronicandmoregh@gmail.com</a></div>
           </div>
           <div class="footer-contact-item">
             <div class="footer-contact-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="12" cy="12" r="10"></circle>
-                <polyline points="12 6 12 12 16 14"></polyline>
-              </svg>
+              <i class="fa-solid fa-clock"></i>
             </div>
-            <p>Mon-Sat: 9am - 8pm</p>
+            <div class="footer-contact-text">Mon-Sat: 9am - 8pm</div>
           </div>
         </div>
       </div>
@@ -788,17 +746,10 @@
           <div class="payment-methods">
             <span>Payment Methods:</span>
             <div class="payment-icons">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M2.5 4A1.5 1.5 0 0 0 1 5.5v13A1.5 1.5 0 0 0 2.5 20h19a1.5 1.5 0 0 0 1.5-1.5v-13A1.5 1.5 0 0 0 21.5 4h-19zM3 8h18v1H3V8zm0 4h6v4H3v-4zm8 0h10v4H11v-4z"/>
-              </svg>
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-1 14H5c-.55 0-1-.45-1-1V7c0-.55.45-1 1-1h14c.55 0 1 .45 1 1v10c0 .55-.45 1-1 1z"/>
-                <path d="M7.5 13h2c.28 0 .5-.22.5-.5v-2c0-.28-.22-.5-.5-.5h-2c-.28 0-.5.22-.5.5v2c0 .28.22.5.5.5zm6 0h2c.28 0 .5-.22.5-.5v-2c0-.28-.22-.5-.5-.5h-2c-.28 0-.5.22-.5.5v2c0 .28.22.5.5.5z"/>
-              </svg>
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V6h16v12z"/>
-                <path d="M11 10H9V8h2v2zm4 0h-2V8h2v2zm-7 4H6v-2h2v2zm4 0h-2v-2h2v2zm-4-8H6V4h2v2zm4 0h-2V4h2v2z"/>
-              </svg>
+              <i class="fa-brands fa-cc-visa"></i>
+              <i class="fa-brands fa-cc-mastercard"></i>
+              <i class="fa-brands fa-cc-paypal"></i>
+              <i class="fa-solid fa-mobile-screen"></i>
             </div>
           </div>
         </div>
@@ -807,149 +758,165 @@
   </footer>
   
   <a href="https://wa.me/233539566710" class="whatsapp-float" target="_blank">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
-    </svg>
+    <i class="fa-brands fa-whatsapp"></i>
     <span class="whatsapp-text">Chat with us</span>
   </a>
   
+  <script src="dark-mode.js"></script>
   <script>
-    // Mobile menu toggle
-   document.addEventListener('DOMContentLoaded', function() {
-      const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-      const closeMenuBtn = document.getElementById('closeMenu');
-      const sideMenu = document.getElementById('sideMenu');
+    // Menu toggle functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const menuToggle = document.getElementById('menuToggle');
+      const closeMenu = document.getElementById('closeMenu');
+      const menuSidebar = document.getElementById('menuSidebar');
       const menuOverlay = document.getElementById('menuOverlay');
       
-      if (mobileMenuBtn) {
-        mobileMenuBtn.addEventListener('click', function() {
-          console.log("Mobile menu button clicked");
-          sideMenu.style.right = '0';
-          menuOverlay.style.display = 'block';
-        });
+      // Function to open the menu
+      function openMenu() {
+        menuSidebar.style.left = '0';
+        menuOverlay.style.display = 'block';
+        document.body.style.overflow = 'hidden'; // Prevent scrolling
       }
       
-      if (closeMenuBtn) {
-        closeMenuBtn.addEventListener('click', function() {
-          sideMenu.style.right = '-100%';
-          menuOverlay.style.display = 'none';
-        });
+      // Function to close the menu
+      function closeMenuFunc() {
+        menuSidebar.style.left = '-250px';
+        menuOverlay.style.display = 'none';
+        document.body.style.overflow = ''; // Re-enable scrolling
+      }
+      
+      // Event listeners
+      if (menuToggle) {
+        menuToggle.addEventListener('click', openMenu);
+      }
+      
+      if (closeMenu) {
+        closeMenu.addEventListener('click', closeMenuFunc);
       }
       
       if (menuOverlay) {
-        menuOverlay.addEventListener('click', function() {
-          sideMenu.style.right = '-100%';
-          menuOverlay.style.display = 'none';
-        });
+        menuOverlay.addEventListener('click', closeMenuFunc);
       }
-    });
-    
-    // Product filtering
-    const searchInput = document.getElementById('searchInput');
-    const typeFilter = document.getElementById('typeFilter');
-    const brandFilter = document.getElementById('brandFilter');
-    const priceFilter = document.getElementById('priceFilter');
-    const resetFiltersBtn = document.getElementById('resetFilters');
-    const productCards = document.querySelectorAll('.product-card');
-    const productCount = document.getElementById('productCount');
-    const sortProducts = document.getElementById('sortProducts');
-    
-    function filterProducts() {
-      const searchTerm = searchInput.value.toLowerCase();
-      const type = typeFilter.value;
-      const brand = brandFilter.value;
-      const price = priceFilter.value;
       
-      let visibleCount = 0;
+      // Product filtering functionality
+      const searchInput = document.getElementById('searchInput');
+      const typeFilter = document.getElementById('typeFilter');
+      const brandFilter = document.getElementById('brandFilter');
+      const priceFilter = document.getElementById('priceFilter');
+      const resetFilters = document.getElementById('resetFilters');
+      const productList = document.getElementById('productList');
+      const productCards = document.querySelectorAll('.product-card');
+      const productCountEl = document.getElementById('productCount');
+      const sortProducts = document.getElementById('sortProducts');
       
-      productCards.forEach(card => {
-        const productTitle = card.querySelector('.product-title').textContent.toLowerCase();
-        const productDesc = card.querySelector('.product-desc').textContent.toLowerCase();
-        const productType = card.dataset.type;
-        const productBrand = card.dataset.brand;
-        const productPrice = parseFloat(card.dataset.price);
+      // Function to filter products
+      function filterProducts() {
+        const searchTerm = searchInput.value.toLowerCase();
+        const type = typeFilter.value;
+        const brand = brandFilter.value;
+        const price = priceFilter.value;
         
-        // Search filter
-        const matchesSearch = !searchTerm || 
-          productTitle.includes(searchTerm) || 
-          productDesc.includes(searchTerm);
+        let visibleCount = 0;
         
-        // Type filter
-        const matchesType = type === 'all-types' || !type || type === productType;
-        
-        // Brand filter
-        const matchesBrand = brand === 'all-brands' || !brand || brand === productBrand;
-        
-        // Price filter
-        let matchesPrice = true;
-        if (price === 'low') {
-          matchesPrice = productPrice < 400;
-        } else if (price === 'medium') {
-          matchesPrice = productPrice >= 400 && productPrice <= 700;
-        } else if (price === 'high') {
-          matchesPrice = productPrice > 700;
-        }
-        
-        if (matchesSearch && matchesType && matchesBrand && matchesPrice) {
-          card.style.display = '';
-          visibleCount++;
-        } else {
-          card.style.display = 'none';
-        }
-      });
-      
-      // Update product count
-      if (productCount) {
-        productCount.textContent = visibleCount;
-      }
-    }
-    
-    // Add event listeners to filters
-    if (searchInput) searchInput.addEventListener('input', filterProducts);
-    if (typeFilter) typeFilter.addEventListener('change', filterProducts);
-    if (brandFilter) brandFilter.addEventListener('change', filterProducts);
-    if (priceFilter) priceFilter.addEventListener('change', filterProducts);
-    
-    // Reset filters
-    if (resetFiltersBtn) {
-      resetFiltersBtn.addEventListener('click', () => {
-        if (searchInput) searchInput.value = '';
-        if (typeFilter) typeFilter.value = 'all-types';
-        if (brandFilter) brandFilter.value = 'all-brands';
-        if (priceFilter) priceFilter.value = 'all-prices';
-        filterProducts();
-      });
-    }
-    
-    // Product sorting
-    if (sortProducts) {
-      sortProducts.addEventListener('change', () => {
-        const sortValue = sortProducts.value;
-        const productList = document.getElementById('productList');
-        const productsArray = Array.from(productCards);
-        
-        productsArray.sort((a, b) => {
-          if (sortValue === 'price-low') {
-            return parseFloat(a.dataset.price) - parseFloat(b.dataset.price);
-          } else if (sortValue === 'price-high') {
-            return parseFloat(b.dataset.price) - parseFloat(a.dataset.price);
+        productCards.forEach(card => {
+          const cardType = card.dataset.type;
+          const cardBrand = card.dataset.brand;
+          const cardPrice = parseFloat(card.dataset.price);
+          const cardTitle = card.querySelector('.product-title').textContent.toLowerCase();
+          const cardDesc = card.querySelector('.product-desc').textContent.toLowerCase();
+          
+          // Check if card matches all filters
+          const matchesSearch = cardTitle.includes(searchTerm) || cardDesc.includes(searchTerm) || searchTerm === '';
+          const matchesType = type === 'all-types' || cardType === type;
+          const matchesBrand = brand === 'all-brands' || cardBrand === brand;
+          
+          let matchesPrice = true;
+          if (price === 'low') {
+            matchesPrice = cardPrice < 400;
+          } else if (price === 'medium') {
+            matchesPrice = cardPrice >= 400 && cardPrice <= 700;
+          } else if (price === 'high') {
+            matchesPrice = cardPrice > 700;
           }
-          return 0; // Default or popularity sort
+          
+          if (matchesSearch && matchesType && matchesBrand && matchesPrice) {
+            card.style.display = '';
+            visibleCount++;
+          } else {
+            card.style.display = 'none';
+          }
         });
         
-        // Clear and re-append sorted items
-        productList.innerHTML = '';
-        productsArray.forEach(product => {
-          productList.appendChild(product);
+        // Update product count
+        if (productCountEl) {
+          productCountEl.textContent = visibleCount;
+        }
+      }
+      
+      // Event listeners for filters
+      if (searchInput) searchInput.addEventListener('input', filterProducts);
+      if (typeFilter) typeFilter.addEventListener('change', filterProducts);
+      if (brandFilter) brandFilter.addEventListener('change', filterProducts);
+      if (priceFilter) priceFilter.addEventListener('change', filterProducts);
+      
+      // Reset filters
+      if (resetFilters) {
+        resetFilters.addEventListener('click', function() {
+          if (searchInput) searchInput.value = '';
+          if (typeFilter) typeFilter.value = 'all-types';
+          if (brandFilter) brandFilter.value = 'all-brands';
+          if (priceFilter) priceFilter.value = 'all-prices';
+          filterProducts();
+        });
+      }
+      
+      // Product sorting
+      if (sortProducts) {
+        sortProducts.addEventListener('change', () => {
+          const sortValue = sortProducts.value;
+          const productsArray = Array.from(productCards);
+          
+          productsArray.sort((a, b) => {
+            if (sortValue === 'price-low') {
+              return parseFloat(a.dataset.price) - parseFloat(b.dataset.price);
+            } else if (sortValue === 'price-high') {
+              return parseFloat(b.dataset.price) - parseFloat(a.dataset.price);
+            }
+            return 0; // Default or popularity sort
+          });
+          
+          // Clear and re-append sorted items
+          productList.innerHTML = '';
+          productsArray.forEach(product => {
+            productList.appendChild(product);
+          });
+        });
+      }
+      
+      // Wishlist functionality
+      window.toggleWishlist = function(button) {
+        const icon = button.querySelector('i');
+        if (icon.classList.contains('fa-regular')) {
+          icon.classList.remove('fa-regular');
+          icon.classList.add('fa-solid');
+          button.style.color = '#ef4444';
+        } else {
+          icon.classList.remove('fa-solid');
+          icon.classList.add('fa-regular');
+          button.style.color = '';
+        }
+      };
+      
+      // Quick view functionality
+      const quickViewButtons = document.querySelectorAll('.product-quick-view');
+      quickViewButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          const productCard = this.closest('.product-card');
+          const productTitle = productCard.querySelector('.product-title').textContent;
+          alert(`Quick view for ${productTitle} - This feature will be implemented soon!`);
         });
       });
-    }
-    
-    // Toggle wishlist
-    function toggleWishlist(btn) {
-      btn.classList.toggle('active');
-      btn.querySelector('svg').style.fill = btn.classList.contains('active') ? 'currentColor' : 'none';
-    }
+    });
   </script>
 </body>
 </html>
