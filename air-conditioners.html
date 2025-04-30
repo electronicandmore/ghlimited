@@ -4,51 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Air Conditioners - Electronic And More</title>
-  <link rel="stylesheet" href="green_style.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="dark-mode.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <style>
-    :root {
-      --primary: #0D6631;
-      --primary-light: #0e7538;
-      --primary-dark: #084d25;
-      --secondary: #FFC107;
-      --secondary-light: #FFD54F;
-      --secondary-dark: #FFA000;
-      --neutral-100: #f5f5f5;
-      --neutral-200: #e5e5e5;
-      --neutral-300: #d4d4d4;
-      --neutral-400: #a3a3a3;
-      --neutral-500: #737373;
-      --neutral-600: #525252;
-      --neutral-700: #404040;
-      --neutral-800: #262626;
-      --neutral-900: #171717;
-      --success: #10b981;
-      --error: #ef4444;
-      --info: #3b82f6;
-    }
-    
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      margin: 0;
-      padding: 0;
-      color: var(--neutral-800);
-      background-color: var(--neutral-100);
-    }
-    
-    body.dark {
-      background-color: var(--neutral-900);
-      color: var(--neutral-100);
-    }
-    
-    .container {
-      width: 100%;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 1rem;
-    }
-    
-    /* Header */
+    /* Header and Hero Styles to match the home page */
     header {
       background-color: var(--primary);
       padding: 1rem 0;
@@ -67,7 +27,6 @@
       color: white;
       font-size: 1.25rem;
       font-weight: 700;
-      text-decoration: none;
     }
     
     .logo-icon {
@@ -85,8 +44,6 @@
       display: flex;
       list-style: none;
       gap: 2rem;
-      margin: 0;
-      padding: 0;
     }
     
     .nav-links a {
@@ -193,18 +150,6 @@
       font-size: 1.25rem;
     }
     
-    .menu-header button {
-      background: none;
-      border: none;
-      font-size: 1.25rem;
-      cursor: pointer;
-      color: var(--neutral-800);
-    }
-    
-    .dark .menu-header button {
-      color: var(--neutral-200);
-    }
-    
     .menu-content {
       padding: 1.25rem;
     }
@@ -229,7 +174,6 @@
     .menu-items {
       list-style: none;
       padding: 0;
-      margin: 0;
     }
     
     .menu-item {
@@ -286,20 +230,6 @@
       display: flex;
       align-items: center;
       gap: 0.5rem;
-    }
-    
-    .filter-section {
-      margin-bottom: 1.25rem;
-    }
-    
-    .filter-section h3 {
-      font-size: 0.95rem;
-      margin-bottom: 0.75rem;
-      color: var(--neutral-700);
-    }
-    
-    .dark .filter-section h3 {
-      color: var(--neutral-300);
     }
     
     .filter-options {
@@ -442,9 +372,330 @@
       background-color: rgba(255, 255, 255, 0.1);
     }
     
+    /* Additional page-specific styles */
+    .page-header {
+      display: none; /* Hide the old page header since we're using the hero section */
+    }
+    
+    .breadcrumbs {
+      padding: 1rem 0;
+    }
+    
+    .breadcrumbs ul {
+      display: flex;
+      list-style: none;
+      gap: 0.5rem;
+      align-items: center;
+    }
+    
+    .breadcrumbs a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+    
+    .breadcrumbs i {
+      font-size: 0.75rem;
+      color: var(--neutral-500);
+    }
+    
+    .dark .breadcrumbs a {
+      color: var(--secondary);
+    }
+    
+    .product-filters {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+    }
+    
+    .filter-label {
+      font-weight: 500;
+      margin-right: 0.5rem;
+    }
+    
+    .sort-by {
+      padding: 0.5rem;
+      border-radius: 0.25rem;
+      border: 1px solid var(--neutral-300);
+    }
+    
+    .dark .sort-by {
+      background-color: var(--neutral-700);
+      color: var(--neutral-100);
+      border-color: var(--neutral-600);
+    }
+    
+    .category-description {
+      margin-bottom: 2rem;
+      line-height: 1.7;
+    }
+    
+    .spec-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+      margin-bottom: 2rem;
+    }
+    
+    .spec-table th, .spec-table td {
+      padding: 0.75rem 1rem;
+      text-align: left;
+      border-bottom: 1px solid var(--neutral-200);
+    }
+    
+    .spec-table th {
+      background-color: var(--neutral-100);
+      font-weight: 600;
+    }
+    
+    .dark .spec-table th {
+      background-color: var(--neutral-700);
+    }
+    
+    .dark .spec-table td, .dark .spec-table th {
+      border-color: var(--neutral-700);
+    }
+    
+    .category-info {
+      background-color: white;
+      border-radius: 1rem;
+      padding: 2rem;
+      margin-top: 3rem;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    }
+    
+    .dark .category-info {
+      background-color: var(--neutral-800);
+    }
+    
+    .buying-guide h3 {
+      margin-bottom: 1rem;
+    }
+    
+    .buying-guide-points {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+    
+    .guide-point {
+      display: flex;
+      gap: 1rem;
+    }
+    
+    .guide-point-icon {
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 50%;
+      background-color: rgba(13, 102, 49, 0.1);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    
+    .dark .guide-point-icon {
+      color: var(--secondary);
+      background-color: rgba(255, 193, 7, 0.1);
+    }
+    
+    .guide-point-content h4 {
+      margin-bottom: 0.5rem;
+    }
+    
+    /* Professional enhancements */
+    .product-badge-container {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    
+    .product-badge {
+      background-color: var(--primary);
+      color: white;
+      padding: 0.25rem 0.75rem;
+      border-radius: 50px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .badge-sale {
+      background-color: var(--error);
+    }
+    
+    .badge-new {
+      background-color: var(--success);
+    }
+    
+    .badge-bestseller {
+      background-color: var(--secondary);
+      color: var(--neutral-900);
+    }
+    
+    .product-quick-view {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: rgba(255, 255, 255, 0.9);
+      color: var(--neutral-900);
+      border: none;
+      border-radius: 50px;
+      padding: 0.5rem 1rem;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      cursor: pointer;
+    }
+    
+    .dark .product-quick-view {
+      background-color: rgba(20, 20, 20, 0.9);
+      color: var(--neutral-100);
+    }
+    
+    .product-img:hover .product-quick-view {
+      opacity: 1;
+    }
+    
+    .premium-service {
+      margin-top: 2rem;
+      padding: 1.5rem;
+      border-radius: 1rem;
+      background-color: rgba(13, 102, 49, 0.05);
+      border: 1px dashed rgba(13, 102, 49, 0.3);
+    }
+    
+    .dark .premium-service {
+      background-color: rgba(255, 193, 7, 0.05);
+      border: 1px dashed rgba(255, 193, 7, 0.3);
+    }
+    
+    .premium-service-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    
+    .premium-service-title i {
+      color: var(--primary);
+    }
+    
+    .dark .premium-service-title i {
+      color: var(--secondary);
+    }
+    
+    .premium-service-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    
+    .premium-service-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+    }
+    
+    .premium-service-item i {
+      color: var(--success);
+      margin-top: 0.25rem;
+    }
+    
+    .premium-service-item p {
+      margin: 0;
+      font-size: 0.95rem;
+    }
+    
+    /* AC-specific styles */
+    .energy-rating {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+      margin-top: 0.5rem;
+      font-size: 0.85rem;
+    }
+    
+    .energy-rating i {
+      color: var(--primary);
+    }
+    
+    .dark .energy-rating i {
+      color: var(--secondary);
+    }
+    
+    .energy-efficient .energy-rating i {
+      color: var(--success);
+    }
+    
+    .feature-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.75rem;
+    }
+    
+    .feature-tag {
+      background-color: rgba(13, 102, 49, 0.1);
+      color: var(--primary);
+      padding: 0.25rem 0.5rem;
+      font-size: 0.7rem;
+      border-radius: 4px;
+    }
+    
+    .dark .feature-tag {
+      background-color: rgba(255, 193, 7, 0.1);
+      color: var(--secondary);
+    }
+    
+    .installation-info {
+      background-color: rgba(59, 130, 246, 0.1);
+      border-radius: 0.5rem;
+      padding: 1rem;
+      margin-top: 1.5rem;
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+    
+    .dark .installation-info {
+      background-color: rgba(59, 130, 246, 0.2);
+    }
+    
+    .installation-info-icon {
+      flex-shrink: 0;
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 50%;
+      background-color: white;
+      color: var(--info);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .dark .installation-info-icon {
+      background-color: var(--neutral-700);
+    }
+    
     /* Filter bar */
     .filter-bar {
-      margin: 2rem 0;
+      margin-bottom: 2rem;
     }
     
     .filter-form {
@@ -546,41 +797,6 @@
       transform: scale(1.05);
     }
     
-    .product-badge-container {
-      position: absolute;
-      top: 10px;
-      left: 10px;
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-      z-index: 5;
-    }
-    
-    .product-badge {
-      background-color: var(--primary);
-      color: white;
-      padding: 0.25rem 0.75rem;
-      border-radius: 50px;
-      font-size: 0.75rem;
-      font-weight: 600;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-    
-    .badge-sale {
-      background-color: var(--error);
-    }
-    
-    .badge-new {
-      background-color: var(--success);
-    }
-    
-    .badge-bestseller {
-      background-color: var(--secondary);
-      color: var(--neutral-900);
-    }
-    
     .wishlist-btn {
       position: absolute;
       top: 10px;
@@ -605,6 +821,27 @@
     
     .product-info {
       padding: 1.25rem;
+    }
+    
+    .product-rating {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .stars {
+      display: flex;
+      color: var(--neutral-400);
+    }
+    
+    .stars .filled {
+      color: var(--secondary);
+    }
+    
+    .review-count {
+      font-size: 0.75rem;
+      color: var(--neutral-500);
     }
     
     .product-title {
@@ -678,158 +915,89 @@
       background-color: var(--secondary-dark);
     }
     
-    footer {
-      background-color: var(--neutral-800);
+    .view-all-btn {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      background-color: var(--primary);
       color: white;
-      padding: 3rem 0 1rem;
-      margin-top: 4rem;
-    }
-    
-    .footer-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem;
-      margin-bottom: 3rem;
-    }
-    
-    .footer-logo {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      margin-bottom: 1rem;
-    }
-    
-    .footer-logo-icon {
-      font-size: 1.5rem;
-      color: var(--secondary);
-    }
-    
-    .footer-logo-text {
-      font-size: 1.25rem;
-      font-weight: 700;
-    }
-    
-    .footer-about {
-      margin-bottom: 1.5rem;
-      opacity: 0.7;
-      line-height: 1.6;
-    }
-    
-    .footer-social {
-      display: flex;
-      gap: 1rem;
-    }
-    
-    .footer-social-icon {
-      width: 2rem;
-      height: 2rem;
-      background-color: rgba(255, 255, 255, 0.1);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
+      border-radius: 0.5rem;
+      text-decoration: none;
+      font-weight: 500;
+      margin-top: 2rem;
       transition: background-color 0.3s;
     }
     
-    .footer-social-icon:hover {
-      background-color: var(--primary);
+    .view-all-btn:hover {
+      background-color: var(--primary-dark);
     }
     
-    .footer-col h3 {
-      font-size: 1.25rem;
-      margin-bottom: 1.25rem;
-      font-weight: 600;
+    .dark .view-all-btn {
+      background-color: var(--secondary);
+      color: var(--neutral-900);
     }
     
-    .footer-links {
-      list-style: none;
-      padding: 0;
-      margin: 0;
+    .dark .view-all-btn:hover {
+      background-color: var(--secondary-dark);
     }
     
-    .footer-links li {
-      margin-bottom: 0.75rem;
+    .text-center {
+      text-align: center;
     }
     
-    .footer-links a {
-      color: rgba(255, 255, 255, 0.7);
-      text-decoration: none;
-      transition: color 0.3s;
+    /* Features Section */
+    .features-section {
+      background-color: var(--neutral-100);
+      padding: 4rem 0;
+      margin-top: 4rem;
     }
     
-    .footer-links a:hover {
-      color: var(--secondary);
+    .dark .features-section {
+      background-color: var(--neutral-900);
     }
     
-    .footer-contact-item {
-      display: flex;
-      gap: 1rem;
-      margin-bottom: 1rem;
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
     }
     
-    .footer-contact-icon {
-      width: 1.5rem;
-      height: 1.5rem;
-      background-color: rgba(255, 255, 255, 0.1);
-      border-radius: 50%;
+    .feature-item {
+      text-align: center;
+    }
+    
+    .feature-icon {
+      width: 4rem;
+      height: 4rem;
+      background-color: white;
+      margin: 0 auto 1rem;
+      border-radius: 1rem;
       display: flex;
       align-items: center;
       justify-content: center;
-      flex-shrink: 0;
+      font-size: 1.5rem;
+      color: var(--primary);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
     }
     
-    .footer-contact-text a {
-      color: white;
-      text-decoration: none;
-      transition: color 0.3s;
-    }
-    
-    .footer-contact-text a:hover {
+    .dark .feature-icon {
+      background-color: var(--neutral-800);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
       color: var(--secondary);
     }
     
-    .footer-bottom {
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
-      padding-top: 1.5rem;
-    }
-    
-    .footer-bottom-content {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      gap: 1rem;
-    }
-    
-    .copyright {
-      opacity: 0.7;
-    }
-    
-    .legal-links {
-      display: flex;
-      gap: 1.5rem;
-    }
-    
-    .legal-links a {
-      color: rgba(255, 255, 255, 0.7);
-      text-decoration: none;
-      transition: color 0.3s;
-    }
-    
-    .legal-links a:hover {
-      color: var(--secondary);
-    }
-    
-    .payment-methods {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-    }
-    
-    .payment-icons {
-      display: flex;
-      gap: 0.75rem;
+    .feature-title {
       font-size: 1.25rem;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+    
+    .feature-desc {
+      color: var(--neutral-600);
+      font-size: 0.875rem;
+    }
+    
+    .dark .feature-desc {
+      color: var(--neutral-400);
     }
     
     /* WhatsApp Float */
@@ -872,95 +1040,18 @@
       opacity: 1;
       transform: translateX(0);
     }
-    
-    @media (max-width: 768px) {
-      .nav-links {
-        display: none;
-      }
-      
-      .search-bar {
-        display: none;
-      }
-      
-      .hero h1 {
-        font-size: 2rem;
-      }
-      
-      .hero p {
-        font-size: 1rem;
-      }
-      
-      .grid-view {
-        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-        gap: 1.5rem;
-      }
-      
-      .footer-bottom-content {
-        flex-direction: column;
-        text-align: center;
-      }
-      
-      .legal-links {
-        justify-content: center;
-      }
-      
-      .payment-methods {
-        justify-content: center;
-      }
-    }
-    
-    /* Energy rating */
-    .energy-rating {
-      display: flex;
-      align-items: center;
-      gap: 0.25rem;
-      margin-top: 0.5rem;
-      font-size: 0.85rem;
-    }
-    
-    .energy-rating i {
-      color: var(--primary);
-    }
-    
-    .dark .energy-rating i {
-      color: var(--secondary);
-    }
-    
-    .energy-efficient .energy-rating i {
-      color: var(--success);
-    }
-    
-    .feature-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-top: 0.75rem;
-    }
-    
-    .feature-tag {
-      background-color: rgba(13, 102, 49, 0.1);
-      color: var(--primary);
-      padding: 0.25rem 0.5rem;
-      font-size: 0.7rem;
-      border-radius: 4px;
-    }
-    
-    .dark .feature-tag {
-      background-color: rgba(255, 193, 7, 0.1);
-      color: var(--secondary);
-    }
   </style>
 </head>
 <body>
   <header>
     <div class="container">
       <div class="header-inner">
-        <a href="index.html" class="logo">
+        <div class="logo">
           <div class="logo-icon">
             <i class="fa-solid fa-tv"></i>
           </div>
-          Electronic And More
-        </a>
+          <a href="index.html">Electronic And More</a>
+        </div>
         
         <nav class="nav-links">
           <ul>
@@ -975,7 +1066,7 @@
             <input type="text" placeholder="Search products...">
             <i class="fa-solid fa-magnifying-glass search-bar-icon"></i>
           </div>
-          <button class="theme-toggle" id="themeToggle">
+          <button class="theme-toggle">
             <i class="fa-solid fa-moon"></i>
           </button>
           <button class="cart-button">
@@ -1104,9 +1195,9 @@
         <div class="menu-category-title">Categories</div>
         <ul class="menu-items">
           <li class="menu-item"><a href="fridges.html"><i class="fa-solid fa-snowflake"></i> Fridges</a></li>
-          <li class="menu-item"><a href="cookers-inside-menu.html"><i class="fa-solid fa-fire"></i> Cookers</a></li>
+          <li class="menu-item"><a href="cookers.html"><i class="fa-solid fa-fire"></i> Cookers</a></li>
           <li class="menu-item"><a href="televisions.html"><i class="fa-solid fa-tv"></i> TVs</a></li>
-          <li class="menu-item"><a href="air-conditioners-simplified.html"><i class="fa-solid fa-wind"></i> Air Conditioners</a></li>
+          <li class="menu-item"><a href="air-conditioners.html"><i class="fa-solid fa-wind"></i> Air Conditioners</a></li>
           <li class="menu-item"><a href="washing-machines.html"><i class="fa-solid fa-shirt"></i> Washing Machines</a></li>
           <li class="menu-item"><a href="cosmetics.html"><i class="fa-solid fa-spray-can"></i> Cosmetics</a></li>
         </ul>
@@ -1138,7 +1229,14 @@
       </div>
     </section>
     
-    <!-- Filter bar -->
+    <div class="breadcrumbs container">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><i class="fa-solid fa-chevron-right"></i></li>
+        <li>Air Conditioners</li>
+      </ul>
+    </div>
+    
     <section class="filter-bar">
       <div class="container">
         <form class="filter-form">
@@ -1155,116 +1253,344 @@
       </div>
     </section>
     
-    <!-- Products Section -->
-    <section id="products" class="container">
-      <h2>Our Air Conditioners</h2>
-      <p>Browse our selection of high-quality air conditioners from top brands. Find the perfect cooling solution for your home or office.</p>
-      
-      <div class="grid-view">
-        <!-- Product 1 -->
-        <div class="product-card" data-type="split" data-brand="Samsung" data-price="349.99">
-          <div class="product-img">
-            <img src="https://images.unsplash.com/photo-1551236350-62a1e6a1b6d3?auto=format&fit=crop&q=80&w=500&h=375" alt="Samsung Air Conditioner">
-            <div class="product-badge-container">
-              <span class="product-badge badge-sale"><i class="fa-solid fa-tag"></i>18% OFF</span>
-            </div>
-            <button class="wishlist-btn" onclick="toggleWishlist(this)">
-              <i class="fa-regular fa-heart"></i>
-            </button>
+    <section id="products" class="products-section">
+      <div class="container">
+        <div class="category-description">
+          <h2>Cooling Solutions for Every Space</h2>
+          <p>Air conditioners are essential for maintaining a comfortable living environment, especially in hot and humid climates like Ghana. Our range includes various types and sizes to suit different spaces and cooling needs. Whether you're looking for a small unit for a bedroom or a powerful system for a large living area, we have energy-efficient options from trusted brands that will keep you cool while minimizing electricity costs.</p>
+        </div>
+        
+        <div class="product-filters">
+          <div class="results-count">
+            <span id="productCount">9</span> products found
           </div>
-          <div class="product-info">
-            <h3 class="product-title">Samsung Inverter Split AC 12000 BTU</h3>
-            <p class="product-desc">Energy-efficient cooling with fast cool technology and digital inverter.</p>
-            <div class="energy-rating energy-efficient">
-              <i class="fa-solid fa-leaf"></i>
-              <span>Energy Rating: A+++</span>
-            </div>
-            <div class="feature-tags">
-              <span class="feature-tag">Inverter</span>
-              <span class="feature-tag">Wi-Fi</span>
-              <span class="feature-tag">Sleep Mode</span>
-            </div>
-            <div class="price-actions">
-              <div class="price-box">
-                <span class="current-price">$349.99</span>
-                <span class="old-price">$429.99</span>
-              </div>
-              <button class="cart-btn">
-                <i class="fa-solid fa-cart-plus"></i>
-                Add
-              </button>
-            </div>
+          <div>
+            <span class="filter-label">Sort by:</span>
+            <select class="sort-by" id="sortProducts">
+              <option value="popularity">Popularity</option>
+              <option value="price-low">Price: Low to High</option>
+              <option value="price-high">Price: High to Low</option>
+              <option value="newest">Newest First</option>
+            </select>
           </div>
         </div>
         
-        <!-- Product 2 -->
-        <div class="product-card" data-type="split" data-brand="LG" data-price="429.99">
-          <div class="product-img">
-            <img src="https://images.unsplash.com/photo-1621865022129-32414f606853?auto=format&fit=crop&q=80&w=500&h=375" alt="LG Dual Inverter Air Conditioner">
-            <div class="product-badge-container">
-              <span class="product-badge badge-bestseller"><i class="fa-solid fa-trophy"></i>Best Seller</span>
-            </div>
-            <button class="wishlist-btn" onclick="toggleWishlist(this)">
-              <i class="fa-regular fa-heart"></i>
-            </button>
-          </div>
-          <div class="product-info">
-            <h3 class="product-title">LG Dual Inverter Split AC 18000 BTU</h3>
-            <p class="product-desc">Dual inverter technology for faster cooling and up to 70% energy savings.</p>
-            <div class="energy-rating energy-efficient">
-              <i class="fa-solid fa-leaf"></i>
-              <span>Energy Rating: A++</span>
-            </div>
-            <div class="feature-tags">
-              <span class="feature-tag">Dual Inverter</span>
-              <span class="feature-tag">ThinQ</span>
-              <span class="feature-tag">Air Purifier</span>
-            </div>
-            <div class="price-actions">
-              <div class="price-box">
-                <span class="current-price">$429.99</span>
-                <span class="old-price">$499.99</span>
+        <div class="grid-view" id="productList">
+          <!-- Product 1 -->
+          <div class="product-card" data-type="split" data-brand="Samsung" data-price="349.99">
+            <div class="product-img">
+              <img src="https://images.unsplash.com/photo-1551236350-62a1e6a1b6d3?auto=format&fit=crop&q=80&w=500&h=375" alt="Samsung Air Conditioner">
+              <div class="product-badge-container">
+                <span class="product-badge badge-sale"><i class="fa-solid fa-tag"></i>18% OFF</span>
               </div>
-              <button class="cart-btn">
-                <i class="fa-solid fa-cart-plus"></i>
-                Add
+              <button class="wishlist-btn" onclick="toggleWishlist(this)">
+                <i class="fa-regular fa-heart"></i>
               </button>
+              <button class="product-quick-view">
+                <i class="fa-regular fa-eye"></i>
+                Quick View
+              </button>
+            </div>
+            <div class="product-info">
+              <div class="product-rating">
+                <div class="stars">
+                  <span class="filled">★</span>
+                  <span class="filled">★</span>
+                  <span class="filled">★</span>
+                  <span class="filled">★</span>
+                  <span>★</span>
+                </div>
+                <span class="review-count">(36 reviews)</span>
+              </div>
+              <h3 class="product-title">Samsung Inverter Split AC 12000 BTU</h3>
+              <p class="product-desc">Energy-efficient cooling with fast cool technology and digital inverter.</p>
+              <div class="energy-rating energy-efficient">
+                <i class="fa-solid fa-leaf"></i>
+                <span>Energy Rating: A+++</span>
+              </div>
+              <div class="feature-tags">
+                <span class="feature-tag">Inverter</span>
+                <span class="feature-tag">Wi-Fi</span>
+                <span class="feature-tag">Sleep Mode</span>
+              </div>
+              <div class="price-actions">
+                <div class="price-box">
+                  <span class="current-price">$349.99</span>
+                  <span class="old-price">$429.99</span>
+                </div>
+                <button class="cart-btn">
+                  <i class="fa-solid fa-cart-plus"></i>
+                  Add
+                </button>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Product 2 -->
+          <div class="product-card" data-type="split" data-brand="LG" data-price="429.99">
+            <div class="product-img">
+              <img src="https://images.unsplash.com/photo-1621865022129-32414f606853?auto=format&fit=crop&q=80&w=500&h=375" alt="LG Dual Inverter Air Conditioner">
+              <div class="product-badge-container">
+                <span class="product-badge badge-bestseller"><i class="fa-solid fa-trophy"></i>Best Seller</span>
+              </div>
+              <button class="wishlist-btn" onclick="toggleWishlist(this)">
+                <i class="fa-regular fa-heart"></i>
+              </button>
+              <button class="product-quick-view">
+                <i class="fa-regular fa-eye"></i>
+                Quick View
+              </button>
+            </div>
+            <div class="product-info">
+              <div class="product-rating">
+                <div class="stars">
+                  <span class="filled">★</span>
+                  <span class="filled">★</span>
+                  <span class="filled">★</span>
+                  <span class="filled">★</span>
+                  <span class="filled">★</span>
+                </div>
+                <span class="review-count">(58 reviews)</span>
+              </div>
+              <h3 class="product-title">LG Dual Inverter Split AC 18000 BTU</h3>
+              <p class="product-desc">Dual inverter technology for faster cooling and up to 70% energy savings.</p>
+              <div class="energy-rating energy-efficient">
+                <i class="fa-solid fa-leaf"></i>
+                <span>Energy Rating: A++</span>
+              </div>
+              <div class="feature-tags">
+                <span class="feature-tag">Dual Inverter</span>
+                <span class="feature-tag">ThinQ</span>
+                <span class="feature-tag">Air Purifier</span>
+              </div>
+              <div class="price-actions">
+                <div class="price-box">
+                  <span class="current-price">$429.99</span>
+                  <span class="old-price">$499.99</span>
+                </div>
+                <button class="cart-btn">
+                  <i class="fa-solid fa-cart-plus"></i>
+                  Add
+                </button>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Product 3 -->
+          <div class="product-card" data-type="window" data-brand="Midea" data-price="229.99">
+            <div class="product-img">
+              <img src="https://images.unsplash.com/photo-1567498573339-2efa011efaf8?auto=format&fit=crop&q=80&w=500&h=375" alt="Midea Window Air Conditioner">
+              <div class="product-badge-container">
+                <span class="product-badge badge-sale"><i class="fa-solid fa-tag"></i>15% OFF</span>
+              </div>
+              <button class="wishlist-btn" onclick="toggleWishlist(this)">
+                <i class="fa-regular fa-heart"></i>
+              </button>
+              <button class="product-quick-view">
+                <i class="fa-regular fa-eye"></i>
+                Quick View
+              </button>
+            </div>
+            <div class="product-info">
+              <div class="product-rating">
+                <div class="stars">
+                  <span class="filled">★</span>
+                  <span class="filled">★</span>
+                  <span class="filled">★</span>
+                  <span class="filled">★</span>
+                  <span>★</span>
+                </div>
+                <span class="review-count">(22 reviews)</span>
+              </div>
+              <h3 class="product-title">Midea Window AC 8000 BTU</h3>
+              <p class="product-desc">Compact window unit ideal for small rooms with easy installation.</p>
+              <div class="energy-rating">
+                <i class="fa-solid fa-leaf"></i>
+                <span>Energy Rating: B+</span>
+              </div>
+              <div class="feature-tags">
+                <span class="feature-tag">Easy Install</span>
+                <span class="feature-tag">Timer</span>
+              </div>
+              <div class="price-actions">
+                <div class="price-box">
+                  <span class="current-price">$229.99</span>
+                  <span class="old-price">$279.99</span>
+                </div>
+                <button class="cart-btn">
+                  <i class="fa-solid fa-cart-plus"></i>
+                  Add
+                </button>
+              </div>
+            </div>
+          </div>
+          
+          <!-- More products would go here -->
+        </div>
+        
+        <div class="text-center">
+          <a href="#" class="view-all-btn">Load More Products</a>
+        </div>
+        
+        <div class="category-info">
+          <div class="buying-guide">
+            <h3>Air Conditioner Buying Guide</h3>
+            <p>Choosing the right air conditioner for your space requires considering several important factors:</p>
+            
+            <div class="buying-guide-points">
+              <div class="guide-point">
+                <div class="guide-point-icon">
+                  <i class="fa-solid fa-temperature-low"></i>
+                </div>
+                <div class="guide-point-content">
+                  <h4>BTU Rating</h4>
+                  <p>The British Thermal Unit (BTU) measurement indicates cooling capacity. As a rule of thumb, you need about 20 BTU per square foot of living space for efficient cooling.</p>
+                </div>
+              </div>
+              
+              <div class="guide-point">
+                <div class="guide-point-icon">
+                  <i class="fa-solid fa-house"></i>
+                </div>
+                <div class="guide-point-content">
+                  <h4>AC Type</h4>
+                  <p>Split ACs are quiet and efficient but require installation. Window units are more affordable and easier to install. Portable ACs offer flexibility but are less efficient.</p>
+                </div>
+              </div>
+              
+              <div class="guide-point">
+                <div class="guide-point-icon">
+                  <i class="fa-solid fa-bolt"></i>
+                </div>
+                <div class="guide-point-content">
+                  <h4>Energy Efficiency</h4>
+                  <p>Look for inverter technology and high energy efficiency rating (EER) to reduce power consumption and save on electricity bills over time.</p>
+                </div>
+              </div>
+              
+              <div class="guide-point">
+                <div class="guide-point-icon">
+                  <i class="fa-solid fa-sliders"></i>
+                </div>
+                <div class="guide-point-content">
+                  <h4>Features</h4>
+                  <p>Consider additional features like air purification, dehumidification, smart controls, timer functions, sleep mode, and remote operation capabilities.</p>
+                </div>
+              </div>
+            </div>
+            
+            <h3 class="mt-5">BTU Guide by Room Size</h3>
+            <table class="spec-table">
+              <thead>
+                <tr>
+                  <th>Room Size (sq ft)</th>
+                  <th>Recommended BTU</th>
+                  <th>Best AC Type</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>100-250</td>
+                  <td>5,000-6,000</td>
+                  <td>Window or Portable</td>
+                </tr>
+                <tr>
+                  <td>250-400</td>
+                  <td>8,000-10,000</td>
+                  <td>Window or Split</td>
+                </tr>
+                <tr>
+                  <td>400-600</td>
+                  <td>12,000-14,000</td>
+                  <td>Split</td>
+                </tr>
+                <tr>
+                  <td>600-1,000</td>
+                  <td>18,000-24,000</td>
+                  <td>Split or Floor Standing</td>
+                </tr>
+                <tr>
+                  <td>1,000+</td>
+                  <td>24,000+</td>
+                  <td>Cassette or Multiple Units</td>
+                </tr>
+              </tbody>
+            </table>
+            
+            <div class="installation-info">
+              <div class="installation-info-icon">
+                <i class="fa-solid fa-screwdriver-wrench"></i>
+              </div>
+              <div>
+                <h4>Professional Installation Available</h4>
+                <p>We recommend professional installation for all split and cassette AC units to ensure optimal performance and warranty coverage. Our trained technicians can install your new air conditioner for a nominal fee, with same-day service available in most areas.</p>
+              </div>
+            </div>
+            
+            <div class="premium-service">
+              <div class="premium-service-title">
+                <i class="fa-solid fa-star"></i>
+                <span>Our AC Service Package</span>
+              </div>
+              <p>When you purchase an air conditioner from Electronic And More, you get more than just a cooling unit. Our comprehensive service package ensures your complete satisfaction.</p>
+              
+              <div class="premium-service-list">
+                <div class="premium-service-item">
+                  <i class="fa-solid fa-check"></i>
+                  <p><strong>Free Site Assessment</strong>: We'll help you determine the right AC size and type for your space</p>
+                </div>
+                <div class="premium-service-item">
+                  <i class="fa-solid fa-check"></i>
+                  <p><strong>Expert Installation</strong>: Professional installation by certified technicians</p>
+                </div>
+                <div class="premium-service-item">
+                  <i class="fa-solid fa-check"></i>
+                  <p><strong>Extended Warranty</strong>: Up to 3 years total coverage available on select models</p>
+                </div>
+                <div class="premium-service-item">
+                  <i class="fa-solid fa-check"></i>
+                  <p><strong>Maintenance Plan</strong>: Optional annual maintenance service to keep your AC running efficiently</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-        
-        <!-- Product 3 -->
-        <div class="product-card" data-type="window" data-brand="Midea" data-price="229.99">
-          <div class="product-img">
-            <img src="https://images.unsplash.com/photo-1567498573339-2efa011efaf8?auto=format&fit=crop&q=80&w=500&h=375" alt="Midea Window Air Conditioner">
-            <div class="product-badge-container">
-              <span class="product-badge badge-sale"><i class="fa-solid fa-tag"></i>15% OFF</span>
+      </div>
+    </section>
+    
+    <section class="features-section">
+      <div class="container">
+        <div class="features-grid">
+          <div class="feature-item">
+            <div class="feature-icon">
+              <i class="fa-solid fa-truck-fast"></i>
             </div>
-            <button class="wishlist-btn" onclick="toggleWishlist(this)">
-              <i class="fa-regular fa-heart"></i>
-            </button>
+            <h3 class="feature-title">Free Delivery</h3>
+            <p class="feature-desc">Free shipping on all orders over $250</p>
           </div>
-          <div class="product-info">
-            <h3 class="product-title">Midea Window AC 8000 BTU</h3>
-            <p class="product-desc">Compact window unit ideal for small rooms with easy installation.</p>
-            <div class="energy-rating">
-              <i class="fa-solid fa-leaf"></i>
-              <span>Energy Rating: B+</span>
+          
+          <div class="feature-item">
+            <div class="feature-icon">
+              <i class="fa-solid fa-shield-halved"></i>
             </div>
-            <div class="feature-tags">
-              <span class="feature-tag">Easy Install</span>
-              <span class="feature-tag">Timer</span>
+            <h3 class="feature-title">Product Warranty</h3>
+            <p class="feature-desc">1-2 years warranty on all air conditioners</p>
+          </div>
+          
+          <div class="feature-item">
+            <div class="feature-icon">
+              <i class="fa-solid fa-screwdriver-wrench"></i>
             </div>
-            <div class="price-actions">
-              <div class="price-box">
-                <span class="current-price">$229.99</span>
-                <span class="old-price">$279.99</span>
-              </div>
-              <button class="cart-btn">
-                <i class="fa-solid fa-cart-plus"></i>
-                Add
-              </button>
+            <h3 class="feature-title">Expert Installation</h3>
+            <p class="feature-desc">Professional installation service available</p>
+          </div>
+          
+          <div class="feature-item">
+            <div class="feature-icon">
+              <i class="fa-solid fa-headset"></i>
             </div>
+            <h3 class="feature-title">24/7 Support</h3>
+            <p class="feature-desc">Technical assistance and troubleshooting</p>
           </div>
         </div>
       </div>
@@ -1303,9 +1629,9 @@
           <h3>Product Categories</h3>
           <ul class="footer-links">
             <li><a href="fridges.html">Fridges</a></li>
-            <li><a href="cookers-inside-menu.html">Cookers</a></li>
+            <li><a href="cookers.html">Cookers</a></li>
             <li><a href="televisions.html">TVs</a></li>
-            <li><a href="air-conditioners-simplified.html">Air Conditioners</a></li>
+            <li><a href="air-conditioners.html">Air Conditioners</a></li>
             <li><a href="washing-machines.html">Washing Machines</a></li>
             <li><a href="cosmetics.html">Cosmetics</a></li>
           </ul>
@@ -1367,6 +1693,7 @@
     <span class="whatsapp-text">Chat with us</span>
   </a>
   
+  <script src="dark-mode.js"></script>
   <script>
     // Menu toggle functionality
     document.addEventListener('DOMContentLoaded', function() {
@@ -1375,50 +1702,17 @@
       const closeMenu = document.getElementById('closeMenu');
       const menuSidebar = document.getElementById('menuSidebar');
       const menuOverlay = document.getElementById('menuOverlay');
-      const themeToggle = document.getElementById('themeToggle');
+      const applyFilters = document.getElementById('applyFilters');
+      const resetFilters = document.getElementById('resetFilters');
       
-      // Dark mode/theme toggle
-      function toggleTheme() {
-        document.body.classList.toggle('dark');
-        
-        // Update the icon
-        const icon = themeToggle.querySelector('i');
-        if (document.body.classList.contains('dark')) {
-          icon.classList.remove('fa-moon');
-          icon.classList.add('fa-sun');
-        } else {
-          icon.classList.remove('fa-sun');
-          icon.classList.add('fa-moon');
-        }
-        
-        // Save preference
-        localStorage.setItem('dark-mode', document.body.classList.contains('dark'));
-      }
-      
-      if (themeToggle) {
-        themeToggle.addEventListener('click', toggleTheme);
-      }
-      
-      // Check for saved theme preference
-      const savedDarkMode = localStorage.getItem('dark-mode') === 'true';
-      if (savedDarkMode) {
-        document.body.classList.add('dark');
-        
-        // Update the icon if dark mode is active
-        if (themeToggle) {
-          const icon = themeToggle.querySelector('i');
-          icon.classList.remove('fa-moon');
-          icon.classList.add('fa-sun');
-        }
-      }
-      
-      // Menu functions
+      // Function to open the menu
       function openMenu() {
         menuSidebar.style.left = '0';
         menuOverlay.style.display = 'block';
         document.body.style.overflow = 'hidden'; // Prevent scrolling
       }
       
+      // Function to close the menu
       function closeMenuFunc() {
         menuSidebar.style.left = '-300px';
         menuOverlay.style.display = 'none';
@@ -1442,51 +1736,23 @@
         menuOverlay.addEventListener('click', closeMenuFunc);
       }
       
-      // Apply Filters
-      const applyFilters = document.getElementById('applyFilters');
+      // Apply filters
       if (applyFilters) {
         applyFilters.addEventListener('click', function() {
-          // Get selected values
+          // Get the selected values
           const typeValue = document.querySelector('input[name="type"]:checked').value;
           const brandValue = document.querySelector('input[name="brand"]:checked').value;
           const priceValue = document.querySelector('input[name="price"]:checked').value;
           
           // Filter products
-          const productCards = document.querySelectorAll('.product-card');
-          let visibleCount = 0;
+          filterProductsByValues(typeValue, brandValue, priceValue);
           
-          productCards.forEach(card => {
-            const cardType = card.dataset.type;
-            const cardBrand = card.dataset.brand;
-            const cardPrice = parseFloat(card.dataset.price);
-            
-            const matchesType = typeValue === 'all-types' || cardType === typeValue;
-            const matchesBrand = brandValue === 'all-brands' || cardBrand === brandValue;
-            
-            let matchesPrice = true;
-            if (priceValue === 'low') {
-              matchesPrice = cardPrice < 300;
-            } else if (priceValue === 'medium') {
-              matchesPrice = cardPrice >= 300 && cardPrice <= 600;
-            } else if (priceValue === 'high') {
-              matchesPrice = cardPrice > 600;
-            }
-            
-            if (matchesType && matchesBrand && matchesPrice) {
-              card.style.display = '';
-              visibleCount++;
-            } else {
-              card.style.display = 'none';
-            }
-          });
-          
-          // Close menu after applying filters
+          // Close the menu
           closeMenuFunc();
         });
       }
       
-      // Reset Filters
-      const resetFilters = document.getElementById('resetFilters');
+      // Reset filters
       if (resetFilters) {
         resetFilters.addEventListener('click', function() {
           // Reset radio buttons
@@ -1494,18 +1760,60 @@
           document.querySelector('input[name="brand"][value="all-brands"]').checked = true;
           document.querySelector('input[name="price"][value="all-prices"]').checked = true;
           
-          // Reset search input
-          const searchInput = document.getElementById('searchInput');
-          if (searchInput) {
-            searchInput.value = '';
+          // Clear search input
+          if (document.getElementById('searchInput')) {
+            document.getElementById('searchInput').value = '';
           }
           
-          // Show all products
+          // Reset the product display
           const productCards = document.querySelectorAll('.product-card');
           productCards.forEach(card => {
             card.style.display = '';
           });
+          
+          // Update count
+          const productCountEl = document.getElementById('productCount');
+          if (productCountEl) {
+            productCountEl.textContent = productCards.length;
+          }
         });
+      }
+      
+      // Function to filter products by selected values
+      function filterProductsByValues(type, brand, price) {
+        const productCards = document.querySelectorAll('.product-card');
+        let visibleCount = 0;
+        
+        productCards.forEach(card => {
+          const cardType = card.dataset.type;
+          const cardBrand = card.dataset.brand;
+          const cardPrice = parseFloat(card.dataset.price);
+          
+          const matchesType = type === 'all-types' || cardType === type;
+          const matchesBrand = brand === 'all-brands' || cardBrand === brand;
+          
+          let matchesPrice = true;
+          if (price === 'low') {
+            matchesPrice = cardPrice < 300;
+          } else if (price === 'medium') {
+            matchesPrice = cardPrice >= 300 && cardPrice <= 600;
+          } else if (price === 'high') {
+            matchesPrice = cardPrice > 600;
+          }
+          
+          if (matchesType && matchesBrand && matchesPrice) {
+            card.style.display = '';
+            visibleCount++;
+          } else {
+            card.style.display = 'none';
+          }
+        });
+        
+        // Update product count
+        const productCountEl = document.getElementById('productCount');
+        if (productCountEl) {
+          productCountEl.textContent = visibleCount;
+        }
       }
       
       // Search functionality
@@ -1514,6 +1822,7 @@
         searchInput.addEventListener('input', function() {
           const searchTerm = searchInput.value.toLowerCase();
           const productCards = document.querySelectorAll('.product-card');
+          let visibleCount = 0;
           
           productCards.forEach(card => {
             const productTitle = card.querySelector('.product-title').textContent.toLowerCase();
@@ -1521,9 +1830,42 @@
             
             if (productTitle.includes(searchTerm) || productDesc.includes(searchTerm) || searchTerm === '') {
               card.style.display = '';
+              visibleCount++;
             } else {
               card.style.display = 'none';
             }
+          });
+          
+          // Update product count
+          const productCountEl = document.getElementById('productCount');
+          if (productCountEl) {
+            productCountEl.textContent = visibleCount;
+          }
+        });
+      }
+      
+      // Product sorting
+      const sortProducts = document.getElementById('sortProducts');
+      if (sortProducts) {
+        sortProducts.addEventListener('change', () => {
+          const sortValue = sortProducts.value;
+          const productList = document.getElementById('productList');
+          const productCards = document.querySelectorAll('.product-card');
+          const productsArray = Array.from(productCards);
+          
+          productsArray.sort((a, b) => {
+            if (sortValue === 'price-low') {
+              return parseFloat(a.dataset.price) - parseFloat(b.dataset.price);
+            } else if (sortValue === 'price-high') {
+              return parseFloat(b.dataset.price) - parseFloat(a.dataset.price);
+            }
+            return 0; // Default or popularity sort
+          });
+          
+          // Clear and re-append sorted items
+          productList.innerHTML = '';
+          productsArray.forEach(product => {
+            productList.appendChild(product);
           });
         });
       }
@@ -1541,6 +1883,16 @@
           button.style.color = '';
         }
       };
+      
+      // Quick view functionality
+      const quickViewButtons = document.querySelectorAll('.product-quick-view');
+      quickViewButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          const productCard = this.closest('.product-card');
+          const productTitle = productCard.querySelector('.product-title').textContent;
+          alert(`Quick view for ${productTitle} - This feature will be implemented soon!`);
+        });
+      });
     });
   </script>
 </body>
