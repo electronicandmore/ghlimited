@@ -12,6 +12,10 @@
     header {
       background-color: var(--primary);
       padding: 1rem 0;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
     }
     
     .header-inner {
@@ -50,11 +54,24 @@
       color: white;
       text-decoration: none;
       font-weight: 500;
-      transition: opacity 0.3s;
+      transition: all 0.3s;
+      padding: 0.5rem 0;
+      position: relative;
     }
     
-    .nav-links a:hover {
-      opacity: 0.8;
+    .nav-links a:after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      background: var(--secondary);
+      left: 0;
+      bottom: 0;
+      transition: width 0.3s ease;
+    }
+    
+    .nav-links a:hover:after {
+      width: 100%;
     }
     
     .header-actions {
@@ -74,6 +91,14 @@
       border-radius: 50px;
       border: none;
       font-size: 0.875rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    }
+    
+    .search-bar input:focus {
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      outline: none;
+      width: 220px;
     }
     
     .search-bar-icon {
@@ -96,6 +121,16 @@
       align-items: center;
       justify-content: center;
       position: relative;
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 50%;
+      transition: background-color 0.3s;
+    }
+    
+    .theme-toggle:hover,
+    .cart-button:hover,
+    .menu-button:hover {
+      background-color: rgba(255, 255, 255, 0.1);
     }
     
     .cart-count {
@@ -105,8 +140,8 @@
       background-color: var(--secondary);
       color: var(--neutral-900);
       font-size: 0.75rem;
-      width: 1rem;
-      height: 1rem;
+      width: 1.25rem;
+      height: 1.25rem;
       border-radius: 50%;
       display: flex;
       align-items: center;
@@ -122,55 +157,83 @@
       color: white;
       padding: 5rem 0;
       text-align: center;
+      position: relative;
+    }
+    
+    .hero::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 50px;
+      background: linear-gradient(to bottom right, transparent 49%, white 50%);
+    }
+    
+    .dark .hero::before {
+      background: linear-gradient(to bottom right, transparent 49%, var(--neutral-900) 50%);
     }
     
     .hero h1 {
-      font-size: 2.75rem;
-      font-weight: 700;
-      margin-bottom: 1.25rem;
+      font-size: 3rem;
+      font-weight: 800;
+      margin-bottom: 1.5rem;
       max-width: 800px;
       margin-left: auto;
       margin-right: auto;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      animation: fadeInDown 0.8s;
     }
     
     .hero p {
       font-size: 1.25rem;
       max-width: 600px;
-      margin: 0 auto 2rem;
+      margin: 0 auto 2.5rem;
       opacity: 0.9;
+      line-height: 1.7;
+      animation: fadeInUp 0.8s 0.2s both;
     }
     
     .hero-actions {
       display: flex;
       gap: 1rem;
       justify-content: center;
+      animation: fadeInUp 0.8s 0.4s both;
     }
     
     .btn {
       display: inline-flex;
-      padding: 0.75rem 1.5rem;
+      align-items: center;
+      justify-content: center;
+      padding: 0.875rem 2rem;
       border-radius: 0.5rem;
       font-weight: 600;
       text-decoration: none;
       transition: all 0.3s ease;
+      gap: 0.5rem;
     }
     
     .btn-primary {
       background-color: var(--secondary);
       color: var(--neutral-900);
+      box-shadow: 0 4px 10px rgba(255, 193, 7, 0.3);
     }
     
     .btn-outline {
-      border: 1px solid white;
+      border: 2px solid white;
       color: white;
     }
     
     .btn-primary:hover {
       background-color: var(--secondary-dark);
+      transform: translateY(-3px);
+      box-shadow: 0 6px 15px rgba(255, 193, 7, 0.4);
     }
     
     .btn-outline:hover {
-      background-color: rgba(255, 255, 255, 0.1);
+      background-color: rgba(255, 255, 255, 0.15);
+      transform: translateY(-3px);
+      box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2);
     }
     
     /* Menu Sidebar Styles */
@@ -182,14 +245,14 @@
       width: 300px;
       background-color: white;
       z-index: 1000;
-      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
       transition: left 0.3s ease;
       overflow-y: auto;
     }
     
     .dark .menu-sidebar {
       background-color: var(--neutral-800);
-      box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
     }
     
     .menu-header {
@@ -207,6 +270,28 @@
     .menu-header span {
       font-weight: 600;
       font-size: 1.25rem;
+    }
+    
+    .menu-header button {
+      background: none;
+      border: none;
+      font-size: 1.25rem;
+      cursor: pointer;
+      width: 2rem;
+      height: 2rem;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background-color 0.3s;
+    }
+    
+    .menu-header button:hover {
+      background-color: var(--neutral-200);
+    }
+    
+    .dark .menu-header button:hover {
+      background-color: var(--neutral-700);
     }
     
     .menu-content {
@@ -243,11 +328,12 @@
     .menu-item a {
       display: flex;
       align-items: center;
-      gap: 0.5rem;
-      padding: 0.75rem 0;
+      gap: 0.75rem;
+      padding: 0.75rem;
       color: var(--neutral-800);
       text-decoration: none;
-      transition: color 0.2s;
+      transition: all 0.2s;
+      border-radius: 0.5rem;
     }
     
     .dark .menu-item a {
@@ -256,10 +342,12 @@
     
     .menu-item a:hover {
       color: var(--primary);
+      background-color: var(--neutral-100);
     }
     
     .dark .menu-item a:hover {
       color: var(--secondary);
+      background-color: var(--neutral-700);
     }
     
     .menu-overlay {
@@ -271,6 +359,143 @@
       background-color: rgba(0, 0, 0, 0.5);
       z-index: 999;
       display: none;
+      backdrop-filter: blur(2px);
+    }
+    
+    /* Filter Category in Menu */
+    .filter-category {
+      margin-bottom: 1.5rem;
+      border-bottom: 1px solid var(--neutral-200);
+      padding-bottom: 1.5rem;
+    }
+    
+    .dark .filter-category {
+      border-color: var(--neutral-700);
+    }
+    
+    .filter-category-title {
+      font-weight: 600;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--primary);
+    }
+    
+    .dark .filter-category-title {
+      color: var(--secondary);
+    }
+    
+    .filter-section {
+      margin-bottom: 1.5rem;
+      background-color: var(--neutral-50);
+      padding: 1rem;
+      border-radius: 0.5rem;
+    }
+    
+    .dark .filter-section {
+      background-color: var(--neutral-750);
+    }
+    
+    .filter-section h3 {
+      font-size: 0.95rem;
+      margin-bottom: 0.75rem;
+      color: var(--neutral-700);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .dark .filter-section h3 {
+      color: var(--neutral-300);
+    }
+    
+    .filter-options {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+    }
+    
+    .filter-option {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .filter-option input {
+      accent-color: var(--primary);
+    }
+    
+    .dark .filter-option input {
+      accent-color: var(--secondary);
+    }
+    
+    .filter-option span {
+      font-size: 0.9rem;
+    }
+    
+    .filter-actions {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 1.5rem;
+    }
+    
+    .apply-filters-btn {
+      background-color: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 0.25rem;
+      padding: 0.5rem 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s;
+      box-shadow: 0 2px 5px rgba(13, 102, 49, 0.2);
+    }
+    
+    .apply-filters-btn:hover {
+      background-color: var(--primary-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(13, 102, 49, 0.3);
+    }
+    
+    .dark .apply-filters-btn {
+      background-color: var(--secondary);
+      color: var(--neutral-900);
+      box-shadow: 0 2px 5px rgba(255, 193, 7, 0.2);
+    }
+    
+    .dark .apply-filters-btn:hover {
+      background-color: var(--secondary-dark);
+      box-shadow: 0 4px 8px rgba(255, 193, 7, 0.3);
+    }
+    
+    .reset-filters-btn {
+      background: none;
+      border: 1px solid var(--neutral-300);
+      color: var(--neutral-700);
+      border-radius: 0.25rem;
+      padding: 0.5rem 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .reset-filters-btn:hover {
+      background-color: var(--neutral-100);
+      border-color: var(--neutral-400);
+    }
+    
+    .dark .reset-filters-btn {
+      color: var(--neutral-300);
+      border-color: var(--neutral-600);
+    }
+    
+    .dark .reset-filters-btn:hover {
+      background-color: var(--neutral-700);
+      border-color: var(--neutral-500);
     }
     
     /* Additional page-specific styles */
@@ -279,7 +504,8 @@
     }
     
     .breadcrumbs {
-      padding: 1rem 0;
+      padding: 1.5rem 0 1rem;
+      animation: fadeIn 0.8s;
     }
     
     .breadcrumbs ul {
@@ -292,6 +518,12 @@
     .breadcrumbs a {
       color: var(--primary);
       text-decoration: none;
+      transition: color 0.2s;
+    }
+    
+    .breadcrumbs a:hover {
+      color: var(--primary-dark);
+      text-decoration: underline;
     }
     
     .breadcrumbs i {
@@ -303,11 +535,24 @@
       color: var(--secondary);
     }
     
+    .dark .breadcrumbs a:hover {
+      color: var(--secondary-dark);
+    }
+    
     .product-filters {
       display: flex;
       justify-content: space-between;
       align-items: center;
       margin-bottom: 2rem;
+      padding: 1rem;
+      background-color: var(--neutral-50);
+      border-radius: 0.5rem;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    }
+    
+    .dark .product-filters {
+      background-color: var(--neutral-800);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     }
     
     .filter-label {
@@ -316,9 +561,19 @@
     }
     
     .sort-by {
-      padding: 0.5rem;
+      padding: 0.5rem 1rem;
       border-radius: 0.25rem;
       border: 1px solid var(--neutral-300);
+      background-color: white;
+      font-family: inherit;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    
+    .sort-by:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 2px rgba(13, 102, 49, 0.2);
     }
     
     .dark .sort-by {
@@ -327,68 +582,171 @@
       border-color: var(--neutral-600);
     }
     
+    .dark .sort-by:focus {
+      border-color: var(--secondary);
+      box-shadow: 0 0 0 2px rgba(255, 193, 7, 0.2);
+    }
+    
     .category-description {
-      margin-bottom: 2rem;
+      margin-bottom: 2.5rem;
       line-height: 1.7;
+      animation: fadeIn 0.8s 0.2s both;
+    }
+    
+    .category-description h2 {
+      font-size: 1.75rem;
+      margin-bottom: 1rem;
+      color: var(--primary);
+      position: relative;
+      display: inline-block;
+    }
+    
+    .dark .category-description h2 {
+      color: var(--secondary);
+    }
+    
+    .category-description h2:after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -0.5rem;
+      width: 3rem;
+      height: 3px;
+      background-color: var(--primary);
+      border-radius: 1px;
+    }
+    
+    .dark .category-description h2:after {
+      background-color: var(--secondary);
     }
     
     .spec-table {
       width: 100%;
       border-collapse: collapse;
-      margin-top: 1rem;
-      margin-bottom: 2rem;
+      margin-top: 1.5rem;
+      margin-bottom: 2.5rem;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      border-radius: 0.5rem;
+      overflow: hidden;
+    }
+    
+    .dark .spec-table {
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     }
     
     .spec-table th, .spec-table td {
-      padding: 0.75rem 1rem;
+      padding: 1rem 1.25rem;
       text-align: left;
       border-bottom: 1px solid var(--neutral-200);
     }
     
     .spec-table th {
-      background-color: var(--neutral-100);
+      background-color: var(--primary);
+      color: white;
       font-weight: 600;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      letter-spacing: 0.05em;
     }
     
     .dark .spec-table th {
-      background-color: var(--neutral-700);
+      background-color: var(--primary-dark);
     }
     
-    .dark .spec-table td, .dark .spec-table th {
+    .dark .spec-table td {
       border-color: var(--neutral-700);
+    }
+    
+    .spec-table tr:last-child td {
+      border-bottom: none;
+    }
+    
+    .spec-table tr:nth-child(even) {
+      background-color: var(--neutral-50);
+    }
+    
+    .dark .spec-table tr:nth-child(even) {
+      background-color: var(--neutral-750);
     }
     
     .category-info {
       background-color: white;
       border-radius: 1rem;
-      padding: 2rem;
-      margin-top: 3rem;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      padding: 2.5rem;
+      margin-top: 4rem;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+      position: relative;
     }
     
     .dark .category-info {
       background-color: var(--neutral-800);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+    
+    .category-info::before {
+      content: '';
+      position: absolute;
+      top: -15px;
+      left: 50px;
+      width: 30px;
+      height: 30px;
+      background-color: white;
+      transform: rotate(45deg);
+      box-shadow: -5px -5px 10px rgba(0, 0, 0, 0.05);
+    }
+    
+    .dark .category-info::before {
+      background-color: var(--neutral-800);
+      box-shadow: -5px -5px 10px rgba(0, 0, 0, 0.15);
     }
     
     .buying-guide h3 {
-      margin-bottom: 1rem;
+      margin-bottom: 1.25rem;
+      font-size: 1.5rem;
+      color: var(--primary);
+      position: relative;
+      display: inline-block;
+    }
+    
+    .dark .buying-guide h3 {
+      color: var(--secondary);
+    }
+    
+    .buying-guide h3:after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -0.5rem;
+      width: 50px;
+      height: 3px;
+      background-color: var(--primary);
+      border-radius: 1px;
+    }
+    
+    .dark .buying-guide h3:after {
+      background-color: var(--secondary);
     }
     
     .buying-guide-points {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 1.5rem;
-      margin-top: 1.5rem;
+      gap: 2rem;
+      margin-top: 2.5rem;
     }
     
     .guide-point {
       display: flex;
-      gap: 1rem;
+      gap: 1.25rem;
+      transition: transform 0.3s;
+    }
+    
+    .guide-point:hover {
+      transform: translateY(-5px);
     }
     
     .guide-point-icon {
-      width: 2.5rem;
-      height: 2.5rem;
+      width: 3rem;
+      height: 3rem;
       border-radius: 50%;
       background-color: rgba(13, 102, 49, 0.1);
       color: var(--primary);
@@ -396,31 +754,86 @@
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
+      font-size: 1.25rem;
+      box-shadow: 0 4px 8px rgba(13, 102, 49, 0.15);
+      transition: all 0.3s;
+    }
+    
+    .guide-point:hover .guide-point-icon {
+      background-color: var(--primary);
+      color: white;
+      box-shadow: 0 6px 12px rgba(13, 102, 49, 0.25);
     }
     
     .dark .guide-point-icon {
       color: var(--secondary);
       background-color: rgba(255, 193, 7, 0.1);
+      box-shadow: 0 4px 8px rgba(255, 193, 7, 0.15);
+    }
+    
+    .dark .guide-point:hover .guide-point-icon {
+      background-color: var(--secondary);
+      color: var(--neutral-900);
+      box-shadow: 0 6px 12px rgba(255, 193, 7, 0.25);
     }
     
     .guide-point-content h4 {
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.75rem;
+      font-size: 1.1rem;
     }
     
     .safety-tips {
-      background-color: rgba(239, 68, 68, 0.1);
+      background-color: rgba(239, 68, 68, 0.08);
       border-left: 4px solid var(--error);
-      padding: 1.5rem;
-      margin: 1.5rem 0;
-      border-radius: 0.25rem;
+      padding: 1.75rem;
+      margin: 2rem 0;
+      border-radius: 0.5rem;
+      position: relative;
+      box-shadow: 0 4px 12px rgba(239, 68, 68, 0.1);
+      animation: fadeIn 0.8s 0.6s both;
+    }
+    
+    .safety-tips::before {
+      content: '\f06a';
+      font-family: 'Font Awesome 6 Free';
+      font-weight: 900;
+      position: absolute;
+      top: -15px;
+      left: 20px;
+      background-color: var(--error);
+      color: white;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      box-shadow: 0 4px 10px rgba(239, 68, 68, 0.3);
     }
     
     .safety-tips h4 {
       color: var(--error);
-      margin-bottom: 0.75rem;
+      margin-bottom: 0.85rem;
       display: flex;
       align-items: center;
-      gap: 0.5rem;
+      gap: 0.75rem;
+      font-size: 1.2rem;
+    }
+    
+    .safety-tips ul {
+      padding-left: 1.5rem;
+      margin-top: 1rem;
+    }
+    
+    .safety-tips li {
+      margin-bottom: 0.75rem;
+      position: relative;
+      padding-left: 0.5rem;
+    }
+    
+    .safety-tips li::marker {
+      color: var(--error);
     }
     
     /* Professional enhancements */
@@ -444,19 +857,24 @@
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      animation: fadeInRight 0.5s both;
     }
     
     .badge-sale {
       background-color: var(--error);
+      animation-delay: 0.1s;
     }
     
     .badge-new {
       background-color: var(--success);
+      animation-delay: 0.2s;
     }
     
     .badge-bestseller {
       background-color: var(--secondary);
       color: var(--neutral-900);
+      animation-delay: 0.3s;
     }
     
     .product-quick-view {
@@ -468,15 +886,16 @@
       color: var(--neutral-900);
       border: none;
       border-radius: 50px;
-      padding: 0.5rem 1rem;
+      padding: 0.5rem 1.25rem;
       font-weight: 500;
       display: flex;
       align-items: center;
       gap: 0.5rem;
       opacity: 0;
-      transition: opacity 0.3s ease;
+      transition: all 0.3s ease;
       cursor: pointer;
       z-index: 5;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     }
     
     .dark .product-quick-view {
@@ -486,6 +905,17 @@
     
     .product-img:hover .product-quick-view {
       opacity: 1;
+      transform: translate(-50%, -5px);
+    }
+    
+    .product-quick-view:hover {
+      background-color: white;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+    
+    .dark .product-quick-view:hover {
+      background-color: var(--neutral-800);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     }
     
     .feature-tags {
@@ -498,9 +928,15 @@
     .feature-tag {
       background-color: rgba(13, 102, 49, 0.1);
       color: var(--primary);
-      padding: 0.25rem 0.5rem;
-      font-size: 0.7rem;
+      padding: 0.35rem 0.75rem;
+      font-size: 0.75rem;
       border-radius: 4px;
+      transition: all 0.2s;
+    }
+    
+    .feature-tag:hover {
+      background-color: rgba(13, 102, 49, 0.2);
+      transform: translateY(-2px);
     }
     
     .dark .feature-tag {
@@ -508,182 +944,121 @@
       color: var(--secondary);
     }
     
-    /* Categories Toggle Menu */
-    .category-btn {
-      background-color: var(--primary);
-      color: white;
-      border: none;
-      border-radius: 0.25rem;
-      padding: 0.5rem 1rem;
+    .dark .feature-tag:hover {
+      background-color: rgba(255, 193, 7, 0.2);
+    }
+    
+    /* Filter bar */
+    .filter-bar {
+      margin-bottom: 2.5rem;
+    }
+    
+    .filter-form {
       display: flex;
+      justify-content: space-between;
       align-items: center;
-      gap: 0.5rem;
-      font-weight: 500;
-      cursor: pointer;
-      transition: background-color 0.3s;
+      gap: 1rem;
     }
     
-    .category-btn:hover {
-      background-color: var(--primary-dark);
+    .search-input {
+      flex-grow: 1;
+      position: relative;
     }
     
-    .dark .category-btn {
-      background-color: var(--secondary);
-      color: var(--neutral-900);
-    }
-    
-    .dark .category-btn:hover {
-      background-color: var(--secondary-dark);
-    }
-    
-    .categories-menu {
-      display: none;
-      position: absolute;
-      top: 100%;
-      left: 0;
-      right: 0;
-      background-color: white;
-      border-radius: 0.5rem;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-      z-index: 20;
-      margin-top: 0.5rem;
-      padding: 1.5rem;
-    }
-    
-    .dark .categories-menu {
-      background-color: var(--neutral-800);
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-    }
-    
-    .categories-section {
-      margin-bottom: 1.5rem;
-    }
-    
-    .categories-section h3 {
-      font-size: 1rem;
-      margin-bottom: 0.75rem;
-      color: var(--neutral-600);
-      font-weight: 600;
-    }
-    
-    .dark .categories-section h3 {
-      color: var(--neutral-400);
-    }
-    
-    .categories-options {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-    }
-    
-    .category-option {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      cursor: pointer;
-    }
-    
-    .category-option input {
-      accent-color: var(--primary);
-    }
-    
-    .dark .category-option input {
-      accent-color: var(--secondary);
-    }
-    
-    .category-option span {
-      font-size: 0.9rem;
-    }
-    
-    .categories-footer {
-      display: flex;
-      justify-content: flex-end;
-      margin-top: 1rem;
-    }
-    
-    .apply-filters-btn {
-      background-color: var(--primary);
-      color: white;
-      border: none;
-      border-radius: 0.25rem;
-      padding: 0.5rem 1rem;
-      font-weight: 500;
-      cursor: pointer;
-      transition: background-color 0.3s;
-    }
-    
-    .apply-filters-btn:hover {
-      background-color: var(--primary-dark);
-    }
-    
-    .dark .apply-filters-btn {
-      background-color: var(--secondary);
-      color: var(--neutral-900);
-    }
-    
-    .dark .apply-filters-btn:hover {
-      background-color: var(--secondary-dark);
-    }
-    
-    .reset-filters {
-      background: none;
+    .search-input input {
+      width: 100%;
+      padding: 0.85rem 1rem 0.85rem 3rem;
       border: 1px solid var(--neutral-300);
-      color: var(--neutral-700);
-      border-radius: 0.25rem;
-      padding: 0.5rem 1rem;
+      border-radius: 0.5rem;
+      font-size: 0.95rem;
+      transition: all 0.3s;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    }
+    
+    .search-input input:focus {
+      border-color: var(--primary);
+      box-shadow: 0 2px 10px rgba(13, 102, 49, 0.1);
+      outline: none;
+    }
+    
+    .dark .search-input input {
+      background-color: var(--neutral-800);
+      border-color: var(--neutral-700);
+      color: var(--neutral-100);
+    }
+    
+    .dark .search-input input:focus {
+      border-color: var(--secondary);
+      box-shadow: 0 2px 10px rgba(255, 193, 7, 0.1);
+    }
+    
+    .filters-btn {
+      background-color: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 0.5rem;
+      padding: 0.85rem 1.5rem;
+      font-weight: 500;
       display: flex;
       align-items: center;
-      gap: 0.5rem;
-      font-weight: 500;
+      gap: 0.75rem;
       cursor: pointer;
       transition: all 0.3s;
+      box-shadow: 0 2px 8px rgba(13, 102, 49, 0.2);
     }
     
-    .reset-filters:hover {
-      background-color: var(--neutral-100);
+    .filters-btn:hover {
+      background-color: var(--primary-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(13, 102, 49, 0.3);
     }
     
-    .dark .reset-filters {
-      color: var(--neutral-300);
-      border-color: var(--neutral-600);
+    .dark .filters-btn {
+      background-color: var(--secondary);
+      color: var(--neutral-900);
+      box-shadow: 0 2px 8px rgba(255, 193, 7, 0.2);
     }
     
-    .dark .reset-filters:hover {
-      background-color: var(--neutral-700);
+    .dark .filters-btn:hover {
+      background-color: var(--secondary-dark);
+      box-shadow: 0 4px 12px rgba(255, 193, 7, 0.3);
     }
     
-    /* Product Grid */
+    /* Products Grid */
     .grid-view {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 2rem;
+      gap: 2.5rem;
+      margin-bottom: 3rem;
     }
     
     .product-card {
       background-color: white;
       border-radius: 1rem;
       overflow: hidden;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-      transition: transform 0.3s, box-shadow 0.3s;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+      transition: all 0.4s;
+      position: relative;
+      top: 0;
     }
     
     .dark .product-card {
       background-color: var(--neutral-800);
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
     }
     
     .product-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
     }
     
     .dark .product-card:hover {
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
     }
     
     .product-img {
       position: relative;
-      height: 200px;
+      height: 220px;
       overflow: hidden;
     }
     
@@ -691,11 +1066,27 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transition: transform 0.3s;
+      transition: transform 0.5s;
     }
     
     .product-card:hover .product-img img {
-      transform: scale(1.05);
+      transform: scale(1.08);
+    }
+    
+    .product-img::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 60px;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.3), transparent);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    
+    .product-card:hover .product-img::after {
+      opacity: 1;
     }
     
     .wishlist-btn {
@@ -704,30 +1095,44 @@
       right: 10px;
       background-color: white;
       border: none;
-      width: 32px;
-      height: 32px;
+      width: 36px;
+      height: 36px;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
       z-index: 5;
+      transform: translateY(-5px);
+      opacity: 0;
+      transition: all 0.3s 0.1s;
+    }
+    
+    .product-card:hover .wishlist-btn {
+      transform: translateY(0);
+      opacity: 1;
     }
     
     .dark .wishlist-btn {
       background-color: var(--neutral-700);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+      color: white;
+    }
+    
+    .wishlist-btn:hover {
+      transform: translateY(0) scale(1.1) !important;
     }
     
     .product-info {
-      padding: 1.25rem;
+      padding: 1.5rem;
     }
     
     .product-rating {
       display: flex;
       align-items: center;
       gap: 0.5rem;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.75rem;
     }
     
     .stars {
@@ -745,16 +1150,26 @@
     }
     
     .product-title {
-      font-size: 1.1rem;
-      margin-bottom: 0.5rem;
+      font-size: 1.15rem;
+      margin-bottom: 0.75rem;
       font-weight: 600;
+      line-height: 1.4;
+      transition: color 0.2s;
+    }
+    
+    .product-card:hover .product-title {
+      color: var(--primary);
+    }
+    
+    .dark .product-card:hover .product-title {
+      color: var(--secondary);
     }
     
     .product-desc {
       font-size: 0.875rem;
       color: var(--neutral-600);
-      margin-bottom: 1rem;
-      line-height: 1.4;
+      margin-bottom: 1.25rem;
+      line-height: 1.5;
     }
     
     .dark .product-desc {
@@ -765,6 +1180,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      margin-top: 1.25rem;
     }
     
     .price-box {
@@ -774,12 +1190,12 @@
     
     .current-price {
       font-weight: 700;
-      font-size: 1.25rem;
-      color: var(--neutral-900);
+      font-size: 1.35rem;
+      color: var(--primary);
     }
     
     .dark .current-price {
-      color: white;
+      color: var(--secondary);
     }
     
     .old-price {
@@ -792,52 +1208,64 @@
       background-color: var(--primary);
       color: white;
       border: none;
-      padding: 0.5rem 1rem;
+      padding: 0.5rem 1.25rem;
       border-radius: 0.25rem;
       font-weight: 500;
       cursor: pointer;
       display: flex;
       align-items: center;
       gap: 0.5rem;
-      transition: background-color 0.3s;
+      transition: all 0.3s;
+      box-shadow: 0 2px 6px rgba(13, 102, 49, 0.2);
     }
     
     .cart-btn:hover {
       background-color: var(--primary-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 10px rgba(13, 102, 49, 0.3);
     }
     
     .dark .cart-btn {
       background-color: var(--secondary);
       color: var(--neutral-900);
+      box-shadow: 0 2px 6px rgba(255, 193, 7, 0.2);
     }
     
     .dark .cart-btn:hover {
       background-color: var(--secondary-dark);
+      box-shadow: 0 4px 10px rgba(255, 193, 7, 0.3);
     }
     
     .view-all-btn {
-      display: inline-block;
-      padding: 0.75rem 1.5rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.875rem 2rem;
       background-color: var(--primary);
       color: white;
       border-radius: 0.5rem;
       text-decoration: none;
       font-weight: 500;
-      margin-top: 2rem;
-      transition: background-color 0.3s;
+      margin: 1rem auto 3rem;
+      transition: all 0.3s;
+      box-shadow: 0 4px 10px rgba(13, 102, 49, 0.2);
     }
     
     .view-all-btn:hover {
       background-color: var(--primary-dark);
+      transform: translateY(-3px);
+      box-shadow: 0 6px 15px rgba(13, 102, 49, 0.3);
     }
     
     .dark .view-all-btn {
       background-color: var(--secondary);
       color: var(--neutral-900);
+      box-shadow: 0 4px 10px rgba(255, 193, 7, 0.2);
     }
     
     .dark .view-all-btn:hover {
       background-color: var(--secondary-dark);
+      box-shadow: 0 6px 15px rgba(255, 193, 7, 0.3);
     }
     
     .text-center {
@@ -846,54 +1274,122 @@
     
     /* Features Section */
     .features-section {
-      background-color: var(--neutral-100);
-      padding: 4rem 0;
-      margin-top: 4rem;
+      background: linear-gradient(to bottom, var(--neutral-50), white);
+      padding: 5rem 0;
+      margin-top: 5rem;
+      position: relative;
     }
     
     .dark .features-section {
-      background-color: var(--neutral-900);
+      background: linear-gradient(to bottom, var(--neutral-850), var(--neutral-900));
+    }
+    
+    .features-section::before {
+      content: '';
+      position: absolute;
+      top: -30px;
+      left: 0;
+      right: 0;
+      height: 30px;
+      background: linear-gradient(to top right, transparent 49%, var(--neutral-50) 50%);
+    }
+    
+    .dark .features-section::before {
+      background: linear-gradient(to top right, transparent 49%, var(--neutral-850) 50%);
     }
     
     .features-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem;
+      gap: 3rem;
     }
     
     .feature-item {
       text-align: center;
+      transition: transform 0.4s;
+    }
+    
+    .feature-item:hover {
+      transform: translateY(-10px);
     }
     
     .feature-icon {
-      width: 4rem;
-      height: 4rem;
+      width: 5rem;
+      height: 5rem;
       background-color: white;
-      margin: 0 auto 1rem;
+      margin: 0 auto 1.5rem;
       border-radius: 1rem;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.5rem;
+      font-size: 1.75rem;
       color: var(--primary);
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      box-shadow: 0 10px 20px rgba(13, 102, 49, 0.1);
+      position: relative;
+      transition: all 0.4s;
+    }
+    
+    .feature-item:hover .feature-icon {
+      background-color: var(--primary);
+      color: white;
+      box-shadow: 0 15px 30px rgba(13, 102, 49, 0.2);
     }
     
     .dark .feature-icon {
       background-color: var(--neutral-800);
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 10px 20px rgba(13, 102, 49, 0.2);
       color: var(--secondary);
+    }
+    
+    .dark .feature-item:hover .feature-icon {
+      background-color: var(--secondary);
+      color: var(--neutral-900);
+      box-shadow: 0 15px 30px rgba(255, 193, 7, 0.2);
+    }
+    
+    .feature-icon::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border: 1px dashed var(--primary);
+      border-radius: 1rem;
+      top: -8px;
+      left: -8px;
+      opacity: 0.5;
+      transition: all 0.4s;
+    }
+    
+    .feature-item:hover .feature-icon::after {
+      transform: scale(1.1);
+      opacity: 0.8;
+    }
+    
+    .dark .feature-icon::after {
+      border-color: var(--secondary);
     }
     
     .feature-title {
       font-size: 1.25rem;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.75rem;
       font-weight: 600;
+      transition: color 0.3s;
+    }
+    
+    .feature-item:hover .feature-title {
+      color: var(--primary);
+    }
+    
+    .dark .feature-item:hover .feature-title {
+      color: var(--secondary);
     }
     
     .feature-desc {
       color: var(--neutral-600);
-      font-size: 0.875rem;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      max-width: 250px;
+      margin: 0 auto;
     }
     
     .dark .feature-desc {
@@ -914,7 +1410,7 @@
       align-items: center;
       justify-content: center;
       font-size: 1.5rem;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+      box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
       z-index: 100;
       transition: all 0.3s;
       overflow: hidden;
@@ -923,8 +1419,10 @@
     
     .whatsapp-float:hover {
       width: auto;
-      padding: 0 1.5rem;
+      padding: 0 1.75rem;
       border-radius: 50px;
+      box-shadow: 0 6px 15px rgba(37, 211, 102, 0.4);
+      transform: translateY(-5px);
     }
     
     .whatsapp-text {
@@ -939,6 +1437,175 @@
     .whatsapp-float:hover .whatsapp-text {
       opacity: 1;
       transform: translateX(0);
+    }
+    
+    /* Cooking Features Section */
+    .cooking-features {
+      margin: 3rem 0;
+      padding: 2rem;
+      background-color: var(--neutral-50);
+      border-radius: 0.75rem;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    }
+    
+    .dark .cooking-features {
+      background-color: var(--neutral-800);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    }
+    
+    .cooking-features-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      color: var(--primary);
+      text-align: center;
+    }
+    
+    .dark .cooking-features-title {
+      color: var(--secondary);
+    }
+    
+    .cooking-features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+    
+    .cooking-feature {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      padding: 1.25rem;
+      background-color: white;
+      border-radius: 0.75rem;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s;
+    }
+    
+    .cooking-feature:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    }
+    
+    .dark .cooking-feature {
+      background-color: var(--neutral-750);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    }
+    
+    .dark .cooking-feature:hover {
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    }
+    
+    .cooking-feature-icon {
+      width: 3rem;
+      height: 3rem;
+      background-color: rgba(13, 102, 49, 0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary);
+      font-size: 1.25rem;
+      flex-shrink: 0;
+      transition: all 0.3s;
+    }
+    
+    .cooking-feature:hover .cooking-feature-icon {
+      background-color: var(--primary);
+      color: white;
+      transform: scale(1.1);
+    }
+    
+    .dark .cooking-feature-icon {
+      background-color: rgba(255, 193, 7, 0.1);
+      color: var(--secondary);
+    }
+    
+    .dark .cooking-feature:hover .cooking-feature-icon {
+      background-color: var(--secondary);
+      color: var(--neutral-900);
+    }
+    
+    .cooking-feature-content h4 {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+      color: var(--neutral-800);
+    }
+    
+    .dark .cooking-feature-content h4 {
+      color: var(--neutral-100);
+    }
+    
+    .cooking-feature-content p {
+      font-size: 0.9rem;
+      color: var(--neutral-600);
+      line-height: 1.5;
+    }
+    
+    .dark .cooking-feature-content p {
+      color: var(--neutral-400);
+    }
+    
+    /* Animations */
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+    
+    @keyframes fadeInRight {
+      from {
+        opacity: 0;
+        transform: translateX(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+    
+    /* Media Queries */
+    @media (max-width: 992px) {
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+      
+      .hero p {
+        font-size: 1.1rem;
+      }
+      
+      .buying-guide-points {
+        grid-template-columns: 1fr 1fr;
+      }
+      
+      .cooking-features-grid {
+        grid-template-columns: 1fr 1fr;
+      }
     }
     
     @media (max-width: 768px) {
@@ -959,13 +1626,70 @@
       }
       
       .grid-view {
-        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
         gap: 1.5rem;
+      }
+      
+      .buying-guide-points {
+        grid-template-columns: 1fr;
+      }
+      
+      .cooking-features-grid {
+        grid-template-columns: 1fr;
       }
       
       .features-grid {
         grid-template-columns: 1fr;
         gap: 3rem;
+      }
+      
+      .category-info {
+        padding: 1.5rem;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .hero {
+        padding: 4rem 0;
+      }
+      
+      .hero h1 {
+        font-size: 1.75rem;
+      }
+      
+      .hero-actions {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      
+      .btn {
+        width: 100%;
+      }
+      
+      .filter-form {
+        flex-direction: column;
+      }
+      
+      .filters-btn {
+        width: 100%;
+      }
+      
+      .product-filters {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: flex-start;
+      }
+      
+      .grid-view {
+        grid-template-columns: 1fr;
+      }
+      
+      .spec-table {
+        font-size: 0.85rem;
+      }
+      
+      .spec-table th, .spec-table td {
+        padding: 0.75rem;
       }
     }
   </style>
@@ -1009,7 +1733,7 @@
     </div>
   </header>
   
-  <!-- Side Menu -->
+  <!-- Side Menu with Filter Categories -->
   <div class="menu-sidebar" id="menuSidebar">
     <div class="menu-header">
       <span>Menu</span>
@@ -1019,13 +1743,113 @@
     </div>
     
     <div class="menu-content">
+      <!-- Filter Categories -->
+      <div class="filter-category">
+        <div class="filter-category-title">
+          <i class="fa-solid fa-filter"></i> Filter Products
+        </div>
+        
+        <div class="filter-section">
+          <h3><i class="fa-solid fa-fire"></i> Cooker Types</h3>
+          <div class="filter-options">
+            <label class="filter-option">
+              <input type="radio" name="type" value="all-types" checked>
+              <span>All Types</span>
+            </label>
+            <label class="filter-option">
+              <input type="radio" name="type" value="gas">
+              <span>Gas Cookers</span>
+            </label>
+            <label class="filter-option">
+              <input type="radio" name="type" value="electric">
+              <span>Electric Cookers</span>
+            </label>
+            <label class="filter-option">
+              <input type="radio" name="type" value="dual-fuel">
+              <span>Dual Fuel</span>
+            </label>
+            <label class="filter-option">
+              <input type="radio" name="type" value="table-top">
+              <span>Table Top</span>
+            </label>
+            <label class="filter-option">
+              <input type="radio" name="type" value="built-in">
+              <span>Built-In</span>
+            </label>
+          </div>
+        </div>
+        
+        <div class="filter-section">
+          <h3><i class="fa-solid fa-building"></i> Brands</h3>
+          <div class="filter-options">
+            <label class="filter-option">
+              <input type="radio" name="brand" value="all-brands" checked>
+              <span>All Brands</span>
+            </label>
+            <label class="filter-option">
+              <input type="radio" name="brand" value="Samsung">
+              <span>Samsung</span>
+            </label>
+            <label class="filter-option">
+              <input type="radio" name="brand" value="LG">
+              <span>LG</span>
+            </label>
+            <label class="filter-option">
+              <input type="radio" name="brand" value="Nasco">
+              <span>Nasco</span>
+            </label>
+            <label class="filter-option">
+              <input type="radio" name="brand" value="Electrolux">
+              <span>Electrolux</span>
+            </label>
+            <label class="filter-option">
+              <input type="radio" name="brand" value="Bosch">
+              <span>Bosch</span>
+            </label>
+          </div>
+        </div>
+        
+        <div class="filter-section">
+          <h3><i class="fa-solid fa-tag"></i> Price Range</h3>
+          <div class="filter-options">
+            <label class="filter-option">
+              <input type="radio" name="price" value="all-prices" checked>
+              <span>All Prices</span>
+            </label>
+            <label class="filter-option">
+              <input type="radio" name="price" value="low">
+              <span>Under $200</span>
+            </label>
+            <label class="filter-option">
+              <input type="radio" name="price" value="medium">
+              <span>$200 - $500</span>
+            </label>
+            <label class="filter-option">
+              <input type="radio" name="price" value="high">
+              <span>Above $500</span>
+            </label>
+          </div>
+        </div>
+        
+        <div class="filter-actions">
+          <button type="button" class="apply-filters-btn" id="applyFilters">
+            <i class="fa-solid fa-check"></i> Apply Filters
+          </button>
+          <button type="button" class="reset-filters-btn" id="resetFilters">
+            <i class="fa-solid fa-rotate"></i>
+            Reset
+          </button>
+        </div>
+      </div>
+      
+      <!-- Navigation Categories -->
       <div class="menu-category">
         <div class="menu-category-title">Categories</div>
         <ul class="menu-items">
-          <li class="menu-item"><a href="fridges.html"><i class="fa-solid fa-refrigerator"></i> Fridges</a></li>
-          <li class="menu-item"><a href="cookers.html"><i class="fa-solid fa-fire"></i> Cookers</a></li>
+          <li class="menu-item"><a href="fridges-inside-menu.html"><i class="fa-solid fa-snowflake"></i> Fridges</a></li>
+          <li class="menu-item"><a href="cookers-professional.html"><i class="fa-solid fa-fire"></i> Cookers</a></li>
           <li class="menu-item"><a href="televisions.html"><i class="fa-solid fa-tv"></i> TVs</a></li>
-          <li class="menu-item"><a href="air-conditioners.html"><i class="fa-solid fa-snowflake"></i> Air Conditioners</a></li>
+          <li class="menu-item"><a href="air-conditioners-professional.html"><i class="fa-solid fa-wind"></i> Air Conditioners</a></li>
           <li class="menu-item"><a href="washing-machines.html"><i class="fa-solid fa-shirt"></i> Washing Machines</a></li>
           <li class="menu-item"><a href="cosmetics.html"><i class="fa-solid fa-spray-can"></i> Cosmetics</a></li>
         </ul>
@@ -1048,11 +1872,15 @@
     <!-- Hero Section styled like home page -->
     <section class="hero">
       <div class="container">
-        <h1>Quality Gas Cookers at Unbeatable Prices</h1>
-        <p>Premium cooking solutions for your kitchen - from compact tabletop stoves to full-featured standing cookers with ovens.</p>
+        <h1>Premium Gas Cookers & Stoves</h1>
+        <p>Discover our wide range of reliable gas cookers and stoves for your perfect kitchen setup.</p>
         <div class="hero-actions">
-          <a href="#products" class="btn btn-primary">Shop Now</a>
-          <a href="#contact" class="btn btn-outline">Contact Us</a>
+          <a href="#products" class="btn btn-primary">
+            <i class="fa-solid fa-shopping-cart"></i> Shop Now
+          </a>
+          <a href="#contact" class="btn btn-outline">
+            <i class="fa-solid fa-envelope"></i> Contact Us
+          </a>
         </div>
       </div>
     </section>
@@ -1069,108 +1897,14 @@
       <div class="container">
         <form class="filter-form">
           <div class="search-input">
-            <input type="text" id="searchInput" placeholder="Search cookers...">
+            <input type="text" id="searchInput" placeholder="Search gas cookers and stoves...">
             <i class="fa-solid fa-magnifying-glass search-bar-icon"></i>
           </div>
           
-          <div class="filter-selects">
-            <button type="button" class="category-btn" id="categoryToggle">
-              <i class="fa-solid fa-sliders"></i> 
-              Categories
-            </button>
-            
-            <button type="button" class="reset-filters" id="resetFilters">
-              <i class="fa-solid fa-rotate"></i>
-              Reset
-            </button>
-          </div>
-          
-          <!-- Categories toggle menu -->
-          <div class="categories-menu" id="categoriesMenu">
-            <div class="categories-section">
-              <h3>Types</h3>
-              <div class="categories-options">
-                <label class="category-option">
-                  <input type="radio" name="type" value="all-types" checked>
-                  <span>All Types</span>
-                </label>
-                <label class="category-option">
-                  <input type="radio" name="type" value="free-standing">
-                  <span>Free Standing</span>
-                </label>
-                <label class="category-option">
-                  <input type="radio" name="type" value="table-top">
-                  <span>Table Top</span>
-                </label>
-                <label class="category-option">
-                  <input type="radio" name="type" value="built-in">
-                  <span>Built-in</span>
-                </label>
-                <label class="category-option">
-                  <input type="radio" name="type" value="induction">
-                  <span>Induction</span>
-                </label>
-              </div>
-            </div>
-            
-            <div class="categories-section">
-              <h3>Brands</h3>
-              <div class="categories-options">
-                <label class="category-option">
-                  <input type="radio" name="brand" value="all-brands" checked>
-                  <span>All Brands</span>
-                </label>
-                <label class="category-option">
-                  <input type="radio" name="brand" value="Nasco">
-                  <span>Nasco</span>
-                </label>
-                <label class="category-option">
-                  <input type="radio" name="brand" value="Nexus">
-                  <span>Nexus</span>
-                </label>
-                <label class="category-option">
-                  <input type="radio" name="brand" value="Mika">
-                  <span>Mika</span>
-                </label>
-                <label class="category-option">
-                  <input type="radio" name="brand" value="Von">
-                  <span>Von</span>
-                </label>
-                <label class="category-option">
-                  <input type="radio" name="brand" value="Bosch">
-                  <span>Bosch</span>
-                </label>
-              </div>
-            </div>
-            
-            <div class="categories-section">
-              <h3>Price Range</h3>
-              <div class="categories-options">
-                <label class="category-option">
-                  <input type="radio" name="price" value="all-prices" checked>
-                  <span>All Prices</span>
-                </label>
-                <label class="category-option">
-                  <input type="radio" name="price" value="low">
-                  <span>Under $200</span>
-                </label>
-                <label class="category-option">
-                  <input type="radio" name="price" value="medium">
-                  <span>$200 - $400</span>
-                </label>
-                <label class="category-option">
-                  <input type="radio" name="price" value="high">
-                  <span>Above $400</span>
-                </label>
-              </div>
-            </div>
-            
-            <div class="categories-footer">
-              <button type="button" class="apply-filters-btn" id="applyFilters">
-                Apply Filters
-              </button>
-            </div>
-          </div>
+          <button type="button" class="filters-btn" id="filtersBtn">
+            <i class="fa-solid fa-sliders"></i>
+            Filters & Categories
+          </button>
         </form>
       </div>
     </section>
@@ -1178,13 +1912,58 @@
     <section id="products" class="products-section">
       <div class="container">
         <div class="category-description">
-          <h2>Quality Cooking Appliances</h2>
-          <p>Gas cookers are essential kitchen appliances that allow for precise cooking control and even heat distribution. Our range includes everything from compact table-top models perfect for small kitchens to full-size standing cookers with multiple burners and built-in ovens. We stock quality brands known for their durability, safety features, and excellent performance.</p>
+          <h2>Quality Cooking Solutions</h2>
+          <p>Gas cookers are a popular choice for many homes in Ghana due to their reliability, affordability, and efficiency. Our range includes various styles and sizes to suit different kitchen configurations and cooking needs. Whether you're looking for a simple table-top stove or a full-sized cooker with multiple burners and an oven, you'll find high-quality options from trusted brands.</p>
+        </div>
+        
+        <div class="cooking-features">
+          <h3 class="cooking-features-title">Why Choose Our Gas Cookers?</h3>
+          <div class="cooking-features-grid">
+            <div class="cooking-feature">
+              <div class="cooking-feature-icon">
+                <i class="fa-solid fa-fire"></i>
+              </div>
+              <div class="cooking-feature-content">
+                <h4>Instant Heat Control</h4>
+                <p>Gas cookers provide immediate heat and precise temperature control for better cooking results.</p>
+              </div>
+            </div>
+            
+            <div class="cooking-feature">
+              <div class="cooking-feature-icon">
+                <i class="fa-solid fa-bolt"></i>
+              </div>
+              <div class="cooking-feature-content">
+                <h4>Energy Efficient</h4>
+                <p>Save on energy costs with our fuel-efficient cookers designed to minimize gas consumption.</p>
+              </div>
+            </div>
+            
+            <div class="cooking-feature">
+              <div class="cooking-feature-icon">
+                <i class="fa-solid fa-shield-halved"></i>
+              </div>
+              <div class="cooking-feature-content">
+                <h4>Safety Features</h4>
+                <p>Advanced safety mechanisms including flame failure protection and secure gas regulation.</p>
+              </div>
+            </div>
+            
+            <div class="cooking-feature">
+              <div class="cooking-feature-icon">
+                <i class="fa-solid fa-screwdriver-wrench"></i>
+              </div>
+              <div class="cooking-feature-content">
+                <h4>Durable Construction</h4>
+                <p>Built with high-quality materials to ensure longevity and consistent performance.</p>
+              </div>
+            </div>
+          </div>
         </div>
         
         <div class="product-filters">
           <div class="results-count">
-            <span id="productCount">8</span> products found
+            <span id="productCount">9</span> products found
           </div>
           <div>
             <span class="filter-label">Sort by:</span>
@@ -1199,54 +1978,9 @@
         
         <div class="grid-view" id="productList">
           <!-- Product 1 -->
-          <div class="product-card" data-type="free-standing" data-brand="Nasco" data-price="249.99">
+          <div class="product-card" data-type="gas" data-brand="Nasco" data-price="249.99">
             <div class="product-img">
-              <img src="https://images.unsplash.com/photo-1615678815958-5910c6811c25?auto=format&fit=crop&q=80&w=500&h=375" alt="Nasco Gas Cooker">
-              <div class="product-badge-container">
-                <span class="product-badge">4-Burner</span>
-              </div>
-              <button class="wishlist-btn" onclick="toggleWishlist(this)">
-                <i class="fa-regular fa-heart"></i>
-              </button>
-              <button class="product-quick-view">
-                <i class="fa-regular fa-eye"></i>
-                Quick View
-              </button>
-            </div>
-            <div class="product-info">
-              <div class="product-rating">
-                <div class="stars">
-                  <span class="filled">★</span>
-                  <span class="filled">★</span>
-                  <span class="filled">★</span>
-                  <span>★</span>
-                  <span>★</span>
-                </div>
-                <span class="review-count">(24 reviews)</span>
-              </div>
-              <h3 class="product-title">Nasco 4-Burner Gas Cooker</h3>
-              <p class="product-desc">Reliable cooking performance with auto-ignition and oven. Includes safety flame failure device.</p>
-              <div class="feature-tags">
-                <span class="feature-tag">Auto-Ignition</span>
-                <span class="feature-tag">Built-in Oven</span>
-                <span class="feature-tag">Safety Device</span>
-              </div>
-              <div class="price-actions">
-                <div class="price-box">
-                  <span class="current-price">$249.99</span>
-                </div>
-                <button class="cart-btn">
-                  <i class="fa-solid fa-cart-plus"></i>
-                  Add
-                </button>
-              </div>
-            </div>
-          </div>
-          
-          <!-- Product 2 -->
-          <div class="product-card" data-type="free-standing" data-brand="Nexus" data-price="329.99">
-            <div class="product-img">
-              <img src="https://images.unsplash.com/photo-1600585152220-90363fe7e115?auto=format&fit=crop&q=80&w=500&h=375" alt="Nexus Gas Cooker">
+              <img src="https://images.unsplash.com/photo-1556911220-bda9a01c6262?auto=format&fit=crop&q=80&w=500&h=375" alt="Nasco Gas Cooker">
               <div class="product-badge-container">
                 <span class="product-badge badge-bestseller"><i class="fa-solid fa-trophy"></i>Best Seller</span>
               </div>
@@ -1267,19 +2001,19 @@
                   <span class="filled">★</span>
                   <span class="filled">★</span>
                 </div>
-                <span class="review-count">(48 reviews)</span>
+                <span class="review-count">(42 reviews)</span>
               </div>
-              <h3 class="product-title">Nexus 5-Burner Gas Cooker with Oven</h3>
-              <p class="product-desc">Premium all-stainless steel construction with tempered glass top and large capacity oven.</p>
+              <h3 class="product-title">Nasco 4-Burner Gas Cooker with Oven</h3>
+              <p class="product-desc">Versatile cooker with 4 burners, full-sized oven, and grill function. Stainless steel finish for easy cleaning.</p>
               <div class="feature-tags">
-                <span class="feature-tag">5-Burner</span>
+                <span class="feature-tag">4 Burners</span>
+                <span class="feature-tag">Oven + Grill</span>
                 <span class="feature-tag">Stainless Steel</span>
-                <span class="feature-tag">Large Oven</span>
               </div>
               <div class="price-actions">
                 <div class="price-box">
-                  <span class="current-price">$329.99</span>
-                  <span class="old-price">$379.99</span>
+                  <span class="current-price">$249.99</span>
+                  <span class="old-price">$299.99</span>
                 </div>
                 <button class="cart-btn">
                   <i class="fa-solid fa-cart-plus"></i>
@@ -1289,12 +2023,12 @@
             </div>
           </div>
           
-          <!-- Product 3 -->
-          <div class="product-card" data-type="table-top" data-brand="Mika" data-price="89.99">
+          <!-- Product 2 -->
+          <div class="product-card" data-type="table-top" data-brand="LG" data-price="109.99">
             <div class="product-img">
-              <img src="https://images.unsplash.com/photo-1580822660163-49aa0a7d462b?auto=format&fit=crop&q=80&w=500&h=375" alt="Mika Table Top Cooker">
+              <img src="https://images.unsplash.com/photo-1551239262-61cf00f7f55d?auto=format&fit=crop&q=80&w=500&h=375" alt="LG Table Top Gas Stove">
               <div class="product-badge-container">
-                <span class="product-badge badge-sale"><i class="fa-solid fa-tag"></i>25% OFF</span>
+                <span class="product-badge badge-sale"><i class="fa-solid fa-tag"></i>15% OFF</span>
               </div>
               <button class="wishlist-btn" onclick="toggleWishlist(this)">
                 <i class="fa-regular fa-heart"></i>
@@ -1313,19 +2047,19 @@
                   <span class="filled">★</span>
                   <span>★</span>
                 </div>
-                <span class="review-count">(36 reviews)</span>
+                <span class="review-count">(28 reviews)</span>
               </div>
-              <h3 class="product-title">Mika 2-Burner Table Top Gas Stove</h3>
-              <p class="product-desc">Compact and portable design, perfect for small kitchens or outdoor cooking. Stainless steel body.</p>
+              <h3 class="product-title">LG 2-Burner Table Top Gas Stove</h3>
+              <p class="product-desc">Compact table-top stove with 2 burners, ideal for small kitchens or as an extra cooking station.</p>
               <div class="feature-tags">
-                <span class="feature-tag">2-Burner</span>
-                <span class="feature-tag">Portable</span>
+                <span class="feature-tag">2 Burners</span>
                 <span class="feature-tag">Compact</span>
+                <span class="feature-tag">Auto Ignition</span>
               </div>
               <div class="price-actions">
                 <div class="price-box">
-                  <span class="current-price">$89.99</span>
-                  <span class="old-price">$119.99</span>
+                  <span class="current-price">$109.99</span>
+                  <span class="old-price">$129.99</span>
                 </div>
                 <button class="cart-btn">
                   <i class="fa-solid fa-cart-plus"></i>
@@ -1335,10 +2069,10 @@
             </div>
           </div>
           
-          <!-- Product 4 -->
-          <div class="product-card" data-type="induction" data-brand="Bosch" data-price="499.99">
+          <!-- Product 3 -->
+          <div class="product-card" data-type="gas" data-brand="Samsung" data-price="399.99">
             <div class="product-img">
-              <img src="https://images.unsplash.com/photo-1631048500962-19328719232a?auto=format&fit=crop&q=80&w=500&h=375" alt="Bosch Induction Cooktop">
+              <img src="https://images.unsplash.com/photo-1565538810643-b5bdb714032a?auto=format&fit=crop&q=80&w=500&h=375" alt="Samsung Premium Gas Range">
               <div class="product-badge-container">
                 <span class="product-badge badge-new"><i class="fa-solid fa-bolt"></i>New</span>
               </div>
@@ -1359,18 +2093,19 @@
                   <span class="filled">★</span>
                   <span class="filled">★</span>
                 </div>
-                <span class="review-count">(18 reviews)</span>
+                <span class="review-count">(17 reviews)</span>
               </div>
-              <h3 class="product-title">Bosch 4-Zone Induction Cooktop</h3>
-              <p class="product-desc">Premium induction technology with touch controls, timer functions, and automatic safety shut-off.</p>
+              <h3 class="product-title">Samsung Premium 5-Burner Gas Range</h3>
+              <p class="product-desc">High-end range with 5 burners, large convection oven, and digital controls for precise cooking.</p>
               <div class="feature-tags">
-                <span class="feature-tag">Touch Control</span>
-                <span class="feature-tag">Energy Efficient</span>
-                <span class="feature-tag">Timer</span>
+                <span class="feature-tag">5 Burners</span>
+                <span class="feature-tag">Convection</span>
+                <span class="feature-tag">Digital Display</span>
               </div>
               <div class="price-actions">
                 <div class="price-box">
-                  <span class="current-price">$499.99</span>
+                  <span class="current-price">$399.99</span>
+                  <span class="old-price">$459.99</span>
                 </div>
                 <button class="cart-btn">
                   <i class="fa-solid fa-cart-plus"></i>
@@ -1380,156 +2115,121 @@
             </div>
           </div>
           
-          <!-- Product 5 -->
-          <div class="product-card" data-type="built-in" data-brand="Von" data-price="349.99">
-            <div class="product-img">
-              <img src="https://images.unsplash.com/photo-1586455122065-fda2cf49e416?auto=format&fit=crop&q=80&w=500&h=375" alt="Von Built-in Oven">
-              <button class="wishlist-btn" onclick="toggleWishlist(this)">
-                <i class="fa-regular fa-heart"></i>
-              </button>
-              <button class="product-quick-view">
-                <i class="fa-regular fa-eye"></i>
-                Quick View
-              </button>
-            </div>
-            <div class="product-info">
-              <div class="product-rating">
-                <div class="stars">
-                  <span class="filled">★</span>
-                  <span class="filled">★</span>
-                  <span class="filled">★</span>
-                  <span class="filled">★</span>
-                  <span>★</span>
-                </div>
-                <span class="review-count">(15 reviews)</span>
-              </div>
-              <h3 class="product-title">Von Built-in Gas Oven with 4-Burner Hob</h3>
-              <p class="product-desc">Elegant built-in solution with stainless steel finish, multiple cooking functions, and digital timer.</p>
-              <div class="feature-tags">
-                <span class="feature-tag">Built-in</span>
-                <span class="feature-tag">Digital Timer</span>
-                <span class="feature-tag">Multi-function</span>
-              </div>
-              <div class="price-actions">
-                <div class="price-box">
-                  <span class="current-price">$349.99</span>
-                  <span class="old-price">$399.99</span>
-                </div>
-                <button class="cart-btn">
-                  <i class="fa-solid fa-cart-plus"></i>
-                  Add
-                </button>
-              </div>
-            </div>
-          </div>
-          
-          <!-- Product 6 -->
-          <div class="product-card" data-type="table-top" data-brand="Mika" data-price="65.99">
-            <div class="product-img">
-              <img src="https://images.unsplash.com/photo-1598514982901-ae62764ae75e?auto=format&fit=crop&q=80&w=500&h=375" alt="Mika Single Burner Stove">
-              <button class="wishlist-btn" onclick="toggleWishlist(this)">
-                <i class="fa-regular fa-heart"></i>
-              </button>
-              <button class="product-quick-view">
-                <i class="fa-regular fa-eye"></i>
-                Quick View
-              </button>
-            </div>
-            <div class="product-info">
-              <div class="product-rating">
-                <div class="stars">
-                  <span class="filled">★</span>
-                  <span class="filled">★</span>
-                  <span class="filled">★</span>
-                  <span>★</span>
-                  <span>★</span>
-                </div>
-                <span class="review-count">(29 reviews)</span>
-              </div>
-              <h3 class="product-title">Mika Single Burner Gas Stove</h3>
-              <p class="product-desc">Ultra-compact single burner design, ideal for small spaces or as a secondary cooking option.</p>
-              <div class="feature-tags">
-                <span class="feature-tag">Single Burner</span>
-                <span class="feature-tag">Ultra-portable</span>
-                <span class="feature-tag">Compact</span>
-              </div>
-              <div class="price-actions">
-                <div class="price-box">
-                  <span class="current-price">$65.99</span>
-                </div>
-                <button class="cart-btn">
-                  <i class="fa-solid fa-cart-plus"></i>
-                  Add
-                </button>
-              </div>
-            </div>
-          </div>
+          <!-- More products would go here -->
         </div>
         
         <div class="text-center">
-          <a href="#" class="view-all-btn">Load More Products</a>
+          <a href="#" class="view-all-btn">
+            <i class="fa-solid fa-spinner"></i> Load More Products
+          </a>
         </div>
         
         <div class="category-info">
           <div class="buying-guide">
             <h3>Gas Cooker Buying Guide</h3>
-            <p>When choosing a gas cooker, consider these important factors to find the perfect fit for your kitchen:</p>
+            <p>When choosing a gas cooker for your home, consider these important factors to ensure you get the right model for your needs:</p>
             
             <div class="buying-guide-points">
               <div class="guide-point">
                 <div class="guide-point-icon">
-                  <i class="fa-solid fa-house-chimney"></i>
+                  <i class="fa-solid fa-ruler-combined"></i>
                 </div>
                 <div class="guide-point-content">
-                  <h4>Cooker Type</h4>
-                  <p>Choose between free-standing models (complete cookers with oven), table-top burners (portable and space-saving), or built-in options (for customized kitchens).</p>
+                  <h4>Size & Configuration</h4>
+                  <p>Consider the available space in your kitchen and how many burners you need. Table-top models are compact while freestanding ranges offer more cooking capacity.</p>
                 </div>
               </div>
               
               <div class="guide-point">
                 <div class="guide-point-icon">
-                  <i class="fa-solid fa-fire-flame-simple"></i>
+                  <i class="fa-solid fa-fire"></i>
                 </div>
                 <div class="guide-point-content">
-                  <h4>Number of Burners</h4>
-                  <p>Consider how many dishes you typically cook simultaneously. Options range from single burners to models with 6+ burners for larger families.</p>
+                  <h4>Burner Types</h4>
+                  <p>Different burners offer varied heat output. Look for models with a mix of high-powered and simmer burners for versatile cooking options.</p>
                 </div>
               </div>
               
               <div class="guide-point">
                 <div class="guide-point-icon">
-                  <i class="fa-solid fa-shield-halved"></i>
+                  <i class="fa-solid fa-gauge-high"></i>
+                </div>
+                <div class="guide-point-content">
+                  <h4>Oven Capacity</h4>
+                  <p>If you frequently bake or roast, choose a cooker with a spacious oven. Some models feature multiple oven compartments for greater flexibility.</p>
+                </div>
+              </div>
+              
+              <div class="guide-point">
+                <div class="guide-point-icon">
+                  <i class="fa-solid fa-lock"></i>
                 </div>
                 <div class="guide-point-content">
                   <h4>Safety Features</h4>
-                  <p>Look for automatic ignition, flame failure devices that cut off gas if the flame goes out, and child safety locks for peace of mind.</p>
-                </div>
-              </div>
-              
-              <div class="guide-point">
-                <div class="guide-point-icon">
-                  <i class="fa-solid fa-wrench"></i>
-                </div>
-                <div class="guide-point-content">
-                  <h4>Materials</h4>
-                  <p>Stainless steel bodies are durable and easy to clean. Look for cast iron or brass burners for longevity and tempered glass tops for elegant appearance.</p>
+                  <p>Prioritize models with flame failure devices, child locks, and stable construction to ensure safe cooking, especially in homes with children.</p>
                 </div>
               </div>
             </div>
             
             <div class="safety-tips">
-              <h4>
-                <i class="fa-solid fa-triangle-exclamation"></i>
-                Important Safety Tips for Gas Cookers
-              </h4>
+              <h4><i class="fa-solid fa-triangle-exclamation"></i> Gas Cooker Safety Tips</h4>
+              <p>Gas cookers are safe when used correctly, but it's important to follow these safety guidelines:</p>
               <ul>
-                <li>Always ensure proper ventilation when using a gas cooker</li>
-                <li>Have your gas connections professionally installed and checked annually</li>
-                <li>If you smell gas, turn off the supply, open windows, avoid electrical switches, and call a professional immediately</li>
-                <li>Keep flammable materials away from open flames</li>
-                <li>Never leave cooking unattended, especially with high flames</li>
-                <li>Clean burner heads regularly to prevent blockages</li>
+                <li>Always ensure proper ventilation in the kitchen area when cooking with gas</li>
+                <li>Have your gas connections checked regularly by a professional technician</li>
+                <li>Turn off the gas supply when the cooker is not in use</li>
+                <li>Keep flammable materials away from the cooking area</li>
+                <li>Install a carbon monoxide detector in your kitchen for added safety</li>
+                <li>Clean burners regularly to prevent blockages that could affect gas flow</li>
               </ul>
+            </div>
+            
+            <h3>Installation & Maintenance</h3>
+            <p>For optimal performance and safety, we recommend professional installation for all gas cookers. Our team can assist with setup and provide guidance on maintenance practices to extend the life of your appliance.</p>
+            
+            <div class="cooking-features">
+              <h3 class="cooking-features-title">Our Service Promise</h3>
+              <div class="cooking-features-grid">
+                <div class="cooking-feature">
+                  <div class="cooking-feature-icon">
+                    <i class="fa-solid fa-truck-fast"></i>
+                  </div>
+                  <div class="cooking-feature-content">
+                    <h4>Free Delivery</h4>
+                    <p>We provide free delivery for all gas cookers within Accra on purchases over $200.</p>
+                  </div>
+                </div>
+                
+                <div class="cooking-feature">
+                  <div class="cooking-feature-icon">
+                    <i class="fa-solid fa-screwdriver-wrench"></i>
+                  </div>
+                  <div class="cooking-feature-content">
+                    <h4>Installation Service</h4>
+                    <p>Professional installation available at competitive rates with safety verification.</p>
+                  </div>
+                </div>
+                
+                <div class="cooking-feature">
+                  <div class="cooking-feature-icon">
+                    <i class="fa-solid fa-shield-halved"></i>
+                  </div>
+                  <div class="cooking-feature-content">
+                    <h4>Warranty Coverage</h4>
+                    <p>All our gas cookers come with a minimum 1-year warranty for peace of mind.</p>
+                  </div>
+                </div>
+                
+                <div class="cooking-feature">
+                  <div class="cooking-feature-icon">
+                    <i class="fa-solid fa-headset"></i>
+                  </div>
+                  <div class="cooking-feature-content">
+                    <h4>24/7 Support</h4>
+                    <p>Our customer service team is available to assist with any questions or concerns.</p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -1544,7 +2244,7 @@
               <i class="fa-solid fa-truck-fast"></i>
             </div>
             <h3 class="feature-title">Free Delivery</h3>
-            <p class="feature-desc">Free shipping on all orders over $250</p>
+            <p class="feature-desc">Free shipping on all orders over $200</p>
           </div>
           
           <div class="feature-item">
@@ -1559,8 +2259,8 @@
             <div class="feature-icon">
               <i class="fa-solid fa-screwdriver-wrench"></i>
             </div>
-            <h3 class="feature-title">Professional Installation</h3>
-            <p class="feature-desc">Safe gas installation service available</p>
+            <h3 class="feature-title">Expert Installation</h3>
+            <p class="feature-desc">Professional installation service available</p>
           </div>
           
           <div class="feature-item">
@@ -1606,10 +2306,10 @@
         <div class="footer-col">
           <h3>Product Categories</h3>
           <ul class="footer-links">
-            <li><a href="fridges.html">Fridges</a></li>
-            <li><a href="cookers.html">Cookers</a></li>
+            <li><a href="fridges-inside-menu.html">Fridges</a></li>
+            <li><a href="cookers-professional.html">Cookers</a></li>
             <li><a href="televisions.html">TVs</a></li>
-            <li><a href="air-conditioners.html">Air Conditioners</a></li>
+            <li><a href="air-conditioners-professional.html">Air Conditioners</a></li>
             <li><a href="washing-machines.html">Washing Machines</a></li>
             <li><a href="cosmetics.html">Cosmetics</a></li>
           </ul>
@@ -1671,14 +2371,48 @@
     <span class="whatsapp-text">Chat with us</span>
   </a>
   
-  <script src="dark-mode.js"></script>
   <script>
     // Menu toggle functionality
     document.addEventListener('DOMContentLoaded', function() {
       const menuToggle = document.getElementById('menuToggle');
+      const filtersBtn = document.getElementById('filtersBtn');
       const closeMenu = document.getElementById('closeMenu');
       const menuSidebar = document.getElementById('menuSidebar');
       const menuOverlay = document.getElementById('menuOverlay');
+      const applyFilters = document.getElementById('applyFilters');
+      const resetFilters = document.getElementById('resetFilters');
+      
+      // Dark mode functionality
+      const themeToggle = document.querySelector('.theme-toggle');
+      const darkThemeIcon = `<i class="fa-solid fa-sun"></i>`;
+      const lightThemeIcon = `<i class="fa-solid fa-moon"></i>`;
+      
+      function updateThemeIcon(isDark) {
+        if (themeToggle) {
+          themeToggle.innerHTML = isDark ? darkThemeIcon : lightThemeIcon;
+        }
+      }
+      
+      function toggleTheme() {
+        const isDarkMode = document.body.classList.toggle('dark');
+        updateThemeIcon(isDarkMode);
+        localStorage.setItem('dark-mode', isDarkMode);
+      }
+      
+      if (themeToggle) {
+        themeToggle.addEventListener('click', toggleTheme);
+        
+        // Set initial theme icon based on current state
+        const savedDarkMode = localStorage.getItem('dark-mode') === 'true';
+        const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        
+        if(savedDarkMode || (savedDarkMode === null && prefersDarkScheme)) {
+          document.body.classList.add('dark');
+          updateThemeIcon(true);
+        } else {
+          updateThemeIcon(false);
+        }
+      }
       
       // Function to open the menu
       function openMenu() {
@@ -1699,6 +2433,10 @@
         menuToggle.addEventListener('click', openMenu);
       }
       
+      if (filtersBtn) {
+        filtersBtn.addEventListener('click', openMenu);
+      }
+      
       if (closeMenu) {
         closeMenu.addEventListener('click', closeMenuFunc);
       }
@@ -1706,33 +2444,6 @@
       if (menuOverlay) {
         menuOverlay.addEventListener('click', closeMenuFunc);
       }
-      
-      // Categories toggle menu functionality
-      const categoryToggle = document.getElementById('categoryToggle');
-      const categoriesMenu = document.getElementById('categoriesMenu');
-      const applyFilters = document.getElementById('applyFilters');
-      
-      function toggleCategoriesMenu(e) {
-        e.stopPropagation();
-        if (categoriesMenu.style.display === 'block') {
-          categoriesMenu.style.display = 'none';
-        } else {
-          categoriesMenu.style.display = 'block';
-        }
-      }
-      
-      if (categoryToggle) {
-        categoryToggle.addEventListener('click', toggleCategoriesMenu);
-      }
-      
-      // Close categories menu when clicking outside
-      document.addEventListener('click', function(e) {
-        if (categoriesMenu && categoriesMenu.style.display === 'block') {
-          if (!categoriesMenu.contains(e.target) && e.target !== categoryToggle) {
-            categoriesMenu.style.display = 'none';
-          }
-        }
-      });
       
       // Apply filters
       if (applyFilters) {
@@ -1745,8 +2456,35 @@
           // Filter products
           filterProductsByValues(typeValue, brandValue, priceValue);
           
-          // Close the categories menu
-          categoriesMenu.style.display = 'none';
+          // Close the menu
+          closeMenuFunc();
+        });
+      }
+      
+      // Reset filters
+      if (resetFilters) {
+        resetFilters.addEventListener('click', function() {
+          // Reset radio buttons
+          document.querySelector('input[name="type"][value="all-types"]').checked = true;
+          document.querySelector('input[name="brand"][value="all-brands"]').checked = true;
+          document.querySelector('input[name="price"][value="all-prices"]').checked = true;
+          
+          // Clear search input
+          if (document.getElementById('searchInput')) {
+            document.getElementById('searchInput').value = '';
+          }
+          
+          // Reset the product display
+          const productCards = document.querySelectorAll('.product-card');
+          productCards.forEach(card => {
+            card.style.display = '';
+          });
+          
+          // Update count
+          const productCountEl = document.getElementById('productCount');
+          if (productCountEl) {
+            productCountEl.textContent = productCards.length;
+          }
         });
       }
       
@@ -1767,9 +2505,9 @@
           if (price === 'low') {
             matchesPrice = cardPrice < 200;
           } else if (price === 'medium') {
-            matchesPrice = cardPrice >= 200 && cardPrice <= 400;
+            matchesPrice = cardPrice >= 200 && cardPrice <= 500;
           } else if (price === 'high') {
-            matchesPrice = cardPrice > 400;
+            matchesPrice = cardPrice > 500;
           }
           
           if (matchesType && matchesBrand && matchesPrice) {
@@ -1780,81 +2518,48 @@
           }
         });
         
-        // Update the product count
+        // Update product count
         const productCountEl = document.getElementById('productCount');
         if (productCountEl) {
           productCountEl.textContent = visibleCount;
         }
       }
       
-      // Product filtering functionality (search)
+      // Search functionality
       const searchInput = document.getElementById('searchInput');
-      const resetFilters = document.getElementById('resetFilters');
-      const productList = document.getElementById('productList');
-      const productCards = document.querySelectorAll('.product-card');
-      const productCountEl = document.getElementById('productCount');
-      const sortProducts = document.getElementById('sortProducts');
-      
-      // Function to filter products by search
-      function filterProductsBySearch() {
-        const searchTerm = searchInput.value.toLowerCase();
-        let visibleCount = 0;
-        
-        productCards.forEach(card => {
-          const cardTitle = card.querySelector('.product-title').textContent.toLowerCase();
-          const cardDesc = card.querySelector('.product-desc').textContent.toLowerCase();
-          
-          // Check if card matches search
-          const matchesSearch = cardTitle.includes(searchTerm) || cardDesc.includes(searchTerm) || searchTerm === '';
-          
-          if (matchesSearch) {
-            card.style.display = '';
-            visibleCount++;
-          } else {
-            card.style.display = 'none';
-          }
-        });
-        
-        // Update product count
-        if (productCountEl) {
-          productCountEl.textContent = visibleCount;
-        }
-      }
-      
-      // Event listener for search input
       if (searchInput) {
-        searchInput.addEventListener('input', filterProductsBySearch);
-      }
-      
-      // Reset filters
-      if (resetFilters) {
-        resetFilters.addEventListener('click', function() {
-          // Reset search input
-          if (searchInput) {
-            searchInput.value = '';
-          }
+        searchInput.addEventListener('input', function() {
+          const searchTerm = searchInput.value.toLowerCase();
+          const productCards = document.querySelectorAll('.product-card');
+          let visibleCount = 0;
           
-          // Reset radio buttons
-          document.querySelector('input[name="type"][value="all-types"]').checked = true;
-          document.querySelector('input[name="brand"][value="all-brands"]').checked = true;
-          document.querySelector('input[name="price"][value="all-prices"]').checked = true;
-          
-          // Show all products
           productCards.forEach(card => {
-            card.style.display = '';
+            const productTitle = card.querySelector('.product-title').textContent.toLowerCase();
+            const productDesc = card.querySelector('.product-desc').textContent.toLowerCase();
+            
+            if (productTitle.includes(searchTerm) || productDesc.includes(searchTerm) || searchTerm === '') {
+              card.style.display = '';
+              visibleCount++;
+            } else {
+              card.style.display = 'none';
+            }
           });
           
-          // Update count
+          // Update product count
+          const productCountEl = document.getElementById('productCount');
           if (productCountEl) {
-            productCountEl.textContent = productCards.length;
+            productCountEl.textContent = visibleCount;
           }
         });
       }
       
       // Product sorting
+      const sortProducts = document.getElementById('sortProducts');
       if (sortProducts) {
         sortProducts.addEventListener('change', () => {
           const sortValue = sortProducts.value;
+          const productList = document.getElementById('productList');
+          const productCards = document.querySelectorAll('.product-card');
           const productsArray = Array.from(productCards);
           
           productsArray.sort((a, b) => {
